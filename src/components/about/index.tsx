@@ -1,10 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import styled,{ useTheme } from "styled-components";
 
-const About: React.FC = () => (
-	<div>
-		<h1>About Page</h1>
-	</div>
+
+import Achievement from "./achievement";
+import Experience from "./experience";
+import Value from "./value";
+import Journey from "./journey";
+import Team from "./team";
+import Client from "./client";
+import Start from "./start";
+import Theme from "../general/theme";
+
+const TextContainer = styled.div`${({theme}) => `
+    background: ${theme.colors.gray1};
+`}`;
+
+const Content=styled.div``;
+
+export default () => (
+	<Theme>
+		<Content className="grid flex-col gap-20">
+			<Journey />
+			<Value />
+			<Achievement />
+			<Experience />
+			<Team />
+			<Client />
+			<Start />
+		</Content>
+	</Theme>
 );
-
-export default About;

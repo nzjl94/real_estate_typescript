@@ -15,13 +15,15 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <Routes>
-          <Route path="/"         element={<Home />} />
-          <Route path="/property" element={<Property />} />
-          <Route path="/service"  element={<Service />} />
-          <Route path="/about"    element={<About />} />
-          <Route path="/contact"  element={<Contact />} />
-        </Routes>
+        <div className="flex min-h-screen flex-col items-center justify-between p-24 bg-black">
+          <Routes >
+            <Route path="/"         element={<Home />} />
+            <Route path="/property" element={<Property />} />
+            <Route path="/service"  element={<Service />} />
+            <Route path="/about"    element={<About />} />
+            <Route path="/contact"  element={<Contact />} />
+          </Routes>
+        </div>
       </BrowserRouter>
 
     </div>
