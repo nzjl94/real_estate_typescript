@@ -1,8 +1,4 @@
-"use client";
-
 import styled from "styled-components";
-import PropTypes from 'prop-types'
-
 
 interface IMAGE_STYLE {
     activeBorder:boolean
@@ -24,7 +20,7 @@ interface IMG_PROPS {
     parentClass?: string
 }
 
-export default ({width,height,path,activeBorder=true,parentClass=""}: IMG_PROPS) => {
+const IMAGE= ({width,height,path,activeBorder=true,parentClass=""}: IMG_PROPS) => {
     return (<>
         <MainWrapper className={parentClass} activeBorder={activeBorder}>
             <img 
@@ -37,3 +33,4 @@ export default ({width,height,path,activeBorder=true,parentClass=""}: IMG_PROPS)
         </MainWrapper>
     </>);
 };
+export default IMAGE;

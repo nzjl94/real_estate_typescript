@@ -1,9 +1,10 @@
 import React, { useState} from "react";
-
 import { Link } from 'react-router-dom';
+import BUTTON from "../ui/BUTTON"
+import IMG from "../ui/IMAGE";
+
 
 const Navbar: React.FC = () => {
-
        const [isMenuOpen, setIsMenuOpen] = useState(false);
        const navLinks = [
          { href: "home", label: "Home" },
@@ -17,7 +18,7 @@ const Navbar: React.FC = () => {
             <header className="sm:px-8 px-4 py-2 z-10 w-full bg-black">
                 <nav className="flex justify-between items-center max-container">
                 <a href="/" className="text-2xl font-bold text-white flex justify-center items-center gap-4">
-                    {/* <Image src="image/logo.svg" alt="Vercel Logo" className="dark:invert" width={48} height={48} priority /> */}
+                    <IMG path="image/logo.svg" width={40} height={40} activeBorder={false}/>
                     Estatein
                 </a>
                 <ul className="flex-1 flex justify-center items-center gap-16 max-lg:hidden">
@@ -30,7 +31,7 @@ const Navbar: React.FC = () => {
                     ))}
                 </ul>
                 <div className="flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24 text-white">
-                    {/* <BUTTON url="contact" text="Contact Us" /> */}
+                    <BUTTON url="contact" text="Contact Us" />
                 </div>
                 {/* <div className="hidden max-lg:block cursor-pointer" onClick={() => {setIsMenuOpen(!isMenuOpen);}}>
                     <RxHamburgerMenu className="text-4xl" />
