@@ -69,5 +69,93 @@
           "title":"Industry Recognition",
           "content":"We've earned the respect of our peers and industry leaders, with accolades and awards that reflect our commitment to excellence."
       }
-    ]
+    ],
+    "about_experience":[
+      { 
+          "m_title":"Step 01",
+          "s_title":"Discover a World of Possibilities",
+          "content":"Your journey begins with exploring our carefully curated property listings. Use our intuitive search tools to filter properties based on your preferences, including location, type, size, and budget."
+      },{ 
+          "m_title":"Step 02",
+          "s_title":"Narrowing Down Your Choices",
+          "content":"Once you've found properties that catch your eye, save them to your account or make a shortlist. This allows you to compare and revisit your favorites as you make your decision."
+      },{ 
+          "m_title":"Step 03",
+          "s_title":"Personalized Guidance",
+          "content":"Have questions about a property or need more information? Our dedicated team of real estate experts is just a call or message away."
+      },{ 
+          "m_title":"Step 04",
+          "s_title":"See It for Yourself",
+          "content":"Arrange viewings of the properties you're interested in. We'll coordinate with the property owners and accompany you to ensure you get a firsthand look at your potential new home."
+      },{ 
+          "m_title":"Step 05",
+          "s_title":"Making Informed Decisions",
+          "content":"Before making an offer, our team will assist you with due diligence, including property inspections, legal checks, and market analysis. We want you to be fully informed and confident in your choice."
+      },{ 
+          "m_title":"Step 06",
+          "s_title":"Getting the Best Deal",
+          "content":"We'll help you negotiate the best terms and prepare your offer. Our goal is to secure the property at the right price and on favorable terms."
+      }
+    ],
+    "about_team":{
+      "title":{ 
+          "title":"Meet the Estatein Team",
+          "content":"At Estatein, our success is driven by the dedication and expertise of our team. Get to know the people behind our mission to make your real estate dreams a reality."
+      },
+      "sections":[
+          { 
+              "title":"Max Mitchell",
+              "subtitle":"Founder",
+              "icon":"/image/about/team/1.png"
+          },{ 
+              "title":"Sarah Johnson",
+              "subtitle":"Chief Real Estate Officer",
+              "icon":"/image/about/team/2.png"
+          },
+          { 
+              "title":"David Brown",
+              "subtitle":"Head of Property Management",
+              "icon":"/image/about/team/3.png"
+          },{ 
+              "title":"Michael Turner",
+              "subtitle":"Legal Counsel",
+              "icon":"/image/about/team/4.png"
+          }
+      ]
+    },
+    "about_client":{
+      "title":{ 
+          "title":"Our Valued Clients",
+          "content":"At Estatein, we have had the privilege of working with a diverse range of clients across various industries. Here are some of the clients we've had the pleasure of serving"
+      },
+      "sections":[
+          { 
+              "section1":{
+                  "year":2019,"name":"ABC Corporation","url":"www.google.com"
+              },
+              "section2":{
+                  "title1":"Commercial Real Estate","title2":"Luxury Home Development"
+              },
+              "section3":{
+                  "detail":"Estatein's expertise in finding the perfect office space for our expanding operations was invaluable. They truly understand our business needs."
+              }
+          },
+          { 
+              "section1":{
+                  "year":2018,"name":"GreenTech Enterprises","url":"www.google.com"
+              },
+              "section2":{
+                  "title1":"Commercial Real Estate","title2":"Retail Space"
+              },
+              "section3":{
+                  "detail":"Estatein's ability to identify prime retail locations helped us expand our brand presence. They are a trusted partner in our growth."
+              }
+          }
+      ]
+    },
+    "about_start":{ 
+      "title":"Start Your Real Estate Journey Today",
+      "url":"www.google.com",
+      "content":"Your dream property is just a click away. Whether you're looking for a new home, a strategic investment, or expert real estate advice, Estatein is here to assist you every step of the way. Take the first step towards your real estate goals and explore our available properties or get in touch with our team for personalized assistance."
+    }
   }

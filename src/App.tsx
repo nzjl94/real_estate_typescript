@@ -9,9 +9,12 @@ import Contact from './components/contact';
 import Home from './components/home';
 import Property from './components/property';
 import Service from './components/service';
+import GlobalStyle from './globalStyles';
+
 
 function App() {
-  return (
+  return (<>
+    <GlobalStyle />
     <div className="App">
       <BrowserRouter>
         <Navbar />
@@ -25,9 +28,8 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-
     </div>
-  );
+  </>);
 }
 
 export default App;
