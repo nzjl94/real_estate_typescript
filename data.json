@@ -157,5 +157,20 @@
       "title":"Start Your Real Estate Journey Today",
       "url":"www.google.com",
       "content":"Your dream property is just a click away. Whether you're looking for a new home, a strategic investment, or expert real estate advice, Estatein is here to assist you every step of the way. Take the first step towards your real estate goals and explore our available properties or get in touch with our team for personalized assistance."
-    }
+    },
+    "contact_connect":{
+        "title":"Let's Connect",
+        "content":"We're excited to connect with you and learn more about your real estate goals. Use the form below to get in touch with Estatein. Whether you're a prospective client, partner, or simply curious about our services, we're here to answer your questions and provide the assistance you need."
+    },
+    "contact_explore":[
+        ["/image/contact/explore_1.png"],
+        ["/image/contact/explore_2.png"],
+        ["/image/contact/explore_3.png"],
+        ["/image/contact/explore_4A.png","/image/contact/explore_4B.png"],
+        [ 
+            "Explore Estatein's World",
+            "Step inside the world of Estatein, where professionalism meets warmth, and expertise meets passion. Our gallery offers a glimpse into our team and workspaces, inviting you to get to know us better."
+        ],
+        ["/image/contact/explore_6.png"]
+    ]
   }

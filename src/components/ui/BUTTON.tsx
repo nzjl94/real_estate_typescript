@@ -20,10 +20,7 @@ export default ({type="link",text="",url="",className="px-[24px] py-[16px] round
         return (<LinkElement to={url} className={className}>{text}</LinkElement>)
     }else{
         return (
-            <button className={className} 
-                // onClick={useContext(ExploreAction)} 
-            >{text} </button>
-        )
-        
+            <button className={className} onClick={useContext(ExploreAction)} >{text} </button>
+        ) 
     }
 };
