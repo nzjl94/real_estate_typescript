@@ -97,7 +97,7 @@ export default () => {
 						register={register} errors={errors}  
 					/>
 				</div>
-				{/* <div className="flex flex-wrap py-3">
+				<div className="flex flex-wrap py-3">
 					<INPUT 
 						inputType="number" inputName="roomNumber"  inputLabel="Room Number" placeholder="Please Enter the Room Number"	
 						parentClassName="w-1/2" 
@@ -123,13 +123,13 @@ export default () => {
 						placeholder="Building Type"
 						register={register} errors={errors} required 
 					/>
-					<SELECT 
+					{/* <SELECT 
 						inputName="cityName" inputLabel="Desire City" placeholder="Please Select Desire City"
 						parentClassName="w-1/2" register={register} errors={errors} required 
 						options={["Hawler","Karkuk","Duhok","Sulaymaniyah"]}
-					/>
+					/> */}
 				</div>
-				<div className="flex flex-wrap py-3">	
+				{/*  <div className="flex flex-wrap py-3">	
 					<TEXTAREA 
 						inputName="note" inputLabel="Note" placeholder="Please Enter any extra information"	parentClassName="w-full" 
 						register={register} errors={errors} validation={FormValidation("textArea")} 

@@ -19,12 +19,10 @@ const getErrorMessage = (fieldName: string, errs: Record<string, any>): string |
     typeof errs?.[fieldName]?.message === 'string' ? errs?.[fieldName]?.message : undefined;
 
 
-const Input = <T extends FieldValues>(
-	{
+const Input = ({
 		inputName,inputLabel,inputType="text",placeholder="",parentClassName="",
 		register,errors,validation={},
 	}:INPUT_TYPE) => {
-	console.log(errors[inputName]?.message)
 	return (
 		<div className={`${parentClassName} px-3`}>
 			<label className="block uppercase mb-2">{inputLabel}</label>
