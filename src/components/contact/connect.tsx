@@ -80,8 +80,7 @@ export default () => {
 	<Container className="flex flex-col gap-[80px]">
     	<HEADER title={data.title} content={data.content} />
       	<FormContainer className="p-[100px] border-[1px] rounded-[12px] border-gray-1">
-			<form className="w-full" 
-				//onSubmit={handleSubmit(onSubmit,onErrors)} 
+			<form className="w-full" onSubmit={handleSubmit(onSubmit,onErrors)} 
 			>
 				<div className="flex flex-wrap py-3">
 					<INPUT 
@@ -123,28 +122,28 @@ export default () => {
 						placeholder="Building Type"
 						register={register} errors={errors} required 
 					/>
-					{/* <SELECT 
+					<SELECT 
 						inputName="cityName" inputLabel="Desire City" placeholder="Please Select Desire City"
 						parentClassName="w-1/2" register={register} errors={errors} required 
 						options={["Hawler","Karkuk","Duhok","Sulaymaniyah"]}
-					/> */}
+					/>
 				</div>
-				{/*  <div className="flex flex-wrap py-3">	
+				<div className="flex flex-wrap py-3">	
 					<TEXTAREA 
 						inputName="note" inputLabel="Note" placeholder="Please Enter any extra information"	parentClassName="w-full" 
 						register={register} errors={errors} validation={FormValidation("textArea")} 
 					/>
 				</div>
-				<div className="flex flex-wrap py-3">
+				{/* <div className="flex flex-wrap py-3">
 					<FILE 
 						parentClassName="w-full" inputName="buildingImg" inputLabel="Building Image"
 						register={register} errors={errors} validation={FormValidation("file")}
 					/>
-				</div>
+				</div> */}
 				<div className="flex flex-wrap py-3">	
 					<CHECKBOX 
 						parentClassName="w-1/2" inputName="sendNotification" inputLabel="Send Notifications"
-						options={{key:"yes",value:"Yes, Notify Me"}}
+						options={{id:"yes",value:"Yes, Notify Me"}}
 						register={register} errors={errors} validation={{}}
 					/>
 					<CHECKBOX 
@@ -153,12 +152,12 @@ export default () => {
 						register={register} errors={errors} validation={FormValidation("checkBox")}
 						// options={{"north":"North","south":"South","east":"East","west":"West"}}
 					/>
-				</div>
+				</div> 
 				<div className="flex flex-row-reverse pt-6">
 					<button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
 						Submit
 					</button>
-				</div> */}
+				</div> 
 			</form>
       </FormContainer>
     </Container>
