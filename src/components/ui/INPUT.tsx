@@ -2,7 +2,7 @@ import React  from "react";
 import styled from "styled-components";
 import { FieldErrors,UseFormRegister, FieldValues } from 'react-hook-form';
 
-import {getErrorMessage} from "../../utility/ErrorType"
+import ErrorMessage from "../../utility/ErrorType"
 
 
 interface INPUT_TYPE {
@@ -42,10 +42,7 @@ const Input = ({
 				)}
 				
 			/>
-			{
-				errors[inputName] && 
-				<p className="text-red-500 text-xs italic text-left">{getErrorMessage(inputName, errors)}</p>
-			}
+			<ErrorMessage inputName={inputName} errors={errors} />
 		</div>
 	)
 }

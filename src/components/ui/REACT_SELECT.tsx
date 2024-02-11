@@ -60,7 +60,7 @@ export default ({
     register,errors, required
 }:SELECT_TYPE) => (
     <div className={`${parentClassName} px-3`}>
-	    <label className="block uppercase mb-2" htmlFor={inputName}>{inputLabel}</label>
+	    <label className="block uppercase mb-2 text-left" htmlFor={inputName}>{inputLabel}</label>
         <Controller
             name={inputName}
             control={control}

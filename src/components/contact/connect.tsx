@@ -2,20 +2,21 @@
 
 import React, { useState, useEffect} from "react";
 import styled,{ useTheme } from "styled-components";
-import { useForm,Controller,SubmitHandler } from 'react-hook-form';
+import { useForm,SubmitHandler } from 'react-hook-form';
 
 
 import HEADER from "../ui/HEADER"
 
 import {getAPIData} 	from '../../utility/API'
 import FormValidation 	from '../../utility/formValidation'
+import {onErrorAction} from "../../utility/eventAction"
+
 
 
 import {INPUT,RSELECT, TEXTAREA, CHECKBOX,SELECT,FILE} from "../ui/FORM"
 
 
 const Container=styled.div`${({theme}) => ``}`;
-
 const FormContainer=styled.div`${({theme}) => ``}`;
 
 export default () => {
@@ -29,33 +30,27 @@ export default () => {
 			firstName: "Niyaz",
 			lastName: "Jalal",
 			email:"nzjl94@gmail.com",
-			//cityName:null,
+			cityName:"null",
 			//sendNotification:true
 		}
 	});
-
-	// const onSubmit = (data) => {
-	// 	// reset()
-	// 	//setValue("note",""); //===>>> reseting value
-	// 	//let formData = new FormData();
-	// 	//formData.append("content", data);
-	// 	//formData.append("user", user?.id);
-	// 	//setValue("content","");
-
-	// }
 
 	interface FORM_TYPE  {
 		firstName:string;
 		lastName:string;
 		email:string;
+		cityName:string;
 	}
+
 	const onSubmit: SubmitHandler<FORM_TYPE> = async (data) => {
+		// reset()
+		//setValue("note",""); //===>>> reseting value
+		//setValue("content","");
+
 		console.log(data,getValues())
 		// console.log("file", data.buildingImg[0]);
-
 		// const {firstName}=data
 		// const formData = new FormData();
-
 		// formData.append("firstName", firstName);
 		// formData.append("buildingImg", data.buildingImg[0]);
 
@@ -68,10 +63,6 @@ export default () => {
 		// }).then((res) => res.json());
 		//alert(JSON.stringify(`${res.message}, status: ${res.status}`));
 	};
-	const onErrors = (errors:{}) => {
-		//console.log(errors);
-	}
-
 	useEffect( () => {
 		getAPIData('contact_connect',setData)
 	}, [])
@@ -80,8 +71,7 @@ export default () => {
 	<Container className="flex flex-col gap-[80px]">
     	<HEADER title={data.title} content={data.content} />
       	<FormContainer className="p-[100px] border-[1px] rounded-[12px] border-gray-1">
-			<form className="w-full" onSubmit={handleSubmit(onSubmit,onErrors)} 
-			>
+			<form className="w-full" onSubmit={handleSubmit(onSubmit,(error)=>onErrorAction(error,"connect"))}  >
 				<div className="flex flex-wrap py-3">
 					<INPUT 
 						inputName="firstName" inputType="text"inputLabel="First Name" placeholder="Enter First Name" parentClassName="w-1/3" 
@@ -123,8 +113,8 @@ export default () => {
 						register={register} errors={errors} required 
 					/>
 					<SELECT 
-						inputName="cityName" inputLabel="Desire City" placeholder="Please Select Desire City"
-						parentClassName="w-1/2" register={register} errors={errors} required 
+						inputName="cityName" inputLabel="City Name" placeholder="Please Select Desire City"
+						parentClassName="w-1/2" register={register} errors={errors} validation={FormValidation("select")} 
 						options={["Hawler","Karkuk","Duhok","Sulaymaniyah"]}
 					/>
 				</div>
@@ -134,12 +124,12 @@ export default () => {
 						register={register} errors={errors} validation={FormValidation("textArea")} 
 					/>
 				</div>
-				{/* <div className="flex flex-wrap py-3">
+				<div className="flex flex-wrap py-3">
 					<FILE 
 						parentClassName="w-full" inputName="buildingImg" inputLabel="Building Image"
 						register={register} errors={errors} validation={FormValidation("file")}
 					/>
-				</div> */}
+				</div>
 				<div className="flex flex-wrap py-3">	
 					<CHECKBOX 
 						parentClassName="w-1/2" inputName="sendNotification" inputLabel="Send Notifications"

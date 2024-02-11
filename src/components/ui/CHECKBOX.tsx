@@ -1,8 +1,10 @@
-import React, { useState} from "react";
+import React, { useState,MouseEvent} from "react";
 import styled from "styled-components";
 import {FieldErrors } from 'react-hook-form';
 
-import {getErrorMessage} from "../../utility/ErrorType"
+import ErrorMessage from "../../utility/ErrorType"
+import {onChangeAction} from "../../utility/eventAction"
+
 
 
 interface CHECKBOX_TYPE {
@@ -12,7 +14,6 @@ interface CHECKBOX_TYPE {
     register:any;
     errors:FieldErrors;
     options:string[] | {[key: string]:string};
-
     validation:{};
     listType?:string;
 }
@@ -33,22 +34,25 @@ export default ({ inputName, inputLabel,options, register,errors,validation={},p
         </li>
     );
     let temContent;
-    if (listType=="single" && !Array.isArray(options)){
+    if (listType==="single" && !Array.isArray(options)){
         temContent=(
             <label className="block py-3 text-left" >
 				<input 
 					id={inputName} name={inputName} type="checkbox" value={options.id}
                     className="rounded  text-blue-600 ring-offset-gray-700 focus:ring-offset-gray-700 bg-gray-600 border-gray-500"
-                    {...register(inputName,{ ...validation})}
+                    {...register(inputName,{ 
+                        ...validation,
+						onChange: (e:MouseEvent<HTMLInputElement>) => {onChangeAction(e,"checkbox")}
+                    })}
 				/> {` ${options.value}`}
 			</label>
         )
     }else{
         temContent=(
-            <ul className={`${listType=="vertical"?"w-48":"flex w-full"} border rounded-lg border-white-900`}>
+            <ul className={`${listType==="vertical"?"w-48":"flex w-full"} border rounded-lg border-white-900`}>
                 {
                     Array.isArray(options)  &&   
-                    options.map((value,index)=>checkBoxItem(inputName,value.toLowerCase(),value,index==options.length-1?"":"border-r"))
+                    options.map((value,index)=>checkBoxItem(inputName,value.toLowerCase(),value,index===options.length-1?"":"border-r"))
                 }
                 {!Array.isArray(options)  &&  Object.keys(options).map(key=>checkBoxItem(inputName,key,options[key]))}
             </ul>
@@ -58,10 +62,7 @@ export default ({ inputName, inputLabel,options, register,errors,validation={},p
 		<div className={`${parentClassName} px-3`}>
             <label className="block uppercase mb-2 text-left">{inputLabel}</label>
             {temContent}
-            {
-				errors[inputName] && 
-				<p className="text-red-500 text-xs italic text-left">{getErrorMessage(inputName, errors)}</p>
-			}
+            <ErrorMessage inputName={inputName} errors={errors} />
 		</div>
 	)
 }

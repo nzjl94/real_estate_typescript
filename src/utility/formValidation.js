@@ -10,6 +10,9 @@ const registerOptions = {
         message: "The minimum length is 3" 
       }
     },
+    select: { 
+      required: "The field is required"
+    },
     numberFiled: { 
       required: "The field is required",
       max: { 
@@ -54,10 +57,7 @@ const registerOptions = {
         fileSize:file =>  file[0].size/(1024*1024)<5 || "The file size should be less than 5MB"
       }
     }
-
 };
-const getElement = (PARAM) => {
-    return registerOptions[PARAM]
-}
-
-export default getElement;
+export default (PARAM) => {
+  return registerOptions[PARAM]
+};

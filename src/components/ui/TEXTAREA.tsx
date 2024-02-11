@@ -1,10 +1,9 @@
-import React  from "react";
+import React,{MouseEvent}  from "react";
 import styled from "styled-components";
 import {FieldErrors } from 'react-hook-form';
 
-import {getErrorMessage} from "../../utility/ErrorType"
-
-
+import ErrorMessage from "../../utility/ErrorType"
+import {onChangeAction} from "../../utility/eventAction"
 
 
 interface TEXTAREA_TYPE {
@@ -32,19 +31,12 @@ const TextArea = (
                 {...register(inputName,
 					{ 
 						...validation,
-						// onChange: (e) => {
-						// 	// console.log("On change")
-						// },
-						// onBlur: (e) => {
-						// 	// console.log("On Blur")
-						// },
+						onChange: (e:MouseEvent<HTMLInputElement>) => {onChangeAction(e,"textarea")},
+						onBlur: (e:MouseEvent<HTMLInputElement>) => {console.log("On Blur")}
 					}
 				)}
 			/>
-            {
-				errors[inputName] && 
-				<p className="text-red-500 text-xs italic text-left">{getErrorMessage(inputName, errors)}</p>
-			}
+            <ErrorMessage inputName={inputName} errors={errors} />
 		</div>
 	)
 }
