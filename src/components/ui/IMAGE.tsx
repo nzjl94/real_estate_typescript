@@ -24,11 +24,7 @@ const IMAGE= ({width,height,path,activeBorder=true,parentClass=""}: IMG_PROPS) =
     return (<>
         <MainWrapper className={parentClass} activeBorder={activeBorder}>
             <img 
-                src={path} 
-                alt="Vercel Logo" 
-                className="image" 
-                width={width} 
-                height={height}  
+                src={path} alt="Vercel Logo" className="image" width={width}  height={height}  
             />
         </MainWrapper>
     </>);
