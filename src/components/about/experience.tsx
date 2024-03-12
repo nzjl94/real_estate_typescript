@@ -30,7 +30,7 @@ const Experience = () => {
   })
   const theme = useTheme();
   useEffect( () => {
-    getAPIData('about_experience',setData)
+    getAPIData('realestate/about/experience',setData)
   }, [])
 
   return (

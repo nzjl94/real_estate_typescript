@@ -20,6 +20,7 @@ export default () => {
 
 	const theme = useTheme();
 	const [data, setData] = useState<{[key: string]:string}>({})
+	const [test, setTest] = useState<Array<{[key: string]:{[key: string]:string }}>>([])
 
 
 	const {register,handleSubmit,formState: { errors },setValue,reset,control,getValues} = useForm({
@@ -51,17 +52,13 @@ export default () => {
 		// formData.append("firstName", firstName);
 		// formData.append("buildingImg", data.buildingImg[0]);
 
-		// const res = await fetch("/api/contact/connect", {
-		// 	method: "POST",
-		// 	//headers: {
-		// 	//	"Content-Type": "application/x-www-form-urlencoded",
-		// 	//},
-		// 	body: formData,
-		// }).then((res) => res.json());
+		
+
+
 		//alert(JSON.stringify(`${res.message}, status: ${res.status}`));
 	};
 	useEffect( () => {
-		getAPIData('contact_connect',setData)
+		getAPIData('realestate/contact/connect',setData)
 	}, [])
 
   return (

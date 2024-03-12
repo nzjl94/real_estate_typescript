@@ -19,7 +19,7 @@ export default () => {
   }
   const [data, setData] = useState<DATA>({title:{},sections:[]})
   useEffect( () => {
-    getAPIData('about_journey',setData)
+    getAPIData('realestate/about/journey',setData)
   }, [])
   return (
     <Container className="grid grid-cols-7 gap-6">

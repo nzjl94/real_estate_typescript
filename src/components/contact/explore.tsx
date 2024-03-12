@@ -11,7 +11,7 @@ const Container=styled.div`${({theme}) => ``}`;
 export default () => {
   const [data, setData] = useState([])
   useEffect( () => {
-    getAPIData('contact_explore',setData)
+    getAPIData('realestate/contact/explore',setData)
   }, [])
   return (
     <Container className="grid grid-cols-2 grid-flow-row gap-[20px] p-[80px]">

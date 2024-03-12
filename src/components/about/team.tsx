@@ -25,7 +25,7 @@ const Team= () => {
 		console.log("Telegram",event)
 	}
 	useEffect( () => {
-		getAPIData('about_team',setData)
+		getAPIData('realestate/about/team',setData)
 	}, [])
 	return (
 		<Container className="grid grid-flow-row gap-y-[60px]">

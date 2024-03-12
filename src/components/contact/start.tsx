@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect} from "react";
@@ -16,7 +17,7 @@ export default () => {
     console.log(`Contact ${parameter}`)
   }
   useEffect( () => {
-    getAPIData('about_start',setData)
+    getAPIData('realestate/about/start',setData)
   }, [])
   return (
     <ExploreAction.Provider value={visitWebsiteButton(data.url)}>

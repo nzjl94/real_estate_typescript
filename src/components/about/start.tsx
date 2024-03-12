@@ -13,7 +13,7 @@ export default () => {
 	}
   
   useEffect( () => {
-    getAPIData('about_start',setData)
+    getAPIData('realestate/about/start',setData)
   }, [])
 
   return (

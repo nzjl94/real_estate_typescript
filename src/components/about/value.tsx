@@ -21,7 +21,7 @@ export default () => {
   const theme = useTheme();
   const [data, setData] = useState<DATA>({title:{},sections:[]})
   useEffect( () => {
-    getAPIData('about_value',setData)
+    getAPIData('realestate/about/value',setData)
   }, [])
 
   return (

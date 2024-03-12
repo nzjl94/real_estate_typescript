@@ -20,7 +20,7 @@ export default () => {
   })
  
   useEffect( () => {
-    getAPIData('about_achievement',setData)
+    getAPIData('realestate/about/achievement',setData)
   }, [])
 
   return (

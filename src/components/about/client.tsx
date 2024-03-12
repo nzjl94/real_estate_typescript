@@ -35,7 +35,7 @@ export default () => {
 		console.log("Twitter",event)
 	}
 	useEffect( () => {
-		getAPIData('about_client',setData)
+		getAPIData('realestate/about/client',setData)
 	}, [])
 	return (
 		<Container className="grid grid-flow-row gap-y-[60px]"> 
