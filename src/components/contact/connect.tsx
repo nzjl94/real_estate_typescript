@@ -5,7 +5,7 @@ import { useForm,SubmitHandler } from 'react-hook-form';
 
 import HEADER from "../ui/HEADER"
 
-import {getAPIData} 	from '../../utility/API'
+import {getAPIData,postAPIData} 	from '../../utility/API'
 import FormValidation 	from '../../utility/formValidation'
 import {onErrorAction} from "../../utility/eventAction"
 
@@ -20,43 +20,48 @@ export default () => {
 
 	const theme = useTheme();
 	const [data, setData] = useState<{[key: string]:string}>({})
-	const [test, setTest] = useState<Array<{[key: string]:{[key: string]:string }}>>([])
-
 
 	const {register,handleSubmit,formState: { errors },setValue,reset,control,getValues} = useForm({
 		defaultValues: {
 			firstName: "Niyaz",
 			lastName: "Jalal",
 			email:"nzjl94@gmail.com",
+			dateAvailability:"2024-04-21",
+			roomNumber:3,
 			cityName:"null",
 			//sendNotification:true
 		}
 	});
 
 	interface FORM_TYPE  {
-		firstName:string;
-		lastName:string;
-		email:string;
-		cityName:string;
+		// firstName:string;
+		// lastName:string;
+		// email:string;
+		// cityName:string;
+		// availabilityDate:string;
+		//roomNumber:number;
 	}
 
-	const onSubmit: SubmitHandler<FORM_TYPE> = async (data) => {
+	const onSubmit: SubmitHandler<FORM_TYPE> = async (data) => {		
+		postAPIData('realestate/contact/store',formPrepare(data)) //data or getValues()
 		// reset()
-		//setValue("note",""); //===>>> reseting value
-		//setValue("content","");
-
-		console.log(data,getValues())
-		// console.log("file", data.buildingImg[0]);
-		// const {firstName}=data
-		// const formData = new FormData();
-		// formData.append("firstName", firstName);
-		// formData.append("buildingImg", data.buildingImg[0]);
-
-		
-
-
-		//alert(JSON.stringify(`${res.message}, status: ${res.status}`));
 	};
+
+	const formPrepare=(formData:FORM_TYPE)=>{
+		const preData = new FormData();
+
+		for (const key in formData)
+			if(key.startsWith("file")){
+				preData.append(key, formData[key as keyof FORM_TYPE][0]);
+			}else if(key.startsWith("date")){
+				// if date and time is needed
+				//preData.append(key, new Date(formData[key as keyof FORM_TYPE]).toLocaleString("en-CA",{hour12: false}).replace(",",""));
+				preData.append(key, new Date(formData[key as keyof FORM_TYPE]).toLocaleDateString("en-CA"));
+			}else
+				preData.append(key, formData[key as keyof FORM_TYPE]);
+
+		return preData
+	}
 	useEffect( () => {
 		getAPIData('realestate/contact/connect',setData)
 	}, [])
@@ -88,7 +93,7 @@ export default () => {
 						validation={FormValidation("numberFiled")} 
 					/>
 					<INPUT
-						inputType="date" inputName="availabilityDate"  inputLabel="Availability Date" placeholder="Please Enter the Availability Date"	
+						inputType="date" inputName="dateAvailability"  inputLabel="Availability Date" placeholder="Please Enter the Availability Date"	
 						parentClassName="w-1/2" 
 						register={register} errors={errors} validation={FormValidation("dateFiled")} 
 					/>
@@ -120,7 +125,7 @@ export default () => {
 				</div>
 				<div className="flex flex-wrap py-3">
 					<FILE 
-						parentClassName="w-full" inputName="buildingImg" inputLabel="Building Image"
+						parentClassName="w-full" inputName="fileBuildingImg" inputLabel="Building Image"
 						register={register} errors={errors} validation={FormValidation("file")}
 					/>
 				</div>
