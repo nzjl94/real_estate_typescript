@@ -1,6 +1,12 @@
 import React, { useState, useEffect,MouseEvent} from "react";
 import styled,{ useTheme } from "styled-components";
 
+import { useSelector, useDispatch } from 'react-redux';
+import { selectData} from '../../store/titleSlice';
+import {indTitle} from '../../store/typeStore';
+
+
+
 
 import HEADER from "../ui/HEADER";
 import TEXT_1 from "../ui/TEXT_ELEMENT"
@@ -23,7 +29,12 @@ const Content = styled.div`${({theme}) => `
 
 export default () => {
 
-  const theme = useTheme();
+	const title:indTitle = useSelector(selectData);
+
+	console.log(title.about_client.title)
+	console.log(title.about_client.content)
+
+  	const theme = useTheme();
 
 	interface DATA {
 		title: {[key: string]:string},

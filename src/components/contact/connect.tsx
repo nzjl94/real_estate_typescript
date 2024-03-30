@@ -63,6 +63,9 @@ export default () => {
 		return preData
 	}
 	useEffect( () => {
+
+		
+		// getAPIData('realestate/page/title',()=>{})
 		getAPIData('realestate/contact/connect',setData)
 	}, [])
 
