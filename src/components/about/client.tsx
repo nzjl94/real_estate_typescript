@@ -3,9 +3,7 @@ import styled,{ useTheme } from "styled-components";
 
 import { useSelector, useDispatch } from 'react-redux';
 import { selectData} from '../../store/titleSlice';
-import {indTitle} from '../../store/typeStore';
-
-
+import {indTitle} from '../../utility/typeStore';
 
 
 import HEADER from "../ui/HEADER";
@@ -29,10 +27,8 @@ const Content = styled.div`${({theme}) => `
 
 export default () => {
 
-	const title:indTitle = useSelector(selectData);
-
-	console.log(title.about_client.title)
-	console.log(title.about_client.content)
+	const title_section:indTitle = useSelector(selectData);
+	const {title,content}=title_section.about_client
 
   	const theme = useTheme();
 
@@ -50,7 +46,7 @@ export default () => {
 	}, [])
 	return (
 		<Container className="grid grid-flow-row gap-y-[60px]"> 
-		<HEADER title={data.title?.title} content={data.title?.content} />
+		<HEADER title={title} content={content} />
 		<Content className="grid grid-flow-col gap-x-[50px]" >
 			{data.sections.map(({section1,section2,section3},index) => {
 				return (

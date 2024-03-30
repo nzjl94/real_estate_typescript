@@ -1,7 +1,7 @@
 // src/store/cartSlice.ts
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Book } from './typeStore';
+import { Book } from '../utility/typeStore';
 import {cartInitialState} from "./initialStore"
 
 

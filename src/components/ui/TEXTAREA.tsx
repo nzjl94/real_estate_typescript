@@ -1,20 +1,9 @@
-import React,{MouseEvent}  from "react";
-import styled from "styled-components";
-import {FieldErrors } from 'react-hook-form';
+import {MouseEvent}  from "react";
 
 import ErrorMessage from "../../utility/ErrorType"
 import {onChangeAction} from "../../utility/eventAction"
 
-
-interface TEXTAREA_TYPE {
-    inputName:string;
-    inputLabel:string;
-    parentClassName:string;
-    placeholder:string;
-    register:any;
-    errors:FieldErrors;
-    validation:{[key:string]:string}
-}
+import { TEXTAREA_TYPE } from '../../utility/typeApp';
 
 const TextArea = (
     {inputName, inputLabel, register,errors,validation={},placeholder="",parentClassName=""}:TEXTAREA_TYPE
@@ -40,5 +29,4 @@ const TextArea = (
 		</div>
 	)
 }
-
 export default TextArea

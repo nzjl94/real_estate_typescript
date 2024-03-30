@@ -1,22 +1,8 @@
-import React, { useState,MouseEvent} from "react";
-import styled from "styled-components";
-import {FieldErrors } from 'react-hook-form';
+import { MouseEvent} from "react";
 
 import ErrorMessage from "../../utility/ErrorType"
 import {onChangeAction} from "../../utility/eventAction"
-
-
-
-interface CHECKBOX_TYPE {
-    inputName:string;
-    inputLabel:string;
-    parentClassName:string;
-    register:any;
-    errors:FieldErrors;
-    options:string[] | {[key: string]:string};
-    validation:{};
-    listType?:string;
-}
+import {CHECKBOX_TYPE} from '../../utility/typeApp';
 
 export default ({ inputName, inputLabel,options, register,errors,validation={},parentClassName="",listType="single"}:CHECKBOX_TYPE) => {
     

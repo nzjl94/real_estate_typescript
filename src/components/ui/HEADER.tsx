@@ -1,16 +1,14 @@
-"use client";
-
 import React               from "react";
 import styled,{ useTheme } from "styled-components";
+
+import { HEADER_TYPE } from '../../utility/typeApp';
+
 
 import TEXT_1 from "./TEXT_ELEMENT"
 
 const MainWrapper=styled.div``;
 
-interface HEADER_PROPS {
-  [key: string]:string
-}
-const HEADER= ({title,content,parentClass=""}:HEADER_PROPS) => {
+const HEADER= ({title,content,parentClass=""}:HEADER_TYPE) => {
     const theme = useTheme();
     return (
       <MainWrapper className={parentClass} >

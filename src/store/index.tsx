@@ -1,11 +1,24 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { persistReducer,persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 import rootReducer from './Reducer';
 
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  // whitelist: ['auth'], // Specify which reducers you want to persist
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 const store = configureStore({
-  reducer: rootReducer,
-  // Add middleware if needed
+  reducer: persistedReducer,
 });
 
-export type AppDispatch = typeof store.dispatch
+const persistor = persistStore(store);
 
-export default store;
+
+export type AppDispatch = typeof store.dispatch
+export { store, persistor };

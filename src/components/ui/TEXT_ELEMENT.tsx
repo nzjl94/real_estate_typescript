@@ -1,14 +1,6 @@
-import React, {useState} from "react";
-import styled,{ useTheme ,DefaultTheme} from "styled-components";
+import styled from "styled-components";
+import { TEXT_STYLE,TEXT_PROPS_STYLE} from '../../utility/typeApp';
 
-interface TEXT_STYLE {
-    theme:DefaultTheme,
-    fontSize?: string,
-    fontStyle?: string,
-    fontWeight?: string|number,
-    lineHeight?: string,
-    color?: string
-}
 
 const Element = styled.h1<TEXT_STYLE>`${({theme,fontSize,fontStyle,fontWeight,lineHeight,color}) => `
     font-size:   ${fontSize   !== undefined?fontSize:theme.fontSizes.header.l};
@@ -18,17 +10,8 @@ const Element = styled.h1<TEXT_STYLE>`${({theme,fontSize,fontStyle,fontWeight,li
     color: ${color !== undefined?color:theme.colors.white};
 `}`;
 
-interface Props {
-    text?: string,
-    fontSize?: string,
-    fontStyle?: string,
-    fontWeight?: string|number,
-    lineHeight?: string,
-    color?: string,
-    className?: string
-}
 
-export default ({text,fontSize,fontStyle,fontWeight,lineHeight,color,className=""}: Props) => (
+export default ({text,fontSize,fontStyle,fontWeight,lineHeight,color,className=""}: TEXT_PROPS_STYLE) => (
     <Element fontSize={fontSize} fontStyle={fontStyle} fontWeight={fontWeight} lineHeight={lineHeight} color={color} className={className}>
         {text}
     </Element>

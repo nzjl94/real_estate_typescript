@@ -1,23 +1,5 @@
-import React  from "react";
-import styled from "styled-components";
-import { FieldErrors,UseFormRegister, FieldValues } from 'react-hook-form';
-
 import ErrorMessage from "../../utility/ErrorType"
-
-
-interface INPUT_TYPE {
-    inputName:string;
-    inputLabel:string;
-    inputType?:string;
-    register:any;
-    // register:UseFormRegister<FieldValues>;
-    errors:FieldErrors;
-    validation?:any;
-    parentClassName?:string;
-    placeholder?:string;
-}
-
-
+import { INPUT_TYPE } from '../../utility/typeApp';
 
 const Input = ({
 		inputName,inputLabel,inputType="text",placeholder="",parentClassName="",

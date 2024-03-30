@@ -1,18 +1,10 @@
-import React,{CSSProperties}  from "react";
 import Select,{StylesConfig} from "react-select"
-import styled from "styled-components";
-import {Controller,FieldErrors } from 'react-hook-form';
+import {Controller } from 'react-hook-form';
+import {REACT_SELECT_TYPE,SELECT_OPTION_TYPE} from "../../utility/typeApp"
 
-
-
-type MyOptionType = {
-    label: string;
-    value: string;
-};
 type IsMulti = false;
 
-
-const customStyles: StylesConfig<MyOptionType, IsMulti>= {
+const customStyles: StylesConfig<SELECT_OPTION_TYPE, IsMulti>= {
     control: (baseStyles, state) => ({
         ...baseStyles,
         borderWidth:"1px",
@@ -42,23 +34,10 @@ const customStyles: StylesConfig<MyOptionType, IsMulti>= {
     })
 };
 
-interface SELECT_TYPE {
-    inputName:string;
-    inputLabel:string;
-    register:any;
-    errors:FieldErrors;
-    validation?:any;
-    parentClassName?:string;
-    placeholder?:string;
-    required:boolean;
-    control:any;
-    options:any;
-}
-
 export default ({ 
     inputName, inputLabel, control,options, placeholder="",parentClassName="",
     register,errors, required
-}:SELECT_TYPE) => (
+}:REACT_SELECT_TYPE) => (
     <div className={`${parentClassName} px-3`}>
 	    <label className="block uppercase mb-2 text-left" htmlFor={inputName}>{inputLabel}</label>
         <Controller

@@ -1,4 +1,7 @@
-import { combineReducers } from '@reduxjs/toolkit';
+import { combineReducers} from '@reduxjs/toolkit';
+
+
+
 import counterReducer from './counterSlice';
 import todoReducer from './todoSlice';
 import bookReducer from './bookSlice';
@@ -12,6 +15,8 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   title:titleReducer
 });
+
+
 
 export type RootState = ReturnType<typeof rootReducer>;
 export default rootReducer;

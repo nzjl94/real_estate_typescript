@@ -1,4 +1,4 @@
-import { BookState, TodoState,CounterState,CartState,titleState} from './typeStore';
+import { BookState, TodoState,CounterState,CartState,titleState} from '../utility/typeStore';
 
 
 

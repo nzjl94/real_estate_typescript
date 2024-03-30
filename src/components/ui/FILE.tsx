@@ -1,18 +1,5 @@
-import React  from "react";
-import styled from "styled-components";
-import {FieldErrors } from 'react-hook-form';
+import {FILE_TYPE} 	from '../../utility/typeApp';
 import ErrorMessage from "../../utility/ErrorType"
-
-
-
-interface FILE_TYPE {
-    inputName:string;
-    inputLabel:string;
-    parentClassName:string;
-    register:any;
-    errors:FieldErrors;
-    validation:{};
-}
 
 export default ({ inputName, inputLabel, register,errors, validation,parentClassName=""}:FILE_TYPE) =>{
 	return (

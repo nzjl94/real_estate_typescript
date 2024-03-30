@@ -1,4 +1,3 @@
-import React               from "react";
 import styled,{ useTheme } from "styled-components";
 
 import TEXT_1 from "./TEXT_ELEMENT"

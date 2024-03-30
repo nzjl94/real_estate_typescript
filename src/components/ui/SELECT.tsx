@@ -1,23 +1,10 @@
-import React,{MouseEvent}  from "react";
-import styled from "styled-components";
+import {MouseEvent}  from "react";
 
-
-import {FieldErrors } from 'react-hook-form';
 import {onChangeAction} from "../../utility/eventAction"
 import ErrorMessage from "../../utility/ErrorType"
 
+import { SELECT_TYPE} from '../../utility/typeApp';
 
-
-interface SELECT_TYPE {
-    inputName:string;
-    inputLabel:string;
-    parentClassName:string;
-    placeholder:string;
-    validation:{};
-    register:any;
-    errors:FieldErrors;
-    options:string[] | {[key: string]:string};
-}
 
 const Select = (
     { inputName, inputLabel, register,errors,options, validation={},placeholder="",parentClassName=""}:SELECT_TYPE
