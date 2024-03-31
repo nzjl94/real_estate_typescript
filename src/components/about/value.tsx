@@ -1,9 +1,11 @@
-import React, { useState, useEffect} from "react";
+import { useState, useEffect} from "react";
 import styled,{ useTheme } from "styled-components";
 
 import IMG from "../ui/IMAGE";
 import TEXT_1 from "../ui/TEXT_ELEMENT"
 import {getAPIData} from '../../utility/API';
+
+import {API_DATA_1}  from '../../utility/typeApp';
 
 const Content=styled.div``;
 const Container = styled.div`${({theme}) => `
@@ -12,14 +14,9 @@ const Container = styled.div`${({theme}) => `
   }
 `}`;
 
-interface DATA {
-    title: {[key: string]:string},
-    sections: Array<{[key: string]:string }>
-}
-
 export default () => {
   const theme = useTheme();
-  const [data, setData] = useState<DATA>({title:{},sections:[]})
+  const [data, setData] = useState<API_DATA_1>({title:{},sections:[]})
   useEffect( () => {
     getAPIData('realestate/about/value',setData)
   }, [])

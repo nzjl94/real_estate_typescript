@@ -2,113 +2,95 @@ import {FieldErrors } from 'react-hook-form';
 import {DefaultTheme} from "styled-components";
 
 
-
-export interface HEADER_TYPE {
-    [key: string]:string | undefined
-}
-
-export interface TEXTAREA_TYPE {
-    inputName:string;
-    inputLabel:string;
-    parentClassName:string;
-    placeholder:string;
-    register:any;
-    errors:FieldErrors;
-    validation:{[key:string]:string}
-}
-
-export interface TEXT_STYLE {
-    theme:DefaultTheme,
-    fontSize?: string,
-    fontStyle?: string,
-    fontWeight?: string|number,
-    lineHeight?: string,
-    color?: string
-}
-
-export interface TEXT_PROPS_STYLE {
-    text?: string,
-    fontSize?: string,
-    fontStyle?: string,
-    fontWeight?: string|number,
-    lineHeight?: string,
-    color?: string,
-    className?: string
-}
-
-export interface SELECT_TYPE {
-    inputName:string;
-    inputLabel:string;
-    parentClassName:string;
-    placeholder:string;
-    validation:{};
-    register:any;
-    errors:FieldErrors;
-    options:string[] | {[key: string]:string};
-}
-
-export interface REACT_SELECT_TYPE {
-    inputName:string;
-    inputLabel:string;
-    register:any;
-    errors:FieldErrors;
-    validation?:any;
-    parentClassName?:string;
-    placeholder?:string;
-    required:boolean;
-    control:any;
-    options:any;
-}
-
-export type SELECT_OPTION_TYPE = {
-    label: string;
-    value: string;
-};
-
-export interface INPUT_TYPE {
-    inputName:string;
-    inputLabel:string;
-    inputType?:string;
-    register:any;
-    // register:UseFormRegister<FieldValues>;
-    errors:FieldErrors;
-    validation?:any;
-    parentClassName?:string;
-    placeholder?:string;
-}
-
-export interface BUTTON_PROPS_TYPE {
+export interface OBJECT_1 {
     [key: string]:string
 }
 
-export interface CHECKBOX_TYPE {
+
+interface TEXT_PROPS {
+    fontSize?: string;
+    fontStyle?: string;
+    fontWeight?: string|number;
+    lineHeight?: string;
+    color?: string;
+}
+export interface TEXT_STYLE_1 extends TEXT_PROPS{
+    theme:DefaultTheme;
+}
+export interface TEXT_STYLE_2 extends TEXT_PROPS{
+    text?: string;
+    className?: string;
+}
+
+
+
+interface INPUT_FIELD_1 {
     inputName:string;
     inputLabel:string;
     parentClassName:string;
+    // register:UseFormRegister<FieldValues>;
     register:any;
     errors:FieldErrors;
-    options:string[] | {[key: string]:string};
-    validation:{};
+    placeholder?:string;
+}
+interface INPUT_FIELD_2 {
+    required:boolean;
+    control:any;
+    label: string;
+    value: string;
+    inputType?:string;
     listType?:string;
 }
 
-export interface FILE_TYPE {
-    inputName:string;
-    inputLabel:string;
-    parentClassName:string;
-    register:any;
-    errors:FieldErrors;
+export interface TEXTAREA_TYPE extends INPUT_FIELD_1{
+    validation:OBJECT_1
+}
+export interface SELECT_TYPE extends INPUT_FIELD_1{
+    validation:{};
+    options:string[] | OBJECT_1;
+}
+export interface REACT_SELECT_TYPE extends INPUT_FIELD_1, Pick<INPUT_FIELD_2,"required" | "control">{
+    validation?:any;
+    options:any;
+}
+export type SELECT_OPTION_TYPE = Pick<INPUT_FIELD_2, "label" | "value">
+
+export interface INPUT_TYPE extends INPUT_FIELD_1, Pick<INPUT_FIELD_2,"inputType" >{
+    validation?:any;
+}
+export interface CHECKBOX_TYPE extends Omit<INPUT_FIELD_1,"placeholder">, Pick<INPUT_FIELD_2,"listType" >{
+    options:string[] | OBJECT_1;
+    validation:{};
+}
+export interface FILE_TYPE extends  Omit<INPUT_FIELD_1,"placeholder">{
     validation:{};
 }
 
 export interface IMAGE_TYPE {
     activeBorder:boolean
 }
-
 export interface IMAGE_TYPE_2 {
     width?: number,
     height?: number,
     path?: string,
     activeBorder?: boolean,
     parentClass?: string
+}
+export interface HEADER_TYPE {
+    [key: string]: string | undefined
+}
+
+export interface API_DATA_1 {
+    title: OBJECT_1,
+    sections: OBJECT_1[] //Array<OBJECT_1>
+}
+
+export interface API_DATA_2 {
+    title: OBJECT_1,
+    sections: Array<{ title: string,content: string }>
+}
+
+export interface API_DATA_3 {
+    title: OBJECT_1,
+    sections: Array<{[key: string]:OBJECT_1}>
 }

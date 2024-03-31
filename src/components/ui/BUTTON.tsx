@@ -3,7 +3,7 @@ import styled           from "styled-components";
 import { Link }         from 'react-router-dom';
 
 import { ExploreAction }    from '../../store/Context';
-import {BUTTON_PROPS_TYPE}  from '../../utility/typeApp';
+import {OBJECT_1 as BUTTON_PROPS_TYPE}  from '../../utility/typeApp';
 
 
 const LinkElement = styled(Link)`${({theme}) => ``}`;

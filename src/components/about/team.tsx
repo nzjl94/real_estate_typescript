@@ -1,20 +1,19 @@
-import React, { MouseEvent, useState, useEffect} from "react";
+import { MouseEvent, useState, useEffect} from "react";
 import styled,{ useTheme } from "styled-components";
 
 import TEXT_1 from "../ui/TEXT_ELEMENT"
 import {getAPIData} from '../../utility/API';
 import IMG from "../ui/IMAGE";
+import {API_DATA_1}  from '../../utility/typeApp';
+
 
 const Container = styled.div``;
 
 const Team= () => {
   	const theme = useTheme();
 
-	interface DATA {
-		title: {[key: string]:string},
-		sections: Array<{[key: string]:string}>
-	}
-	const [data, setData] = useState<DATA>({
+	
+	const [data, setData] = useState<API_DATA_1>({
 		title:{},
 		sections:[]
 	})

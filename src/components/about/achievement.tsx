@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import { useState, useEffect} from "react";
 import styled,{ useTheme } from "styled-components";
 
 import {getAPIData} from '../../utility/API'

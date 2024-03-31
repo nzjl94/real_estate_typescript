@@ -1,10 +1,13 @@
-import React, { useState, useEffect} from "react";
+import { useState, useEffect} from "react";
 import styled,{ useTheme } from "styled-components";
 
 import TEXT_1 from "../ui/TEXT_ELEMENT"
 // This approch it work only if the files inside [src] but does not work when they inside [public]
 import profilePic from '../../image/about/journey/title.png'
 import {getAPIData} from '../../utility/API'
+
+import {API_DATA_2}  from '../../utility/typeApp';
+
 
 
 const Container = styled.div``;
@@ -13,11 +16,7 @@ export default () => {
   const theme = useTheme();
 
 
-  interface DATA {
-    title: {[key: string]:string},
-    sections: Array<{ title: string,content: string }>
-  }
-  const [data, setData] = useState<DATA>({title:{},sections:[]})
+  const [data, setData] = useState<API_DATA_2>({title:{},sections:[]})
   useEffect( () => {
     getAPIData('realestate/about/journey',setData)
   }, [])

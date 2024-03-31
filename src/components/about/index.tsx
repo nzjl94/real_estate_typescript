@@ -1,6 +1,4 @@
-import React from 'react';
-import styled,{ useTheme } from "styled-components";
-
+import styled from "styled-components";
 
 import Achievement from "./achievement";
 import Experience from "./experience";
@@ -11,9 +9,6 @@ import Client from "./client";
 import Start from "./start";
 import Theme from "../general/theme";
 
-const TextContainer = styled.div`${({theme}) => `
-    background: ${theme.colors.gray1};
-`}`;
 
 const Content=styled.div``;
 

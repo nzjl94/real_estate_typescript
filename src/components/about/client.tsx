@@ -1,7 +1,7 @@
-import React, { useState, useEffect,MouseEvent} from "react";
+import { useState, useEffect,MouseEvent} from "react";
 import styled,{ useTheme } from "styled-components";
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectData} from '../../store/titleSlice';
 import {indTitle} from '../../utility/typeStore';
 
@@ -10,6 +10,8 @@ import HEADER from "../ui/HEADER";
 import TEXT_1 from "../ui/TEXT_ELEMENT"
 import {getAPIData} from '../../utility/API';
 import IMG from "../ui/IMAGE";
+import {API_DATA_3}  from '../../utility/typeApp';
+
 
 
 const Container = styled.div``;
@@ -32,11 +34,8 @@ export default () => {
 
   	const theme = useTheme();
 
-	interface DATA {
-		title: {[key: string]:string},
-		sections: Array<{[key: string]:{[key: string]:string }}>
-	}
-  	const [data, setData] = useState<DATA>({title:{},sections:[]})
+	
+  	const [data, setData] = useState<API_DATA_3>({title:{},sections:[]})
   
 	const visitWebsiteButton=(event:MouseEvent<HTMLButtonElement>,url:string)=>{
 		console.log("Twitter",event)

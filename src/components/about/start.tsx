@@ -1,4 +1,4 @@
-import React, { useState, useEffect, MouseEvent} from "react";
+import React, { useState, useEffect} from "react";
 import { ExploreAction } from '../../store/Context';
 import GEN_Component from "../ui/genComponent_1"
 import {getAPIData} from '../../utility/API';
