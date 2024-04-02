@@ -1,8 +1,9 @@
 import { useState, useEffect,MouseEvent} from "react";
 import styled,{ useTheme } from "styled-components";
 
-import { useSelector } from 'react-redux';
-import { selectData} from '../../store/titleSlice';
+import { useSelector,useDispatch } from 'react-redux';
+import { selectData,addEditTitle,removeTitle} from '../../store/titleSlice';
+
 import {indTitle} from '../../utility/typeStore';
 
 
@@ -11,6 +12,7 @@ import TEXT_1 from "../ui/TEXT_ELEMENT"
 import {getAPIData} from '../../utility/API';
 import IMG from "../ui/IMAGE";
 import {API_DATA_3}  from '../../utility/typeApp';
+import {singleTitle}  from '../../utility/typeStore';
 
 
 
@@ -29,16 +31,21 @@ const Content = styled.div`${({theme}) => `
 
 export default () => {
 
+	const dispatch = useDispatch();
+
 	const title_section:indTitle = useSelector(selectData);
 	const {title,content}=title_section.about_client
 
   	const theme = useTheme();
-
 	
   	const [data, setData] = useState<API_DATA_3>({title:{},sections:[]})
   
 	const visitWebsiteButton=(event:MouseEvent<HTMLButtonElement>,url:string)=>{
-		console.log("Twitter",event)
+		//dispatch(addEditTitle({
+		//	id:"about_client",
+		//	content:{title:"Hello Redux",content:"Hello WWWW"}
+		//}))
+		// dispatch(removeTitle("existingKey"))
 	}
 	useEffect( () => {
 		getAPIData('realestate/about/client',setData)

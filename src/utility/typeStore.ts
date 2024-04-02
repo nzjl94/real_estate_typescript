@@ -1,3 +1,5 @@
+import {TEXT_PARAGRAPH} from "./typeApp"
+
 export interface Book {
     id: number;
     title: string;
@@ -31,14 +33,16 @@ export interface TodoState {
 
 
 export interface indTitle {
-    [key: string]:{
-        title?: string;
-        content?: string;
-    }
+    [key: string]:TEXT_PARAGRAPH
 }
   
 export interface titleState {
     loading: 'idle' | 'pending' | 'fulfilled' | 'rejected';
     error: string | null;
     data:indTitle;
+}
+
+export interface singleTitle{
+    id:string;
+    content:TEXT_PARAGRAPH;
 }

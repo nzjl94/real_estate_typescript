@@ -1,12 +1,9 @@
 import {FieldErrors } from 'react-hook-form';
 import {DefaultTheme} from "styled-components";
 
-
 export interface OBJECT_1 {
     [key: string]:string
 }
-
-
 interface TEXT_PROPS {
     fontSize?: string;
     fontStyle?: string;
@@ -21,7 +18,6 @@ export interface TEXT_STYLE_2 extends TEXT_PROPS{
     text?: string;
     className?: string;
 }
-
 
 
 interface INPUT_FIELD_1 {
@@ -41,7 +37,6 @@ interface INPUT_FIELD_2 {
     inputType?:string;
     listType?:string;
 }
-
 export interface TEXTAREA_TYPE extends INPUT_FIELD_1{
     validation:OBJECT_1
 }
@@ -54,7 +49,6 @@ export interface REACT_SELECT_TYPE extends INPUT_FIELD_1, Pick<INPUT_FIELD_2,"re
     options:any;
 }
 export type SELECT_OPTION_TYPE = Pick<INPUT_FIELD_2, "label" | "value">
-
 export interface INPUT_TYPE extends INPUT_FIELD_1, Pick<INPUT_FIELD_2,"inputType" >{
     validation?:any;
 }
@@ -65,7 +59,6 @@ export interface CHECKBOX_TYPE extends Omit<INPUT_FIELD_1,"placeholder">, Pick<I
 export interface FILE_TYPE extends  Omit<INPUT_FIELD_1,"placeholder">{
     validation:{};
 }
-
 export interface IMAGE_TYPE {
     activeBorder:boolean
 }
@@ -79,17 +72,19 @@ export interface IMAGE_TYPE_2 {
 export interface HEADER_TYPE {
     [key: string]: string | undefined
 }
-
 export interface API_DATA_1 {
     title: OBJECT_1,
     sections: OBJECT_1[] //Array<OBJECT_1>
 }
 
+export interface TEXT_PARAGRAPH {
+    title: string;
+    content: string;
+}
 export interface API_DATA_2 {
     title: OBJECT_1,
-    sections: Array<{ title: string,content: string }>
+    sections: TEXT_PARAGRAPH[]
 }
-
 export interface API_DATA_3 {
     title: OBJECT_1,
     sections: Array<{[key: string]:OBJECT_1}>
