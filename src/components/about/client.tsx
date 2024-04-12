@@ -6,14 +6,11 @@ import { selectData,addEditTitle,removeTitle} from '../../store/titleSlice';
 
 import {indTitle} from '../../utility/typeStore';
 
-
 import HEADER from "../ui/HEADER";
 import TEXT_1 from "../ui/TEXT_ELEMENT"
 import {getAPIData} from '../../utility/API';
 import IMG from "../ui/IMAGE";
 import {API_DATA_3}  from '../../utility/typeApp';
-import {singleTitle}  from '../../utility/typeStore';
-
 
 
 const Container = styled.div``;

@@ -46,3 +46,11 @@ export interface singleTitle{
     id:string;
     content:TEXT_PARAGRAPH;
 }
+
+export interface AuthState {
+    isAuthenticated: boolean;
+    token: string | null;
+    user: string | null; // Replace 'any' with your user type
+    isLoading: boolean;
+    error: string | null;
+  }

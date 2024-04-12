@@ -1,4 +1,4 @@
-import { BookState, TodoState,CounterState,CartState,titleState} from '../utility/typeStore';
+import { AuthState, BookState, TodoState,CounterState,CartState,titleState} from '../utility/typeStore';
 
 
 
@@ -23,4 +23,12 @@ export const titleInitialState: titleState = {
   loading: 'idle',
   error: null,
   data: {},
+};
+
+export const loginInitialState: AuthState = {
+  isAuthenticated: false,
+  token: null,
+  user: null,
+  isLoading: false,
+  error: null
 };

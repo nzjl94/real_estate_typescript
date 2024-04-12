@@ -10,6 +10,7 @@ const Navbar: React.FC = () => {
     { href: "about", label: "About Us" },
     { href: "property", label: "Properties" },
     { href: "service", label: "Services" },
+    { href: "login", label: "Login" },
   ];
 
   return (
@@ -42,6 +43,7 @@ const Navbar: React.FC = () => {
           </ul>
           <div className="flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24 text-white">
             <BUTTON url="contact" text="Contact Us" />
+              
           </div>
           {/* <div className="hidden max-lg:block cursor-pointer" onClick={() => {setIsMenuOpen(!isMenuOpen);}}>
                               <RxHamburgerMenu className="text-4xl" />

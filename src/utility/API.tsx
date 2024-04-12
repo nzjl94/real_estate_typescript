@@ -19,4 +19,3 @@ export const postAPIData:getAPIData =async (URL,data={}) => {
         console.log("Request complete! response:", res);
     });
 }
-
