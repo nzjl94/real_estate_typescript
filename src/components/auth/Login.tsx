@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState }          from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import {useNavigate}                from 'react-router-dom';
 
 import { RootState }                from '../../store/Reducer';
-import { login }                  from '../../store/loginSlice';
+import { login }                    from '../../store/loginSlice';
 import { AppDispatch }              from '../../store/index';
 
 
@@ -16,12 +16,15 @@ const LoginPage: React.FC = () => {
   const isLoading   = useSelector((state: RootState) => state.auth.isLoading);
   const error       = useSelector((state: RootState) => state.auth.error);
 
+  const navigate = useNavigate();
+
   const handleLogin = () => {
     dispatch(login({ username, password }));
+    navigate("/home")
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="bg-gray-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="text-center text-3xl font-extrabold text-white">Login</h2>
       </div>

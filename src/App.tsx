@@ -1,12 +1,30 @@
-import React from 'react';
+
+import {useEffect }                 from "react";
+import { BrowserRouter as Router}   from 'react-router-dom';
+import { useSelector,useDispatch }  from 'react-redux';
+
+import './App.css';
 import GlobalStyle from './globalStyles';
-import { BrowserRouter as Router} from 'react-router-dom';
+
+
 
 import AppRoute from "./AppRoute"
-import './App.css';
 import Navbar from './components/general/navbar';
 
-function App() {
+import { AppDispatch }              from './store/index';
+import { fetchData, selectTitle}    from './store/titleSlice';
+
+
+const App=() => {
+
+
+  let titleInfo = useSelector(selectTitle);
+	const dispatch = useDispatch<AppDispatch>();
+	useEffect( () => {
+		if(titleInfo.loading==="idle"){
+			dispatch(fetchData());
+		}
+	}, [fetchData])
 
   return (<>
     <GlobalStyle />
@@ -18,22 +36,14 @@ function App() {
           
           {/* Dynamically adding the route */}
           {/* <Routes >
-          {
-            let RouteList=[
-              {path:['/', '/home'],element:<Home />},
-              {path:['/property'] ,element:<Property />},
-            ]
-            RouteList.map(({path,element})=>path.map(ele_path => <Route path={ele_path} element={element} />))
-          }
+          {let RouteList=[{path:['/property'] ,element:<Property />}]
+            RouteList.map(({path,element})=>path.map(ele_path => <Route path={ele_path} element={element} />))}
           </Routes> */}
 
           {/* Manually adding the route */}
           {/* <Routes >
             {['/', '/home'].map(path => <Route path={path} element={<Home />} />)}
             <Route path="/property" element={<Property />} />
-            <Route path="/service"  element={<Service />} />
-            <Route path="/about"    element={<About />} />
-            <Route path="/contact"  element={<Contact />} />
           </Routes> */}
         </div>
       </Router>

@@ -1,16 +1,22 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import BUTTON from "../ui/BUTTON";
-import IMG from "../ui/IMAGE";
+import React, { useState }  from "react";
+import { useSelector }      from 'react-redux';
+import { Link }             from "react-router-dom";
+import { RootState }        from '../../store/Reducer';
+import BUTTON               from "../ui/BUTTON";
+import IMG                  from "../ui/IMAGE";
 
 const Navbar: React.FC = () => {
+
+  const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = [
     { href: "home", label: "Home" },
     { href: "about", label: "About Us" },
     { href: "property", label: "Properties" },
     { href: "service", label: "Services" },
-    { href: "login", label: "Login" },
+    // { href: "login", label: "Login" },
+    // { href: "logout", label: "Logout" },
   ];
 
   return (
@@ -30,18 +36,21 @@ const Navbar: React.FC = () => {
             Estatein
           </a>
           <ul className="flex-1 flex justify-center items-center gap-16 max-lg:hidden">
-            {navLinks.map((item) => (
-              <li key={item.label}>
-                <Link
-                  to={item.href}
-                  className="font-montserrat leading-normal text-lg text-slate-gray text-white"
-                >
-                  {item.label}
-                </Link>
+            {navLinks.map((item) => 
+                <li key={item.label}>
+                  <Link to={item.href} className="leading-normal text-lg text-slate-gray text-white">{item.label}</Link>
+                </li>
+            )
+            }
+            {(() => {
+                let authNav = isAuthenticated?"Logout":"Login"
+                return <li key={authNav}>
+                <Link to={authNav.toLocaleLowerCase()} className="leading-normal text-lg text-slate-gray text-white">{authNav}</Link>
               </li>
-            ))}
+            })()}
+            
           </ul>
-          <div className="flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24 text-white">
+          <div className="flex gap-2 text-lg leading-normal font-medium max-lg:hidden wide:mr-24 text-white">
             <BUTTON url="contact" text="Contact Us" />
               
           </div>

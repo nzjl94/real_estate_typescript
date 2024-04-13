@@ -1,4 +1,4 @@
-import {useRoutes,RouteObject,useNavigate,Navigate,Route}         from 'react-router-dom';
+import {useRoutes,RouteObject,Navigate}         from 'react-router-dom';
 
 import PrivateRoute from "./PrivateRoute"
 
@@ -7,7 +7,7 @@ import Contact  from './components/contact';
 import Home     from './components/home';
 import Property from './components/property';
 import Service  from './components/service';
-import Login  from './components/auth/Login';
+import Login    from './components/auth/Login';
 
 import { useSelector } from 'react-redux';
 
@@ -19,8 +19,6 @@ const AppRoute = () => {
 
     const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
 
-    console.log(isAuthenticated,"HIIiiiiiiiii")
-
     const routes: RouteObject[] = [
         {
         path: '/',
@@ -29,14 +27,17 @@ const AppRoute = () => {
             { path: '/home',        element: <Home /> },
             { path: '/property',    element: <Property /> },
             { path: '/service',     element: <Service /> },
-            // { path: '/about',       element: <About /> },
             { path: '/contact',     element: <Contact /> },
-            { path: '/login',       element: <Login /> },
-            // {path: '/service',      element: <PrivateRoute element={<Service />} />}
+            { path: '/service',     element: <Service /> },
             {
                 path: '/about',
                 element: isAuthenticated ?(<PrivateRoute> <About /> </PrivateRoute>):(<Navigate to="/login" replace />)
-              },
+            },
+            { 
+                path: '/login',       
+                element: isAuthenticated ? <Navigate to="/home"  />: <Login /> 
+            },
+
         ],
         },
     ];

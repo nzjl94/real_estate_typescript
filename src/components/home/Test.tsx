@@ -1,23 +1,10 @@
 
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
 
-import { RootState } from '../../store/Reducer';
-import { AppDispatch } from '../../store/index';
-
-
-
-import { fetchData, selectData} from '../../store/titleSlice';
 
 const Test: React.FC = () => {
 
-  const dispatch = useDispatch<AppDispatch>();
 
-  const data = useSelector(selectData);
-
-  useEffect(() => {
-    dispatch(fetchData());
-  }, [dispatch]);
 
   return (
     <div>

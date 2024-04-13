@@ -15,7 +15,6 @@ const getAPIDataReducer =async (URL:string) => {
 
 export const fetchData = createAsyncThunk('realestate/page/title', async () => {
   const response = await getAPIDataReducer("realestate/page/title"); // Your API call to fetch data
-  // console.log(response.about_client)
   return response; // Adjust based on your API response structure
 });
 
@@ -62,8 +61,9 @@ const dataSlice = createSlice({
 
 export const { addEditTitle,removeTitle} = dataSlice.actions;
 
-export const selectData = (state: RootState) => state.title.data;
-export const selectLoading = (state: RootState) => state.title.loading;
-export const selectError = (state: RootState) => state.title.error;
+export const selectTitle       = (state: RootState) => state.title;
+export const selectTitleData  = (state: RootState) => state.title.data;
+// export const selectLoading  = (state: RootState) => state.title.loading;
+// export const selectError    = (state: RootState) => state.title.error;
 
 export default dataSlice.reducer;

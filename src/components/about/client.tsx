@@ -2,7 +2,7 @@ import { useState, useEffect,MouseEvent} from "react";
 import styled,{ useTheme } from "styled-components";
 
 import { useSelector,useDispatch } from 'react-redux';
-import { selectData,addEditTitle,removeTitle} from '../../store/titleSlice';
+import { selectTitleData,addEditTitle,removeTitle} from '../../store/titleSlice';
 
 import {indTitle} from '../../utility/typeStore';
 
@@ -30,7 +30,7 @@ export default () => {
 
 	const dispatch = useDispatch();
 
-	const title_section:indTitle = useSelector(selectData);
+	const title_section:indTitle = useSelector(selectTitleData);
 	const {title,content}=title_section.about_client
 
   	const theme = useTheme();

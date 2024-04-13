@@ -9,11 +9,10 @@ import Client from "./client";
 import Start from "./start";
 import Theme from "../general/theme";
 
-
 const Content=styled.div``;
+export default () => {
 
-export default () => (
-	<Theme>
+	return (<Theme>
 		<Content className="grid flex-col gap-20">
 			<Journey />
 			<Value />
@@ -23,5 +22,5 @@ export default () => (
 			<Client />
 			<Start />
 		</Content>
-	</Theme>
-);
+	</Theme>)
+}
