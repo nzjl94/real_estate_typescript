@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import {bookInitialState} from "./initialStore"
+import {resetAll} from "./Actions"
 
 const bookSlice = createSlice({
   name: 'books',
@@ -14,6 +15,7 @@ const bookSlice = createSlice({
       }
     },
   },
+  extraReducers: (builder) => builder.addCase(resetAll, () => bookInitialState)
 });
 
 export const { updateQuantity } = bookSlice.actions;

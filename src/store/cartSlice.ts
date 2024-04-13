@@ -3,6 +3,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Book } from '../utility/typeStore';
 import {cartInitialState} from "./initialStore"
+import {resetAll} from "./Actions"
+
 
 
 const cartSlice = createSlice({
@@ -26,6 +28,8 @@ const cartSlice = createSlice({
       state.discount = action.payload;
     },
   },
+  extraReducers: (builder) => builder.addCase(resetAll, () => cartInitialState)
+
 });
 
 export const { addItem, removeItem, applyDiscount } = cartSlice.actions;

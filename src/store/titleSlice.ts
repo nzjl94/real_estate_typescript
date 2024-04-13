@@ -5,6 +5,9 @@ import {titleInitialState} from "./initialStore"
 import {singleTitle} from "../utility/typeStore"
 import {TEXT_PARAGRAPH} from "../utility/typeApp"
 
+import {resetAll} from "./Actions"
+
+
 
 const getAPIDataReducer =async (URL:string) => {
   let response = await fetch(`${URL}`)
@@ -55,8 +58,10 @@ const dataSlice = createSlice({
       .addCase(fetchData.rejected, (state, action) => {
         state.loading = 'rejected';
         state.error = action.error.message ?? 'An error occurred';
-      });
+      })
+      .addCase(resetAll, () => titleInitialState);
   },
+
 });
 
 export const { addEditTitle,removeTitle} = dataSlice.actions;

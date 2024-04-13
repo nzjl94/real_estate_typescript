@@ -1,12 +1,20 @@
-import React, { useState }  from "react";
-import { useSelector }      from 'react-redux';
-import { Link }             from "react-router-dom";
-import { RootState }        from '../../store/Reducer';
-import BUTTON               from "../ui/BUTTON";
-import IMG                  from "../ui/IMAGE";
+import React, { useState }        from "react";
+import {useSelector, useDispatch} from 'react-redux';
+import {useNavigate,Link}         from 'react-router-dom';
+
+import { logout }                 from '../../store/loginSlice';
+
+import { RootState }              from '../../store/Reducer';
+import BUTTON                     from "../ui/BUTTON";
+import IMG                        from "../ui/IMAGE";
+
+
+import { resetAll,showNotification, hideNotification } from '../../store/Actions';
 
 const Navbar: React.FC = () => {
 
+  //<AppDispatch>
+  const dispatch = useDispatch();
   const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,10 +22,17 @@ const Navbar: React.FC = () => {
     { href: "home", label: "Home" },
     { href: "about", label: "About Us" },
     { href: "property", label: "Properties" },
-    { href: "service", label: "Services" },
-    // { href: "login", label: "Login" },
-    // { href: "logout", label: "Logout" },
+    { href: "service", label: "Services" }
   ];
+
+  const navigate = useNavigate();
+
+
+
+  const logoutAction=()=>{
+    dispatch(resetAll())
+    navigate("/login")
+  }
 
   return (
     <>
@@ -44,9 +59,16 @@ const Navbar: React.FC = () => {
             }
             {(() => {
                 let authNav = isAuthenticated?"Logout":"Login"
-                return <li key={authNav}>
-                <Link to={authNav.toLocaleLowerCase()} className="leading-normal text-lg text-slate-gray text-white">{authNav}</Link>
-              </li>
+                if (authNav==="Login"){
+                  return <li key={authNav}>
+                    <Link to={authNav.toLocaleLowerCase()} className="leading-normal text-lg text-slate-gray text-white">{authNav}</Link>
+                  </li>
+                }else{
+                  return <li key={authNav} onClick={logoutAction} className="leading-normal text-lg text-slate-gray text-white cursor-pointer">
+                    {authNav}
+                  </li>
+                }
+                
             })()}
             
           </ul>

@@ -1,17 +1,17 @@
 import {useRoutes,RouteObject,Navigate}         from 'react-router-dom';
 
-import PrivateRoute from "./PrivateRoute"
+import PrivateRoute     from "./PrivateRoute"
 
-import About    from './components/about';
-import Contact  from './components/contact';
-import Home     from './components/home';
-import Property from './components/property';
-import Service  from './components/service';
-import Login    from './components/auth/Login';
+import About            from './components/about';
+import Contact          from './components/contact';
+import Home             from './components/home';
+import Property         from './components/property';
+import Service          from './components/service';
+import Login            from './components/auth/Login';
 
-import { useSelector } from 'react-redux';
+import { useSelector }  from 'react-redux';
 
-import { RootState }                from './store/Reducer';
+import { RootState }    from './store/Reducer';
 
 
 

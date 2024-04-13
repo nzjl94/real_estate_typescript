@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {todoInitialState} from "./initialStore"
+import {resetAll} from "./Actions"
+
 
 
 
@@ -21,6 +23,7 @@ const todoSlice = createSlice({
       }
     },
   },
+  extraReducers: (builder) => builder.addCase(resetAll, () => todoInitialState)
 });
 export const { addTodo, toggleTodo } = todoSlice.actions;
 export default todoSlice.reducer;

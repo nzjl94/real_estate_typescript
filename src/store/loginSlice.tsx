@@ -7,6 +7,8 @@ import {loginInitialState} from "./initialStore"
 import api from "../utility/Axios"
 
 import {AppThunk} from "./Reducer"
+import {resetAll} from "./Actions"
+
 
 const authSlice = createSlice({
   name: 'auth',
@@ -32,6 +34,7 @@ const authSlice = createSlice({
       state.user = null;
     },
   },
+  extraReducers: (builder) => builder.addCase(resetAll, () => loginInitialState)
 });
 
 export const { loginStart, loginSuccess, loginFailure, logout } = authSlice.actions;

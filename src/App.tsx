@@ -3,6 +3,9 @@ import {useEffect }                 from "react";
 import { BrowserRouter as Router}   from 'react-router-dom';
 import { useSelector,useDispatch }  from 'react-redux';
 
+import { RootState }    from './store/Reducer';
+
+
 import './App.css';
 import GlobalStyle from './globalStyles';
 
@@ -17,14 +20,16 @@ import { fetchData, selectTitle}    from './store/titleSlice';
 
 const App=() => {
 
+  const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
 
   let titleInfo = useSelector(selectTitle);
+
 	const dispatch = useDispatch<AppDispatch>();
 	useEffect( () => {
-		if(titleInfo.loading==="idle"){
+		if(isAuthenticated && titleInfo.loading==="idle"){
 			dispatch(fetchData());
 		}
-	}, [fetchData])
+	}, [fetchData,isAuthenticated])
 
   return (<>
     <GlobalStyle />
