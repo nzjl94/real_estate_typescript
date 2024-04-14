@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate}                from 'react-router-dom';
 
 import { RootState }                from '../../store/Reducer';
-import { login }                    from '../../store/loginSlice';
+import { login }                    from '../../store/slice/login';
 import { AppDispatch }              from '../../store/index';
 
 

@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk,PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from './Reducer';
+import { RootState } from '../Reducer';
 
-import {titleInitialState} from "./initialStore"
-import {singleTitle} from "../utility/typeStore"
-import {TEXT_PARAGRAPH} from "../utility/typeApp"
+import {titleInitialState}  from "../initialStore"
+import {singleTitle}        from "../../utility/typeStore"
+import {TEXT_PARAGRAPH}     from "../../utility/typeApp"
 
-import {resetAll} from "./Actions"
+import {resetAll} from "../Actions"
 
 
 

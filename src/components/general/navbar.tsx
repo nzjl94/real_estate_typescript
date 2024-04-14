@@ -2,7 +2,7 @@ import React, { useState }        from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigate,Link}         from 'react-router-dom';
 
-import { logout }                 from '../../store/loginSlice';
+import { logout }                 from '../../store/slice/login';
 
 import { RootState }              from '../../store/Reducer';
 import BUTTON                     from "../ui/BUTTON";

@@ -1,12 +1,9 @@
-import { AuthState, BookState, TodoState,CounterState,CartState,titleState} from '../utility/typeStore';
+import { AuthState, BookState, tableState,CounterState,CartState,titleState} from '../utility/typeStore';
 
 
 
 export const counterInitialState: CounterState = {
   value: 0,
-};
-export const todoInitialState: TodoState = {
-  todos: [],
 };
 export const bookInitialState: BookState = {
   books: [
@@ -32,3 +29,12 @@ export const loginInitialState: AuthState = {
   isLoading: false,
   error: null
 };
+
+
+export const tableInitialState :tableState = {
+  data:[
+    { id:1, fullname: 'John Doe',     age: 30, is_admin:false , location: 'New York' },
+    { id:2, fullname: 'Jane Smith',   age: 25, is_admin:true  , location: 'Los Angeles' },
+    { id:3, fullname: 'Bob Johnson',  age: 40, is_admin:false , location: 'Chicago' }
+  ]
+}

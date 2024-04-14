@@ -15,7 +15,7 @@ import AppRoute from "./AppRoute"
 import Navbar from './components/general/navbar';
 
 import { AppDispatch }              from './store/index';
-import { fetchData, selectTitle}    from './store/titleSlice';
+import { fetchData, selectTitle}    from './store/slice/title';
 
 
 const App=() => {

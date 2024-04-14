@@ -4,7 +4,7 @@ import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState }                from '../../store/Reducer';
-import { addItem }                  from '../../store/cartSlice';
+import { addItem }                  from '../../store/slice/cart';
 
 const BookList: React.FC = () => {
   const books = useSelector((state: RootState) => state.books.books);

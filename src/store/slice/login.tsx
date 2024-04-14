@@ -2,12 +2,12 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import {loginInitialState} from "./initialStore"
+import {loginInitialState} from "../initialStore"
 
-import api from "../utility/Axios"
+import api from "../../utility/Axios"
 
-import {AppThunk} from "./Reducer"
-import {resetAll} from "./Actions"
+import {AppThunk} from "../Reducer"
+import {resetAll} from "../Actions"
 
 
 const authSlice = createSlice({

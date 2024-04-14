@@ -2,7 +2,7 @@ import { useState, useEffect,MouseEvent} from "react";
 import styled,{ useTheme } from "styled-components";
 
 import { useSelector,useDispatch } from 'react-redux';
-import { selectTitleData,addEditTitle,removeTitle} from '../../store/titleSlice';
+import { selectTitleData,addEditTitle,removeTitle} from '../../store/slice/title';
 
 import {indTitle} from '../../utility/typeStore';
 

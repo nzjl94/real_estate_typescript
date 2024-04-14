@@ -21,14 +21,17 @@ export interface CounterState {
     value: number;
 }
 
-interface Todo {
+
+export interface TableRow {
     id: number;
-    text: string;
-    completed: boolean;
+    fullname: string;
+    location: string;
+    age: number;
+    is_admin:boolean;
 }
   
-export interface TodoState {
-    todos: Todo[];
+export interface tableState {
+    data: TableRow[];
 }
 
 

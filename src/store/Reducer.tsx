@@ -2,27 +2,23 @@ import { combineReducers,ThunkAction,Action} from '@reduxjs/toolkit';
 
 
 
-import counterReducer from './counterSlice';
-import todoReducer    from './todoSlice';
-import bookReducer    from './bookSlice';
-import cartReducer    from './cartSlice';
-import titleReducer   from './titleSlice';
-import loginSlice     from './loginSlice';
+import counterReducer from './slice/counter';
+import tableReducer   from './slice/table';
+import bookReducer    from './slice/book';
+import cartReducer    from './slice/cart';
+import titleReducer   from './slice/title';
+import loginSlice     from './slice/login';
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
-  todos: todoReducer,
-  books: bookReducer,
-  cart: cartReducer,
-  title:titleReducer,
-  auth:loginSlice
+  counter :counterReducer,
+  table   :tableReducer,
+  books   :bookReducer,
+  cart    :cartReducer,
+  title   :titleReducer,
+  auth    :loginSlice
 });
 
-
-
 export type RootState = ReturnType<typeof rootReducer>;
-
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>;
-
 export default rootReducer;
 

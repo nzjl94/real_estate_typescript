@@ -4,7 +4,16 @@ import React from 'react';
 
 const Test: React.FC = () => {
 
+  // const handleAddTodo = () => {
+  //   if (inputValue.trim() !== '') {
+  //     dispatch(addTodo(inputValue.trim()));
+  //     setInputValue('');
+  //   }
+  // };
 
+  // const handleToggleTodo = (id: number) => {
+  //   dispatch(toggleTodo(id));
+  // };
 
   return (
     <div>
