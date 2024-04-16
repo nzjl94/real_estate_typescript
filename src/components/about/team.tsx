@@ -1,10 +1,10 @@
-import { MouseEvent, useState, useEffect} from "react";
-import styled,{ useTheme } from "styled-components";
+import { MouseEvent} 			from "react";
+import styled,{ useTheme } 		from "styled-components";
 
-import TEXT_1 from "../ui/TEXT_ELEMENT"
-import {getAPIData} from '../../utility/API';
-import IMG from "../ui/IMAGE";
-import {API_DATA_1}  from '../../utility/typeApp';
+import IMG 						from "../ui/IMAGE";
+import TEXT_1 					from "../ui/TEXT_ELEMENT"
+import {API_DATA_1}  			from '../../utility/typeApp';
+import useFetch, {FetchData}  	from '../../utility/customHook/API';
 
 
 const Container = styled.div``;
@@ -12,20 +12,14 @@ const Container = styled.div``;
 const Team= () => {
   	const theme = useTheme();
 
-	
-	const [data, setData] = useState<API_DATA_1>({
-		title:{},
-		sections:[]
-	})
+	const { data,success}: FetchData<API_DATA_1> = useFetch <API_DATA_1>('realestate/about/team',{title:{},sections:[]});
+
 	const teamTwitterButton=(event:MouseEvent<HTMLButtonElement>)=>{
 		console.log("Twitter",event)
 	}
 	const teamTelegramButton=(event:MouseEvent<HTMLButtonElement>)=>{
 		console.log("Telegram",event)
 	}
-	useEffect( () => {
-		getAPIData('realestate/about/team',setData)
-	}, [])
 	return (
 		<Container className="grid grid-flow-row gap-y-[60px]">
 			<div className="grid content-center">

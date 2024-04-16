@@ -1,17 +1,14 @@
-import { useState, useEffect,MouseEvent} from "react";
-import styled,{ useTheme } from "styled-components";
+import { MouseEvent} 								from "react";
+import styled,{ useTheme } 							from "styled-components";
+import { useSelector,useDispatch }					from 'react-redux';
 
-import { useSelector,useDispatch } from 'react-redux';
-import { selectTitleData,addEditTitle,removeTitle} from '../../store/slice/title';
-
-import {indTitle} from '../../utility/typeStore';
-
-import HEADER from "../ui/HEADER";
-import TEXT_1 from "../ui/TEXT_ELEMENT"
-import {getAPIData} from '../../utility/API';
-import IMG from "../ui/IMAGE";
-import {API_DATA_3}  from '../../utility/typeApp';
-
+import HEADER 										from "../ui/HEADER";
+import TEXT_1 										from "../ui/TEXT_ELEMENT"
+import IMG 											from "../ui/IMAGE";
+import {indTitle} 									from '../../utility/typeStore';
+import {API_DATA_3}  								from '../../utility/typeApp';
+import useFetch, {FetchData}  						from '../../utility/customHook/API';
+import { selectTitleData,addEditTitle,removeTitle} 	from '../../store/slice/title';
 
 const Container = styled.div``;
 const Content = styled.div`${({theme}) => `
@@ -35,8 +32,8 @@ export default () => {
 
   	const theme = useTheme();
 	
-  	const [data, setData] = useState<API_DATA_3>({title:{},sections:[]})
-  
+  	const { data,success}: FetchData<API_DATA_3> = useFetch <API_DATA_3>('realestate/about/client',{title:{},sections:[]});
+
 	const visitWebsiteButton=(event:MouseEvent<HTMLButtonElement>,url:string)=>{
 		//dispatch(addEditTitle({
 		//	id:"about_client",
@@ -44,9 +41,6 @@ export default () => {
 		//}))
 		// dispatch(removeTitle("existingKey"))
 	}
-	useEffect( () => {
-		getAPIData('realestate/about/client',setData)
-	}, [])
 	return (
 		<Container className="grid grid-flow-row gap-y-[60px]"> 
 		<HEADER title={title} content={content} />

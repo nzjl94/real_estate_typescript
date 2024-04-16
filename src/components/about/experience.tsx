@@ -1,9 +1,9 @@
-import { useState, useEffect} from "react";
-import styled,{ useTheme } from "styled-components";
+import { useState}            from "react";
+import styled,{ useTheme }    from "styled-components";
 
-import HEADER from "../ui/HEADER";
-import TEXT_1 from "../ui/TEXT_ELEMENT"
-import {getAPIData} from '../../utility/API';
+import HEADER                 from "../ui/HEADER";
+import TEXT_1                 from "../ui/TEXT_ELEMENT"
+import useFetch, {FetchData}  from '../../utility/customHook/API';
 
 const ExperienceContainer=styled.div``;
 const ElementWrapper = styled.div`
@@ -23,15 +23,14 @@ const ElementWrapper = styled.div`
   }
 `;
 const Experience = () => {
-  const [data, setData] = useState([])
+  const { data,success}: FetchData<[]> = useFetch <[]>('realestate/about/experience',[]);
+
   const [headerData, setDeaderData] = useState({
     title:"Navigating the Estatein Experience",
     content:"At Estatein, we've designed a straightforward process to help you find and purchase your dream property with ease. Here's a step-by-step guide to how it all works."
   })
   const theme = useTheme();
-  useEffect( () => {
-    getAPIData('realestate/about/experience',setData)
-  }, [])
+
 
   return (
     <ExperienceContainer className="grid flex-col gap-10">

@@ -1,20 +1,7 @@
-"use client";
-
-import React, { useState, useEffect} from "react";
-
-import {getAPIData} from '../../utility/API';
 import HEADER from "../ui/HEADER"
 
-
-
 export default () => {
-//   const [data, setData] = useState({title:"",content:"",url:""})
 
-
-
-  useEffect( () => {
-    // getAPIData('about_start',setData)
-  }, [])
   return (
     <HEADER 
         title="Get in Touch with Estatein" 

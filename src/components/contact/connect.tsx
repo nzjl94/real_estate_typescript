@@ -1,16 +1,12 @@
-import React, { useState, useEffect} from "react";
-import styled,{ useTheme } from "styled-components";
-import { useForm,SubmitHandler } from 'react-hook-form';
+import styled,{ useTheme } 								from "styled-components";
+import { useForm,SubmitHandler } 						from 'react-hook-form';
 
-
-import HEADER from "../ui/HEADER"
-
-import {getAPIData,postAPIData} 	from '../../utility/API'
-import FormValidation 	from '../../utility/formValidation'
-import {onErrorAction} from "../../utility/eventAction"
-
-
-import {INPUT,RSELECT, TEXTAREA, CHECKBOX,SELECT,FILE} from "../ui/FORM"
+import HEADER 											from "../ui/HEADER"
+import FormValidation 									from '../../utility/formValidation'
+import {onErrorAction} 									from "../../utility/eventAction"
+import {INPUT,RSELECT, TEXTAREA, CHECKBOX,SELECT,FILE} 	from "../ui/FORM"
+import useFetch, {FetchData,postAPIData}  				from '../../utility/customHook/API';
+import {OBJECT_1}										from "../../utility/typeApp"
 
 
 const Container=styled.div`${({theme}) => ``}`;
@@ -19,7 +15,8 @@ const FormContainer=styled.div`${({theme}) => ``}`;
 export default () => {
 
 	const theme = useTheme();
-	const [data, setData] = useState<{[key: string]:string}>({})
+
+	const { data,success}: FetchData<OBJECT_1> = useFetch <OBJECT_1>('realestate/contact/connect',{});
 
 	const {register,handleSubmit,formState: { errors },setValue,reset,control,getValues} = useForm({
 		defaultValues: {
@@ -41,12 +38,10 @@ export default () => {
 		// availabilityDate:string;
 		//roomNumber:number;
 	}
-
 	const onSubmit: SubmitHandler<FORM_TYPE> = async (data) => {		
 		postAPIData('realestate/contact/store',formPrepare(data)) //data or getValues()
 		// reset()
 	};
-
 	const formPrepare=(formData:FORM_TYPE)=>{
 		const preData = new FormData();
 
@@ -62,12 +57,6 @@ export default () => {
 
 		return preData
 	}
-	useEffect( () => {
-
-		
-		// getAPIData('realestate/page/title',()=>{})
-		getAPIData('realestate/contact/connect',setData)
-	}, [])
 
   return (
 	<Container className="flex flex-col gap-[80px]">

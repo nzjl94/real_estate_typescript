@@ -89,3 +89,9 @@ export interface API_DATA_3 {
     title: OBJECT_1,
     sections: Array<{[key: string]:OBJECT_1}>
 }
+
+export interface API_DATA_4 {
+    title:string;
+    content:string;
+    url:string;
+}

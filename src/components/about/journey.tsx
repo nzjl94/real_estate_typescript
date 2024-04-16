@@ -1,25 +1,17 @@
-import { useState, useEffect} from "react";
-import styled,{ useTheme } from "styled-components";
-
-import TEXT_1 from "../ui/TEXT_ELEMENT"
+import styled,{ useTheme }    from "styled-components";
+import TEXT_1                 from "../ui/TEXT_ELEMENT"
 // This approch it work only if the files inside [src] but does not work when they inside [public]
-import profilePic from '../../image/about/journey/title.png'
-import {getAPIData} from '../../utility/API'
-
-import {API_DATA_2}  from '../../utility/typeApp';
-
+import profilePic             from '../../image/about/journey/title.png'
+import {API_DATA_2}           from '../../utility/typeApp';
+import useFetch, {FetchData}  from '../../utility/customHook/API';
 
 
 const Container = styled.div``;
 
 export default () => {
   const theme = useTheme();
+  const { data,success}: FetchData<API_DATA_2> = useFetch <API_DATA_2>('realestate/about/journey',{title:{},sections:[]});
 
-
-  const [data, setData] = useState<API_DATA_2>({title:{},sections:[]})
-  useEffect( () => {
-    getAPIData('realestate/about/journey',setData)
-  }, [])
   return (
     <Container className="grid grid-cols-7 gap-6">
         <div className="col-span-4 flex flex-col justify-around">

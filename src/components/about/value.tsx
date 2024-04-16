@@ -1,11 +1,9 @@
-import { useState, useEffect} from "react";
-import styled,{ useTheme } from "styled-components";
+import styled,{ useTheme }    from "styled-components";
 
-import IMG from "../ui/IMAGE";
-import TEXT_1 from "../ui/TEXT_ELEMENT"
-import {getAPIData} from '../../utility/API';
-
-import {API_DATA_1}  from '../../utility/typeApp';
+import IMG                    from "../ui/IMAGE";
+import TEXT_1                 from "../ui/TEXT_ELEMENT"
+import {API_DATA_1}           from '../../utility/typeApp';
+import useFetch, {FetchData}  from '../../utility/customHook/API';
 
 const Content=styled.div``;
 const Container = styled.div`${({theme}) => `
@@ -16,10 +14,7 @@ const Container = styled.div`${({theme}) => `
 
 export default () => {
   const theme = useTheme();
-  const [data, setData] = useState<API_DATA_1>({title:{},sections:[]})
-  useEffect( () => {
-    getAPIData('realestate/about/value',setData)
-  }, [])
+  const { data,success}: FetchData<API_DATA_1> = useFetch <API_DATA_1>('realestate/about/value',{title:{},sections:[]});
 
   return (
     <Container className="grid grid-cols-3 gap-10">
