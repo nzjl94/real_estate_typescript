@@ -1,3 +1,5 @@
+import {useEffect } from 'react';
+
 import styled,{ useTheme } 								from "styled-components";
 import { useForm,SubmitHandler } 						from 'react-hook-form';
 
@@ -5,7 +7,7 @@ import HEADER 											from "../ui/HEADER"
 import FormValidation 									from '../../utility/formValidation'
 import {onErrorAction} 									from "../../utility/eventAction"
 import {INPUT,RSELECT, TEXTAREA, CHECKBOX,SELECT,FILE} 	from "../ui/FORM"
-import useFetch, {FetchData,postAPIData}  				from '../../utility/customHook/API';
+import useFetch, {FetchData,usePostAPI}  				from '../../utility/customHook/API';
 import {OBJECT_1}										from "../../utility/typeApp"
 
 
@@ -17,6 +19,12 @@ export default () => {
 	const theme = useTheme();
 
 	const { data,success}: FetchData<OBJECT_1> = useFetch <OBJECT_1>('realestate/contact/connect',{});
+	const { loading, error, response, postData } = usePostAPI();
+
+	useEffect(()=>{
+		console.log('Data successfully posted:', response);
+	},[response])
+
 
 	const {register,handleSubmit,formState: { errors },setValue,reset,control,getValues} = useForm({
 		defaultValues: {
@@ -38,9 +46,19 @@ export default () => {
 		// availabilityDate:string;
 		//roomNumber:number;
 	}
-	const onSubmit: SubmitHandler<FORM_TYPE> = async (data) => {		
-		postAPIData('realestate/contact/store',formPrepare(data)) //data or getValues()
+	const onSubmit: SubmitHandler<FORM_TYPE> = async (form_data) => {		
+		// const post_data=await postAPIData('realestate/contact/store',formPrepare(data)) //data or getValues()
+		// const { data:postData,success:postSuccess}: Record<string, any>  = usePostFetch ('realestate/contact/store',form_data);
+
+		// console.log(postData,postSuccess)
 		// reset()
+
+		try {
+			//you can catch the response in useEffect
+			await postData('realestate/contact/store',form_data);
+		} catch (err) {
+			// Handle error
+		}
 	};
 	const formPrepare=(formData:FORM_TYPE)=>{
 		const preData = new FormData();
