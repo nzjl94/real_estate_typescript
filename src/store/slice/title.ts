@@ -1,9 +1,10 @@
-import { createSlice, createAsyncThunk,PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createSelector,createAsyncThunk,PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../Reducer';
 
-import {titleInitialState}  from "../initialStore"
-import {singleTitle}        from "../../utility/typeStore"
-import {TEXT_PARAGRAPH}     from "../../utility/typeApp"
+import {titleInitialState}    from "../initialStore"
+import {singleTitle,indTitle} from "../../utility/typeStore"
+import {TEXT_PARAGRAPH}       from "../../utility/typeApp"
+
 
 import {resetAll} from "../Actions"
 
@@ -43,6 +44,10 @@ const dataSlice = createSlice({
       }, {} as Record<string, TEXT_PARAGRAPH>);      
       // Object.keys(state.data).filter((key) => key !== action.payload);
     },
+    getTitle: (state,action:PayloadAction<string>)=>{
+      const itemIdToRemove = action.payload;
+      // state.data = Object.keys(state.data).map()
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -64,10 +69,23 @@ const dataSlice = createSlice({
 
 });
 
+
+export const getSingleTitle = createSelector(
+  [
+    (state: RootState) => state.title.data,
+    (state: RootState, sectionId: string) => sectionId
+  ], 
+  (data:indTitle, sectionId:string) => {
+    // Should handle wrong [sectionId]
+    // console.log(data)
+    return data[sectionId]
+  }
+);
+
 export const { addEditTitle,removeTitle} = dataSlice.actions;
 
 export const selectTitle       = (state: RootState) => state.title;
-export const selectTitleData  = (state: RootState) => state.title.data;
+export const selectTitleData   = (state: RootState) => state.title.data;
 // export const selectLoading  = (state: RootState) => state.title.loading;
 // export const selectError    = (state: RootState) => state.title.error;
 

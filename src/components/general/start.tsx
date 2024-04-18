@@ -14,7 +14,7 @@ export default () => {
 	}
   return (
     <ExploreAction.Provider value={visitWebsiteButton(data.url)}>
-      <GEN_Component text_1={"Since "+data.title} text_2={data.content} buttonText={"Explore Properties"} />
+      <GEN_Component text_1={data.title} text_2={data.content} buttonText={"Explore Properties"} />
     </ExploreAction.Provider>
   );
 };

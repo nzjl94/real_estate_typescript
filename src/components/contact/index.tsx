@@ -4,7 +4,8 @@ import styled,{ useTheme } from "styled-components";
 import Connect from "./connect";
 import Explore from "./explore";
 import Contact from "./contact";
-import Start from "./start";
+import Start from "../general/start";
+
 import Theme from "../general/theme";
 import HEADER from "../ui/HEADER"
 

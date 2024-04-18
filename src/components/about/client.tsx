@@ -8,7 +8,8 @@ import IMG 											from "../ui/IMAGE";
 import {indTitle} 									from '../../utility/typeStore';
 import {API_DATA_3}  								from '../../utility/typeApp';
 import useFetch, {FetchData}  						from '../../utility/customHook/API';
-import { selectTitleData,addEditTitle,removeTitle} 	from '../../store/slice/title';
+import { selectTitleData} 							from '../../store/slice/title';
+
 
 const Container = styled.div``;
 const Content = styled.div`${({theme}) => `

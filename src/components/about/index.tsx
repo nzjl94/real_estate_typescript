@@ -6,7 +6,7 @@ import Value from "./value";
 import Journey from "./journey";
 import Team from "./team";
 import Client from "./client";
-import Start from "./start";
+import Start from "../general/start";
 import Theme from "../general/theme";
 
 const Content=styled.div``;
