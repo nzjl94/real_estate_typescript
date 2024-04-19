@@ -33,10 +33,10 @@ const Team= () => {
 						<div className="relative">
 							<img  src={icon} width={0} height={0} sizes="100%" className="h-auto w-full" /> 
 							<button 
-							className="bg-purple-1 rounded-[43px] absolute -bottom-[24px] left-[50%] -translate-x-[50%] z-10 buttonStyle px-[20px] py-[12px]"
-							onClick={teamTwitterButton}
+								className="bg-purple-1 rounded-[43px] absolute -bottom-[24px] left-[50%] -translate-x-[50%] z-10 buttonStyle px-[20px] py-[12px]"
+								onClick={teamTwitterButton}
 							>
-							<IMG width={24} height={24} path="/image/about/team/Icon_2.svg" activeBorder={false} />
+								<IMG width={24} height={24} path="/image/about/team/Icon_2.svg" activeBorder={false} />
 							</button>
 						</div>      
 						<div className="mt-[50px]">

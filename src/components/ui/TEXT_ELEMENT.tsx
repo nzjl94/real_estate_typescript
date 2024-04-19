@@ -12,7 +12,14 @@ const Element = styled.h1<TEXT_STYLE_1>`${({theme,fontSize,fontStyle,fontWeight,
 
 
 export default ({text,fontSize,fontStyle,fontWeight,lineHeight,color,className=""}: TEXT_STYLE_2) => (
-    <Element fontSize={fontSize} fontStyle={fontStyle} fontWeight={fontWeight} lineHeight={lineHeight} color={color} className={className}>
+    <Element 
+        fontSize={fontSize} 
+        fontStyle={fontStyle} 
+        fontWeight={fontWeight} 
+        lineHeight={lineHeight} 
+        color={color} 
+        className={className}
+    >
         {text}
     </Element>
 );

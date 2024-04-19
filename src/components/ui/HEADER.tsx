@@ -12,8 +12,8 @@ const HEADER= ({title,content,parentClass=""}:HEADER_TYPE) => {
     const theme = useTheme();
     return (
       <MainWrapper className={parentClass} >
-            <TEXT_1 text={title} />
-            <TEXT_1 text={content} fontSize={"18px"} color={theme.colors.gray1} fontWeight={500}  />
+            <TEXT_1 text={title} className="text-left" />
+            <TEXT_1 text={content} className="text-left" fontSize={"18px"} color={theme.colors.gray1} fontWeight={500}  />
       </MainWrapper>
     );
 };
