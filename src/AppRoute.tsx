@@ -28,7 +28,6 @@ const AppRoute = () => {
             { path: '/property',    element: <Property /> },
             { path: '/service',     element: <Service /> },
             { path: '/contact',     element: <Contact /> },
-            { path: '/service',     element: <Service /> },
             {
                 path: '/about',
                 element: isAuthenticated ?(<PrivateRoute> <About /> </PrivateRoute>):(<Navigate to="/login" replace />)

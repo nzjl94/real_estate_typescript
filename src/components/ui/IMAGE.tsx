@@ -2,11 +2,23 @@ import styled from "styled-components";
 import {IMAGE_TYPE,IMAGE_TYPE_2} from '../../utility/typeApp';
 
 const MainWrapper=styled.div<IMAGE_TYPE>`
-    ${({ activeBorder }) => activeBorder && `
+    ${({ activeBorder }) => activeBorder ? `
         border-radius: 50%;
         border: 1px solid var(--Purple-60, #703BF7);
         padding: 20px;
-    `}
+    `:`
+        //border-radius: 50%;
+        //border: 1px solid ;
+        //border-image: linear-gradient(
+        //    to right, 
+        //    rgba(166, 133, 250, 1), 
+        //    rgba(166, 133, 250, 0),
+        //    rgba(166, 133, 250, 1), 
+        //    rgba(166, 133, 250, 0)
+        //);
+        //padding: 10px;
+    `
+    }
 `;
 const IMAGE= ({width,height,path,activeBorder=true,parentClass=""}: IMAGE_TYPE_2) => {
     return (<>
