@@ -1,5 +1,5 @@
 import styled,{ useTheme }    from "styled-components";
-import TEXT_1                 from "../ui/TEXT_ELEMENT"
+import TEXT_1                 from "../ui/TEXT"
 // This approch it work only if the files inside [src] but does not work when they inside [public]
 import profilePic             from '../../image/about/journey/title.png'
 import {API_DATA_2}           from '../../utility/typeApp';

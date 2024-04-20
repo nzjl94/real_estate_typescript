@@ -3,7 +3,7 @@ import styled,{ useTheme } 							from "styled-components";
 import { useSelector,useDispatch }					from 'react-redux';
 
 import HEADER 										from "../ui/HEADER";
-import TEXT_1 										from "../ui/TEXT_ELEMENT"
+import TEXT_1 										from "../ui/TEXT"
 import IMG 											from "../ui/IMAGE";
 import {indTitle} 									from '../../utility/typeStore';
 import {API_DATA_3}  								from '../../utility/typeApp';

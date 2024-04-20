@@ -7,20 +7,16 @@ import { useSelector }      from 'react-redux';
 import HEADER               from "../ui/HEADER"
 import styled               from "styled-components";
 import IMG                  from "../ui/IMAGE";
+import TEXT                 from "../ui/TEXT"
 
 
-const Experience = () => {
 
-    type data_type= Array<{
-        text:string;
-        icon:string;
-    }>
-    const data:data_type =[
-        {"text":"Find Your Dream Home"                  ,"icon":"/image/service/service10.svg"},
-        {"text":"Unlock Property Value"                 ,"icon":"/image/service/service12.svg"},
-        {"text":"Effortless Property Management"        ,"icon":"/image/service/service13.svg"},
-        {"text":"Smart Investments, Informed Decisions" ,"icon":"/image/service/service11.svg"}
-    ]
+interface COMPONENT_TYPE {
+    data:Array<{text:string;icon:string;}>
+}
+const Experience = ({data}:COMPONENT_TYPE) => {    
+    const imageSize : {[key: string]: number}={width:34,height:34
+    }
     const reDirectionButton = (event:React.MouseEvent<HTMLButtonElement, MouseEvent>,index:number)=>{
         console.log(event,index)
     }
@@ -49,17 +45,13 @@ const Experience = () => {
     
     return <>
         <HEADER title={title} content={content} />
-
         <Container className="my-[50px]">
             {data.map(({text,icon},index) => <Item key={index} className='relative' >
-            <button 
-					className="absolute top-[10px] right-[10px]"
-					onClick={(e)=>reDirectionButton(e,index)}
-			>
-                <IMG width={34} height={34} path="/image/service/direction.svg" parentClass="" activeBorder={false} />
-            </button> 
-                <IMG width={34} height={34} path={icon} activeBorder={true} />
-                {text}
+                <button className="absolute top-[10px] right-[10px]" onClick={(e)=>reDirectionButton(e,index)}>
+                    <IMG {...imageSize} activeBorder={false} path="/image/service/direction.svg"/>
+                </button> 
+                <IMG {...imageSize}     activeBorder={true}  path={icon} />
+                <TEXT text={text} fontSize="20px" />
             </Item>)}
         </Container>
     </>

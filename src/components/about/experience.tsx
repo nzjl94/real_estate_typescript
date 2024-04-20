@@ -2,7 +2,7 @@ import { useState}            from "react";
 import styled,{ useTheme }    from "styled-components";
 
 import HEADER                 from "../ui/HEADER";
-import TEXT_1                 from "../ui/TEXT_ELEMENT"
+import TEXT_1                 from "../ui/TEXT"
 import useFetch, {FetchData}  from '../../utility/customHook/API';
 
 const ExperienceContainer=styled.div``;

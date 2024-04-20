@@ -1,7 +1,7 @@
 import styled,{ useTheme }    from "styled-components";
 
 import IMG                    from "../ui/IMAGE";
-import TEXT_1                 from "../ui/TEXT_ELEMENT"
+import TEXT_1                 from "../ui/TEXT"
 import {API_DATA_1}           from '../../utility/typeApp';
 import useFetch, {FetchData}  from '../../utility/customHook/API';
 

@@ -4,7 +4,7 @@ import styled,{ useTheme } from "styled-components";
 import { HEADER_TYPE } from '../../utility/typeApp';
 
 
-import TEXT_1 from "./TEXT_ELEMENT"
+import TEXT_1 from "./TEXT"
 
 const MainWrapper=styled.div``;
 
