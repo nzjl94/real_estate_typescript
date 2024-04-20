@@ -19,6 +19,11 @@ export interface TEXT_STYLE_2 extends TEXT_PROPS{
     className?: string;
 }
 
+export interface TEXT_STYLE_3{
+    theme:DefaultTheme;
+    background?:string;
+}
+
 
 interface INPUT_FIELD_1 {
     inputName:string;
@@ -94,4 +99,11 @@ export interface API_DATA_4 {
     title:string;
     content:string;
     url:string;
+}
+
+export interface SERVICE_TYPE {
+    data:Array<{
+        title?:string;
+        text:string;
+        icon?:string;}>
 }

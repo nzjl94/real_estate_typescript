@@ -16,13 +16,14 @@ const Service: React.FC = () => {
 		experience:any;
 		value:any;
 		management:any;
+		investment:any;
 	}
-	const { data,success}: FetchData<DATA_TYPE> = useFetch <DATA_TYPE>('realestate/service/detail',{});
+	const { data:{experience,value:s_value,management,investment},success}: FetchData<DATA_TYPE> = useFetch <DATA_TYPE>('realestate/service/detail',{});
 	return (success ? <Theme>
-		<Experience data={data.experience} />
-		<Value 		data={data.value} />
-		<Management data={data.management} />
-		<Investment />
+		<Experience data={experience} />
+		<Value 		data={s_value} />
+		<Management data={management} />
+		<Investment data={investment} />
 		<Start />
 	</Theme>:<></>)
 }

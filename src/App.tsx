@@ -36,7 +36,7 @@ const App=() => {
     <div className="App">
       <Router>
         <Navbar />
-        <div className="flex min-h-screen flex-col items-center justify-between p-24 bg-black">
+        <div className="flex min-h-screen flex-col items-center justify-between bg-black">
           <AppRoute />
           
           {/* Dynamically adding the route */}

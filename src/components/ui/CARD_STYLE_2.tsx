@@ -6,7 +6,8 @@ import TEXT                 from "./TEXT"
 type COMPONET_TYPE={
     index:number;
     text:string;
-    title:string;
+    title?:string;
+    icon?:string;
     parentClass:string;
     action:(event:React.MouseEvent<HTMLButtonElement>)=>void
 }
@@ -18,7 +19,13 @@ const CARD_STYLE_2 = ({index,title,text,parentClass,action}:COMPONET_TYPE) => {
         align-items: center;
         border-radius: 12px;
         border: 1px solid ${theme.colors.gray2};
-        background: ${theme.colors.gray5};
+
+
+        background-image: url('/image/service/background.svg');
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+        background-color: ${theme.colors.gray5};
     `}`;
 
     const Button = styled.button`${({theme}) => `
