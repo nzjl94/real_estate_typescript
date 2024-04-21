@@ -1,29 +1,31 @@
 import styled from "styled-components";
 import {IMAGE_TYPE,IMAGE_TYPE_2} from '../../utility/typeApp';
 
-const MainWrapper=styled.div<IMAGE_TYPE>`
+
+const MainWrapperBase = styled.div `
+    .pag-button-normal {
+        filter: invert(0);
+    }
+    .pag-button-disable {
+        filter: invert(0.5);
+    }
+`
+const MainWrapper=styled(MainWrapperBase)<IMAGE_TYPE>`
     ${({ activeBorder }) => activeBorder ? `
         border-radius: 50%;
         border: 1px solid var(--Purple-60, #703BF7);
         padding: 14px;
-    `:`
-        //border-radius: 50%;
-        //border: 1px solid ;
-        //border-image: linear-gradient(
-        //    to right, 
-        //    rgba(166, 133, 250, 1), 
-        //    rgba(166, 133, 250, 0),
-        //    rgba(166, 133, 250, 1), 
-        //    rgba(166, 133, 250, 0)
-        //);
-        //padding: 10px;
-    `
+    `:``
     }
 `;
-const IMAGE= ({width,height,path,activeBorder=true,parentClass="w-fit"}: IMAGE_TYPE_2) => {
+
+const Image=styled.img``
+
+
+const IMAGE= ({width,height,path,activeBorder=true,parentClass="w-fit",eleClass=""}: IMAGE_TYPE_2) => {
     return (<>
         <MainWrapper className={parentClass} activeBorder={activeBorder}>
-            <img src={path} alt="Vercel Logo" className="image" width={width}  height={height}  />
+            <Image src={path} alt="Vercel Logo" className={`image ${eleClass}`} width={width}  height={height} />
         </MainWrapper>
     </>);
 };

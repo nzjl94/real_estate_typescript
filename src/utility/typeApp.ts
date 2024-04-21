@@ -65,11 +65,12 @@ export interface IMAGE_TYPE {
     activeBorder:boolean
 }
 export interface IMAGE_TYPE_2 {
-    width?: number,
-    height?: number,
-    path?: string,
-    activeBorder?: boolean,
-    parentClass?: string
+    width?: number;
+    height?: number;
+    path?: string;
+    activeBorder?: boolean;
+    parentClass?: string;
+    eleClass?:string;
 }
 export interface HEADER_TYPE {
     [key: string]: string | undefined
