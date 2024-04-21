@@ -5,15 +5,13 @@ import IMG 						from "../ui/IMAGE";
 import TEXT_1 					from "../ui/TEXT"
 import {API_DATA_1}  			from '../../utility/typeApp';
 import useFetch, {FetchData}  	from '../../utility/customHook/API';
-
+import HEADER               	from "../ui/HEADER"
 
 const Container = styled.div``;
 
 const Team= () => {
   	const theme = useTheme();
-
 	const { data,success}: FetchData<API_DATA_1> = useFetch <API_DATA_1>('realestate/about/team',{title:{},sections:[]});
-
 	const teamTwitterButton=(event:MouseEvent<HTMLButtonElement>)=>{
 		console.log("Twitter",event)
 	}
@@ -22,10 +20,7 @@ const Team= () => {
 	}
 	return (
 		<Container className="grid grid-flow-row gap-y-[60px]">
-			<div className="grid content-center">
-				<TEXT_1 text={data.title?.title} fontSize={"38px"} className="" />
-				<TEXT_1 text={data.title?.content} fontSize={"16px"} color={theme.colors.gray1} fontWeight={500} className="" />
-			</div>
+			<HEADER title={data.title?.title} content={data.title?.content} />
 			<div className="grid grid-flow-row grid-cols-4 gap-x-2" >
 				{data.sections.map(({title,subtitle,icon},index) => {
 				return (

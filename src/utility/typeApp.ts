@@ -18,13 +18,10 @@ export interface TEXT_STYLE_2 extends TEXT_PROPS{
     text?: string;
     className?: string;
 }
-
 export interface TEXT_STYLE_3{
     theme:DefaultTheme;
     background?:string;
 }
-
-
 interface INPUT_FIELD_1 {
     inputName:string;
     inputLabel:string;
@@ -77,14 +74,18 @@ export interface IMAGE_TYPE_2 {
 export interface HEADER_TYPE {
     [key: string]: string | undefined
 }
-export interface API_DATA_1 {
-    title: OBJECT_1,
-    sections: OBJECT_1[] //Array<OBJECT_1>
+export interface HEADER_TYPE_2 {
+    title:string;
+    content:string;
+    parentClass?:string;
 }
-
 export interface TEXT_PARAGRAPH {
     title: string;
     content: string;
+}
+export interface API_DATA_1 {
+    title: OBJECT_1,
+    sections: OBJECT_1[] //Array<OBJECT_1>
 }
 export interface API_DATA_2 {
     title: OBJECT_1,
@@ -94,16 +95,16 @@ export interface API_DATA_3 {
     title: OBJECT_1,
     sections: Array<{[key: string]:OBJECT_1}>
 }
-
 export interface API_DATA_4 {
     title:string;
     content:string;
     url:string;
 }
-
+export interface API_DATA_5 {
+    title?:string;
+    text:string;
+    icon?:string;
+}
 export interface SERVICE_TYPE {
-    data:Array<{
-        title?:string;
-        text:string;
-        icon?:string;}>
+    data:Array<API_DATA_5>
 }

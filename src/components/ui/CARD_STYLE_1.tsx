@@ -1,30 +1,23 @@
 import React                from 'react'
 
 
-import { TEXT_STYLE_3}      from '../../utility/typeApp';
+import {TEXT_STYLE_3,API_DATA_5}    from '../../utility/typeApp';
 
-import styled,{ useTheme }  from "styled-components"
-import TEXT                 from "./TEXT"
-import IMG                  from "../ui/IMAGE"
+import styled,{ useTheme }          from "styled-components"
+import TEXT                         from "./TEXT"
+import IMG                          from "../ui/IMAGE"
+import {CardStyle1}                 from "../../utility/styleApp"
 
-
-type COMPONET_TYPE={
+interface COMPONET_TYPE extends API_DATA_5{
     index:number;
-    text:string;
     background?:string;
-    title?:string;
-    icon?:string;
 }
-
 
 const CARD_STYLE_1 = ({index,icon,title,text,background}:COMPONET_TYPE) => {
 
     const theme = useTheme();
 
-    const Item = styled.div<TEXT_STYLE_3>`${({theme,background}) => `
-        align-items: center;
-        border-radius: 12px;
-        border: 1px solid ${theme.colors.gray2};
+    const Item = styled(CardStyle1)<TEXT_STYLE_3>`${({theme,background}) => `
         background: ${background!==undefined?background:theme.colors.gray5};
     `}`;
     const TEXT_STYLE={
