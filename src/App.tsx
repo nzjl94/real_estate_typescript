@@ -13,6 +13,7 @@ import GlobalStyle from './globalStyles';
 
 import AppRoute from "./AppRoute"
 import Navbar from './components/general/navbar';
+import Footer from './components/footer';
 
 import { AppDispatch }              from './store/index';
 import { fetchData, selectTitle}    from './store/slice/title';
@@ -50,6 +51,7 @@ const App=() => {
             {['/', '/home'].map(path => <Route path={path} element={<Home />} />)}
             <Route path="/property" element={<Property />} />
           </Routes> */}
+          <Footer />
         </div>
       </Router>
     </div>
