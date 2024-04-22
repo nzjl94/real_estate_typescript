@@ -4,6 +4,9 @@ import styled,{useTheme}  from "styled-components";
 import TEXT               from "../ui/TEXT"
 import IMG                from "../ui/IMAGE"
 
+import {Link}         from 'react-router-dom';
+
+
 
 const Container = styled.div `
   padding: 100px 162px;
@@ -35,11 +38,11 @@ const Detail = () => {
       {text:"Categories",plink:""}
     ],
     "Services":[
-      {text:"Valuation Mastery",plink:""},
-      {text:"Strategic Marketing",plink:""},
-      {text:"Negotiation Wizardry",plink:""},
-      {text:"Closing Success",plink:""},
-      {text:"Property Management",plink:""}
+      {text:"Valuation Mastery",plink:"/service#service_experience"},
+      {text:"Strategic Marketing",plink:"/service#service_value"},
+      {text:"Negotiation Wizardry",plink:"/service#service_management"},
+      {text:"Closing Success",plink:"/service#service_investment"},
+      {text:"Property Management",plink:"/service#service_start"}
     ],
     "Contact Us":[
       {text:"Contact Form",plink:""},
@@ -57,7 +60,7 @@ const Detail = () => {
       <div className='grid grid-flow-col justify-between col-span-2'>{
         Object.keys(pageLinks).map((key)=>(<div className="grid grid-flow-row gap-y-[20px] content-start"> 
           {<TEXT {...TEXT_PARAM(theme.colors.gray1,"20px","pb-[10px]")} text={key}/>}
-          {pageLinks[key].map(({text,plink},index)=><TEXT {...TEXT_PARAM()} text={text}/>)}
+          {pageLinks[key].map(({text,plink},index)=><Link to={plink} >{<TEXT {...TEXT_PARAM()} text={text}/>}</Link>)}
         </div>)) 
       }</div>
   </Container>

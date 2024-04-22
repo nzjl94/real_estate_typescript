@@ -3,7 +3,7 @@ import { ExploreAction }      from '../../store/Context';
 import {API_DATA_4}           from "../../utility/typeApp"
 import useFetch, {FetchData}  from '../../utility/customHook/API';
 
-export default () => {
+export default (props:{id?:string}) => {
 
   const { data,success}: FetchData<API_DATA_4> = useFetch <API_DATA_4>('realestate/about/start',{title:"",content:"",url:""});
 
@@ -12,9 +12,9 @@ export default () => {
 	const visitWebsiteButton:visitWebsiteType  = (parameter) => (e) => {
 		console.log(`About Us ${parameter}`)
 	}
-  return (
+  return <div id={props.id!==undefined?props.id:""}>
     <ExploreAction.Provider value={visitWebsiteButton(data.url)}>
       <GEN_Component text_1={data.title} text_2={data.content} buttonText={"Explore Properties"} />
     </ExploreAction.Provider>
-  );
+  </div>
 };

@@ -30,7 +30,7 @@ const Experience = ({data}:SERVICE_TYPE) => {
     const {title,content} = useSelector((state: RootState) => getSingleTitle(state, "service_experience"));
 
     
-    return <Component>
+    return <Component id="service_experience">
         <HEADER title={title} content={content} parentClass="py-[100px] pl-[80px]" backgroundStyle={BackgroundStyle1}/>
         <Container className="grid grid-flow-row grid-cols-4 items-stretch gap-x-[10px] p-[10px]">
             {data.map(({text,icon},index) => <Item key={index} className='grid grid-flow-row grid-cols-1 place-items-center gap-y-[16px] relative' >

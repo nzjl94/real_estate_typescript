@@ -7,6 +7,7 @@ import Management 				from "./management"
 import Investment 				from "./investment"
 import Start 					from "../general/start";
 
+import HashLink 				from '../general/hashLink';
 import useFetch, {FetchData}  	from '../../utility/customHook/API';
 
 
@@ -24,7 +25,9 @@ const Service: React.FC = () => {
 		<Value 		data={s_value} />
 		<Management data={management} />
 		<Investment data={investment} />
-		<Start />
+		<Start id="service_start" />
+        <HashLink />
+
 	</Theme>:<></>)
 }
 

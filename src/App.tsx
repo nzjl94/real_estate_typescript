@@ -36,6 +36,7 @@ const App=() => {
     <GlobalStyle />
     <div className="App">
       <Router>
+
         <Navbar />
         <div className="flex min-h-screen flex-col items-center justify-between bg-black">
           <AppRoute />

@@ -38,7 +38,7 @@ const Investment = ({data}:SERVICE_TYPE) => {
         fontWeight:theme.fontWeight.m
     }
 
-    return <Component className='px-[162px]'>
+    return <Component className='px-[162px]' id="service_investment">
         <Container className="my-[120px] grid grid-flow-row grid-cols-3 gap-x-[50px]">
             <div className='grid grid-flow-row grid-cols-1 gap-y-[10px]'>
                 <div className='grid grid-flow-row grid-cols-1'>

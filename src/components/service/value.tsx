@@ -18,7 +18,7 @@ const Value = ({data}:SERVICE_TYPE) => {
     const Container = styled.div`${({theme}) => ``}`;
     
     const {title,content} = useSelector((state: RootState) => getSingleTitle(state, "service_value"));
-    return <Component className='px-[162px] pt-[120px]'>
+    return <Component className='px-[162px] pt-[120px]' id="service_value">
         <HEADER title={title} content={content} />
         <Container className="mt-[60px] grid grid-flow-row grid-cols-3  gap-[30px] items-stretch">{
             data.map((row,index) => data.length-1!==index? 
