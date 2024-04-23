@@ -10,7 +10,7 @@ const Element = styled.h1<TEXT_STYLE_1>`${({theme,fontSize,fontStyle,fontWeight,
         color: ${color !== undefined?color:theme.colors.white};
     `
 }}`;
-export default ({text,fontSize,fontStyle,fontWeight,lineHeight,color,className=""}: TEXT_STYLE_2) => (
+export default ({text,fontSize,fontStyle,fontWeight,lineHeight,color,className="text-left"}: TEXT_STYLE_2) => (
     <Element 
         fontSize={fontSize} 
         fontStyle={fontStyle} 

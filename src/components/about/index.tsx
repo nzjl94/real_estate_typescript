@@ -13,7 +13,7 @@ const Content=styled.div``;
 export default () => {
 
 	return (<Theme>
-		<Content className="grid flex-col gap-y-[150px] px-[80px] pb-[150px] ">
+		<Content className="grid gap-y-[150px] px-[160px] pb-[150px] ">
 			<Journey />
 			<Value />
 			<Achievement />

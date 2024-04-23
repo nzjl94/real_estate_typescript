@@ -2,7 +2,7 @@ import { useState}            from "react";
 import styled,{ useTheme }    from "styled-components";
 
 import HEADER                 from "../ui/HEADER";
-import TEXT_1                 from "../ui/TEXT"
+import TEXT                 from "../ui/TEXT"
 import useFetch, {FetchData}  from '../../utility/customHook/API';
 
 const Container = styled.div``;
@@ -23,12 +23,12 @@ export default () => {
   return (
     <Container className="grid flex-col gap-10">
       <HEADER title={headerData.title} content={headerData.content} />
-        <div className="grid grid-flow-row grid-cols-3  gap-x-7">
+        <div className="grid grid-flow-row grid-cols-3 gap-x-[40px]">
             {data.map(({title,content},index) => {
               return (
-                <TextContainer key={index} className="p-[30px] rounded-[12px] border-[1px] border-gray-1 bg-gray-2">
-                    <TEXT_1 text={title}   fontSize={"30px"} />
-                    <TEXT_1 text={content} fontSize={"18px"} color={theme.colors.gray1} fontWeight={500} />
+                <TextContainer key={index} className=" grid grid-flow-row gap-y-[30px] p-[50px] rounded-[12px] border-[1px] border-gray-1 bg-gray-2">
+                    <TEXT text={title}   fontSize={"30px"} />
+                    <TEXT text={content} fontSize={"18px"} color={theme.colors.gray1} fontWeight={500} />
                 </TextContainer>
               );
             })}

@@ -13,9 +13,9 @@ export default () => {
   const { data,success}: FetchData<API_DATA_2> = useFetch <API_DATA_2>('realestate/about/journey',{title:{},sections:[]});
 
   return (
-    <Container className="grid grid-cols-7 gap-6 mt-[150px]">
-        <div className="col-span-4 flex flex-col justify-around">
-            <div className="mainHeader">
+    <Container className="grid grid-cols-7 gap-x-[80px] mt-[100px]">
+        <div className="col-span-4 flex flex-col justify-around gap-y-[80px]">
+            <div className="">
                 <TEXT_1 text={data.title?.title} />
                 <TEXT_1 text={data.title?.content} fontSize={"18px"} color={theme.colors.gray1} />
             </div>
