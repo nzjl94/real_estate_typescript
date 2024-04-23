@@ -79,7 +79,7 @@ export default () => {
   return (
 	<Container className="flex flex-col gap-[80px]">
     	<HEADER title={data.title} content={data.content} />
-      	<FormContainer className="p-[100px] border-[1px] rounded-[12px] border-gray-1">
+      	<FormContainer className=" border-[1px] rounded-[12px] border-gray-1">
 			<form className="w-full" onSubmit={handleSubmit(onSubmit,(error)=>onErrorAction(error,"connect"))}  >
 				<div className="flex flex-wrap py-3">
 					<INPUT 
