@@ -5,7 +5,7 @@ import Theme 	from "../general/theme";
 
 
 import Property from "./property"
-import BookList from "./bookList"
+// import BookList from "./BookList"
 
 
 const Home: React.FC = () => {

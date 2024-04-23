@@ -13,11 +13,11 @@ const Content=styled.div``;
 
 export default () => (
 	<Theme>
-		<Content className="grid flex-col gap-20">
+		<Content className="grid gap-y-[150px] px-[160px] pb-[150px]">
 			<Contact />
 			<Connect /> 
 			<Explore />
-			<Start />
 		</Content>
+		<Start />
 	</Theme>
 );
