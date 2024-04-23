@@ -75,7 +75,6 @@ export default () => {
 
 		return preData
 	}
-
   return (
 	<Container className="flex flex-col gap-[80px]">
     	<HEADER title={data.title} content={data.content} />
