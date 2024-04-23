@@ -5,6 +5,10 @@ import TEXT               from "../ui/TEXT"
 import IMG                from "../ui/IMAGE"
 
 import {Link}         from 'react-router-dom';
+import {INPUT} 	      from "../ui/FORM"
+import { useForm } 		from 'react-hook-form';
+
+
 
 
 
@@ -55,8 +59,42 @@ const Detail = () => {
     className:`text-left ${className}`,
     color
   })
+  const {register,handleSubmit,formState: { errors },setValue,reset,control,getValues} = useForm({
+		defaultValues: {
+			email: "Niyaz",
+		}
+	});
   return <Container className='grid grid-flow-col w-full gap-x-[80px] grid-cols-3'>
-      <div>details 1</div>
+      <div className='grid grid-flow-row grid-cols-6 content-start gap-y-[30px] place-content-start'>
+        <div className='col-span-3'>
+          <Link to="/" className="text-2xl font-bold text-white flex justify-center items-center gap-4">
+            <IMG path="image/logo.svg" width={48} height={48} activeBorder={false} />
+            <TEXT fontSize={"32px"} text="Estatein"/>
+          </Link>
+        </div>
+        <div className="relative col-span-5">
+          <div className="absolute inset-y-0 left-0 flex items-center pl-[24px] pointer-events-none">
+            <img src="image/general/footer/message.svg" alt="Vercel Logo" className="w-[24px]" />
+          </div>
+          <input 
+            type="email" name="email" id="email"  placeholder="Enter Your Email" 
+            className="            
+              bg-black text-gray-700 pr-[24px] py-[18px] pl-[58px] text-[18px] border border-gray-1 rounded-[12px] w-full
+               focus:border-gray-1 outline-none
+            " 
+          />
+          <div className="absolute inset-y-0 right-0 flex items-center pr-[24px] pointer-events-none">
+            <img src="image/general/footer/send.svg" alt="Vercel Logo" className="w-[30px]" />
+          </div>
+        </div>
+
+        
+
+
+
+        
+        
+      </div>
       <div className='grid grid-flow-col justify-between col-span-2'>{
         Object.keys(pageLinks).map((key)=>(<div className="grid grid-flow-row gap-y-[20px] content-start"> 
           {<TEXT {...TEXT_PARAM(theme.colors.gray1,"20px","pb-[10px]")} text={key}/>}

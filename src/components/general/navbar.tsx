@@ -38,18 +38,10 @@ const Navbar: React.FC = () => {
     <>
       <header className="sm:px-8 px-4 py-2 z-10 w-full bg-gray-1">
         <nav className="flex justify-between items-center max-container">
-          <a
-            href="/"
-            className="text-2xl font-bold text-white flex justify-center items-center gap-4"
-          >
-            <IMG
-              path="image/logo.svg"
-              width={40}
-              height={40}
-              activeBorder={false}
-            />
+          <Link to="/" className="text-2xl font-bold text-white flex justify-center items-center gap-4">
+            <IMG path="image/logo.svg" width={40} height={40} activeBorder={false} />
             Estatein
-          </a>
+          </Link>
           <ul className="flex-1 flex justify-center items-center gap-16 max-lg:hidden">
             {navLinks.map((item) => 
                 <li key={item.label}>
