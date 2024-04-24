@@ -7,9 +7,8 @@ import {useNavigate}        from 'react-router-dom';
 import { ExploreAction }    from '../../store/Context';
 import GEN_Component        from "../ui/genComponent_1"
 import STAR                 from "../ui/STAR"
-import CardList             from "./cardList";
 
-const Property = () => {
+const Client = () => {
 
     const navigate = useNavigate();
 
@@ -20,9 +19,9 @@ const Property = () => {
 	}
 
     const data ={
-        title:"Featured Properties",
-        content:"Explore our handpicked selection of featured properties. Each listing offers a glimpse into exceptional homes and investments available through Estatein. Click 'View Details' for more information.",
-        buttonText:"View All Properties",
+        title:"What Our Clients Say",
+        content:"Read the success stories and heartfelt testimonials from our valued clients. Discover why they chose Estatein for their real estate needs.",
+        buttonText:"View All Testimonials",
         parentClass:"mb-[80px]",
         buttonClass:"bg-gray-1 border-gray-1"
     }
@@ -34,8 +33,7 @@ const Property = () => {
         <ExploreAction.Provider value={propertyAction()}>
             <GEN_Component {...data} />
         </ExploreAction.Provider>
-        <CardList />
     </Container>
         
 }
-export default Property
+export default Client
