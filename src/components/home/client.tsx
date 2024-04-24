@@ -29,7 +29,8 @@ const Client = () => {
     const Container = styled.div`${({theme}) => ``}`;
     
     return <Container className='px-[80px]   py-[75px] relative'>
-        <STAR left={"60px"} top={"50px"} />
+        <STAR parentClass={"top-[50px] left-[60px]"} />
+
         <ExploreAction.Provider value={propertyAction()}>
             <GEN_Component {...data} />
         </ExploreAction.Provider>
