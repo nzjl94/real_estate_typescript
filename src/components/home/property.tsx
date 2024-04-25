@@ -14,7 +14,6 @@ const Property = () => {
     const navigate = useNavigate();
 
     type propertyActionType = () => (e: React.MouseEvent) => void;
-
 	const propertyAction:propertyActionType  = () => (e) => {
 		navigate(`/property`)
 	}

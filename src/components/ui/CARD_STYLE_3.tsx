@@ -1,8 +1,9 @@
 import React                from 'react'
 
-import styled,{ useTheme }          from "styled-components"
-import TEXT                         from "./TEXT"
-import IMG                          from "./IMAGE"
+import styled,{ useTheme }  from "styled-components"
+import TEXT                 from "./TEXT"
+import BUTTON               from "./BUTTON"
+import IMG                  from "./IMAGE"
 
 interface COMPONET_TYPE{
     id:number;
@@ -19,18 +20,14 @@ interface COMPONET_TYPE{
 
 const CARD_STYLE_3 = ({id,image,title,content,detail,price}:COMPONET_TYPE) => {
 
+    type cardActionType = (e: React.MouseEvent,parameter: string) => void;
+	const cardAction:cardActionType  = (event,parameter) => {
+		console.log(event,`Hi ${parameter}`)
+	}
+
     const propertyDetail =(imgName:string,text:string)=>{
-        const imageProp={
-            width:21,
-            height:21,
-            activeBorder:false,
-            path:`/image/home/property/${imgName}.svg`
-        }
-        const textProp={
-            fontSize:"18px",
-            fontWeight:500,
-            text
-        }
+        const imageProp={width:21,height:21,activeBorder:false,path:`/image/home/property/${imgName}.svg`}
+        const textProp={fontSize:"18px",fontWeight:500,text}
         return (<div className='grid grid-flow-col gap-x-[5px] py-[8px] px-[14px] rounded-[28px] border border-gray-1 bg-gray-1 place-items-center'>
             <IMG {...imageProp}  />
             <TEXT {...textProp}   />
@@ -58,14 +55,22 @@ const CARD_STYLE_3 = ({id,image,title,content,detail,price}:COMPONET_TYPE) => {
                 {propertyDetail("bath",`${detail["bath"]} - Bathroom`)}
                 {propertyDetail("building",detail["type"])}
             </div>
-            <div className='grid grid-flow-row grid-cols-5 gap-x-[50px]'>
+            <div className='grid grid-flow-row grid-cols-6 gap-x-[30px] h-[63px]'>
                 <div className='row-start-1 col-span-2'>
                     <TEXT className='text-left' text="Price"  {...TEXT_STYLE} />
                 </div>
                 <div className='row-start-2 col-span-2'>
                     <TEXT className='text-left' text={`$ ${price.toString()}`} fontSize='24px' />
                 </div>
-                <div className='row-start-1 col-span-3 row-span-2'>3</div>
+                <div className='row-start-1 col-span-4 row-span-2 grid place-items-center '>
+                    <BUTTON 
+                        text="View Property Details" 
+                        localAction={cardAction} 
+                        type="directButton" 
+                        className='bg-purple-1 py-[18px] px-[24px] rounded-[10px] w-full'
+                        textClass="text-center" 
+                    />
+                </div>
             </div>
         </div>
     </Item>

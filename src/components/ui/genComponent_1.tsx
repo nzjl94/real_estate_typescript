@@ -20,7 +20,7 @@ export default ({title,content,buttonText,parentClass="py-[100px] px-[162px] bor
             <TEXT_1 text={title}   className="text-left"  />
             <TEXT_1 text={content} className="text-left" fontSize={"18px"} color={theme.colors.gray1} fontWeight={500}  />
             <div className="row-span-2 flex items-center justify-end">
-                <BUTTON type="button" text={buttonText} className={`buttonStyle py-[18px] px-[24px] rounded-[10px] ${buttonClass}`} 
+                <BUTTON type="button" text={buttonText} className={`py-[18px] px-[24px] rounded-[10px] ${buttonClass}`} 
                 />
             </div>        
         </Container>
