@@ -1,10 +1,10 @@
 import React, { useEffect, useState }   from "react";
-import useFetch, {FetchData}            from '../../utility/customHook/API';
+import useFetch, {FetchData}            from '../../../utility/customHook/API';
 
-import CARD2                            from "../ui/cards/card2"
+import CARD2                            from "../../ui/cards/card2"
 import styled,{ useTheme }              from "styled-components"
-import TEXT                             from "../ui/elements/TEXT"
-import IMG                              from "../ui/elements/IMAGE"
+import TEXT                             from "../../ui/elements/TEXT"
+import IMG                              from "../../ui/elements/IMAGE"
 
 
 type cardType = {

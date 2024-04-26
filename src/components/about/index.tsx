@@ -9,8 +9,9 @@ import Client from "./client";
 import Start from "../ui/components/TEXT_BUTTON";
 import Theme from "../ui/components/theme";
 
-const Content=styled.div``;
 export default () => {
+
+	const Content=styled.div``;
 
 	return (<Theme>
 		<Content className="grid gap-y-[150px] px-[160px] pb-[150px] ">

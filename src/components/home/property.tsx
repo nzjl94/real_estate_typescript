@@ -7,7 +7,7 @@ import {useNavigate}        from 'react-router-dom';
 import { ExploreAction }    from '../../store/Context';
 import GEN_Component        from "../ui/components/genComponent_1"
 import STAR                 from "../ui/components/STAR"
-import CardList             from "./cardList";
+import CardList             from "./cardList/property";
 
 const Property = () => {
 
