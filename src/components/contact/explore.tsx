@@ -1,5 +1,5 @@
 
-import HEADER                 from "../ui/HEADER"
+import HEADER                 from "../ui/components/HEADER"
 import styled,{ useTheme }    from "styled-components";
 import useFetch, {FetchData}  from '../../utility/customHook/API';
 

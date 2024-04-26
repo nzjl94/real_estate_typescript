@@ -1,38 +1,26 @@
-import styled,{ useTheme }    from "styled-components";
-import TEXT_1                 from "../ui/TEXT"
+import React from 'react'
+import TEXT_IMAGE from "../ui/components/TEXT_IMAGE";
+
+import { useSelector }          from 'react-redux';
+import { RootState } 		    from '../../store/Reducer';
+import {getSingleTitle} 	    from '../../store/slice/title';
+
+
+import {TEXT_PARAGRAPH}             from '../../utility/typeApp';
+import useFetch, {FetchData}    from '../../utility/customHook/API';
+
+
 // This approch it work only if the files inside [src] but does not work when they inside [public]
 import profilePic             from '../../image/about/journey/title.png'
-import {API_DATA_2}           from '../../utility/typeApp';
-import useFetch, {FetchData}  from '../../utility/customHook/API';
 
+const Journey = () => {
 
-const Container = styled.div``;
+    const title = useSelector((state: RootState) => getSingleTitle(state, "service_experience"));
+    const { data:sections,success}: FetchData<TEXT_PARAGRAPH[]> = useFetch <TEXT_PARAGRAPH[]>('realestate/about/journey',[]);
 
-export default () => {
-  const theme = useTheme();
-  const { data,success}: FetchData<API_DATA_2> = useFetch <API_DATA_2>('realestate/about/journey',{title:{},sections:[]});
+    return (
+        <TEXT_IMAGE title={title} sections={sections} img={profilePic} parentClass='mt-[100px]' />
+    )
+}
 
-  return (
-    <Container className="grid grid-cols-7 gap-x-[80px] mt-[100px]">
-        <div className="col-span-4 flex flex-col justify-around gap-y-[80px]">
-            <div className="">
-                <TEXT_1 text={data.title?.title} />
-                <TEXT_1 text={data.title?.content} fontSize={"18px"} color={theme.colors.gray1} />
-            </div>
-            <div className="self-stretch grid grid-cols-3  gap-3">
-                {Object.keys(data.sections).length>0 && data.sections.map(({title,content},index) => {
-                  return (
-                    <div key={index} className="p-[16px] border-[1px] rounded-[12px] border-gray-1 bg-gray-1">
-                        <TEXT_1 text={title} fontSize={"40px"} />
-                        <TEXT_1 text={content} fontSize={"18px"} color={theme.colors.gray1} />
-                    </div>
-                  );
-                })}
-            </div>
-        </div>
-        <div className="col-span-3">
-            <img src={profilePic} alt="Vercel Logo" className="image" />
-        </div>
-    </Container>
-  );
-};
+export default Journey

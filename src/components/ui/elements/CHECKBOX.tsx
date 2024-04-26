@@ -1,8 +1,8 @@
 import { MouseEvent} from "react";
 
-import ErrorMessage from "../../utility/ErrorType"
-import {onChangeAction} from "../../utility/eventAction"
-import {CHECKBOX_TYPE} from '../../utility/typeApp';
+import ErrorMessage from "../../../utility/ErrorType"
+import {onChangeAction} from "../../../utility/eventAction"
+import {CHECKBOX_TYPE} from '../../../utility/typeApp';
 
 export default ({ inputName, inputLabel,options, register,errors,validation={},parentClassName="",listType="single"}:CHECKBOX_TYPE) => {
     

@@ -3,10 +3,10 @@ import React from 'react'
 import { RootState } 		from '../../store/Reducer';
 import {getSingleTitle} 	from '../../store/slice/title';
 import { useSelector }      from 'react-redux';
-import HEADER               from "../ui/HEADER"
+import HEADER               from "../ui/components/HEADER"
 import styled               from "styled-components";
-import CARD1                from "../ui/CARD_STYLE_1"
-import CARD2                from "../ui/CARD_STYLE_2"
+import CARD1                from "../ui/cards/card1"
+import CARD2                from "../ui/cards/card3"
 import {SERVICE_TYPE}       from "../../utility/typeApp"
 
 const Value = ({data}:SERVICE_TYPE) => {

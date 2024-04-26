@@ -6,9 +6,9 @@ import { useSelector }      from 'react-redux';
 
 import styled               from "styled-components";
 
-import HEADER               from "../ui/HEADER"
-import CARD1                from "../ui/CARD_STYLE_1"
-import CARD2                from "../ui/CARD_STYLE_2"
+import HEADER               from "../ui/components/HEADER"
+import CARD1                from "../ui/cards/card1"
+import CARD2                from "../ui/cards/card3"
 
 import {SERVICE_TYPE}       from "../../utility/typeApp"
 

@@ -2,14 +2,14 @@ import React, { useState }        from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigate,Link}         from 'react-router-dom';
 
-import { logout }                 from '../../store/slice/login';
+import { logout }                 from '../../../store/slice/login';
 
-import { RootState }              from '../../store/Reducer';
-import BUTTON                     from "../ui/BUTTON";
-import IMG                        from "../ui/IMAGE";
+import { RootState }              from '../../../store/Reducer';
+import BUTTON                     from "../elements/BUTTON";
+import IMG                        from "../elements/IMAGE";
 
 
-import { resetAll,showNotification, hideNotification } from '../../store/Actions';
+import { resetAll,showNotification, hideNotification } from '../../../store/Actions';
 
 const Navbar: React.FC = () => {
 

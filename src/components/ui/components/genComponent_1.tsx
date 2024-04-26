@@ -1,7 +1,7 @@
 import styled,{ useTheme } from "styled-components";
 
-import TEXT_1   from "./TEXT"
-import BUTTON   from "./BUTTON"
+import TEXT_1   from "../elements/TEXT"
+import BUTTON   from "../elements/BUTTON"
 
 const Container = styled.div`${({theme}) => ``}`;
 

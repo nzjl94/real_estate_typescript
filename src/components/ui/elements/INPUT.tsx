@@ -1,5 +1,5 @@
-import ErrorMessage from "../../utility/ErrorType"
-import { INPUT_TYPE } from '../../utility/typeApp';
+import ErrorMessage from "../../../utility/ErrorType"
+import { INPUT_TYPE } from '../../../utility/typeApp';
 
 const Input = ({
 		inputName,inputLabel,inputType="text",placeholder="",parentClassName="",

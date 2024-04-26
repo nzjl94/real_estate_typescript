@@ -4,10 +4,10 @@ import styled,{ useTheme } from "styled-components";
 import Connect from "./connect";
 import Explore from "./explore";
 import Contact from "./contact";
-import Start from "../general/start";
+import Start from "../ui/components/TEXT_BUTTON";
 
-import Theme from "../general/theme";
-import HEADER from "../ui/HEADER"
+import Theme from "../ui/components/theme";
+import HEADER from "../ui/components/HEADER"
 
 const Content=styled.div``;
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {IMAGE_TYPE,IMAGE_TYPE_2} from '../../utility/typeApp';
+import {IMAGE_TYPE,IMAGE_TYPE_2} from '../../../utility/typeApp';
 
 
 const MainWrapperBase = styled.div `

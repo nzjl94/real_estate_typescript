@@ -1,5 +1,5 @@
-import {FILE_TYPE} 	from '../../utility/typeApp';
-import ErrorMessage from "../../utility/ErrorType"
+import {FILE_TYPE} 	from '../../../utility/typeApp';
+import ErrorMessage from "../../../utility/ErrorType"
 
 export default ({ inputName, inputLabel, register,errors, validation,parentClassName=""}:FILE_TYPE) =>{
 	return (

@@ -1,11 +1,11 @@
 import { MouseEvent} 			from "react";
 import styled,{ useTheme } 		from "styled-components";
 
-import IMG 						from "../ui/IMAGE";
-import TEXT_1 					from "../ui/TEXT"
+import IMG 						from "../ui/elements/IMAGE";
+import TEXT_1 					from "../ui/elements/TEXT"
 import {API_DATA_1}  			from '../../utility/typeApp';
 import useFetch, {FetchData}  	from '../../utility/customHook/API';
-import HEADER               	from "../ui/HEADER"
+import HEADER               	from "../ui/components/HEADER"
 
 const Container = styled.div``;
 

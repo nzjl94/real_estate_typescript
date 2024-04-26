@@ -3,7 +3,7 @@ import { useContext }   from 'react';
 import styled           from "styled-components";
 import { Link }         from 'react-router-dom';
 
-import { ExploreAction }    from '../../store/Context';
+import { ExploreAction }    from '../../../store/Context';
 // import {OBJECT_1 as BUTTON_PROPS_TYPE}  from '../../utility/typeApp';
 import TEXT from "./TEXT"
 
@@ -30,7 +30,7 @@ const Button:React.FC<BUTTON_PROPS_TYPE>= (props) => {
         return (<LinkElement to={url} className={className}>{text}</LinkElement>)
     }else if(type==="directButton"){
         return (
-            <button className={className} onClick={(e)=>localAction!==undefined && localAction(e,"111")}>
+            <button className={className} onClick={(e)=>localAction!==undefined && localAction(e,"param")}>
                 <TEXT text={text} fontSize='18px' fontWeight={500} className={textClass} />
             </button>
         )

@@ -5,9 +5,9 @@ import {getSingleTitle} 	from '../../store/slice/title'
 import { useSelector }      from 'react-redux';
 import styled,{ useTheme }  from "styled-components"
 
-import CARD1                from "../ui/CARD_STYLE_1"
+import CARD1                from "../ui/cards/card1"
 
-import TEXT                 from "../ui/TEXT"
+import TEXT                 from "../ui/elements/TEXT"
 
 import {SERVICE_TYPE}                   from "../../utility/typeApp"
 import {ImageContainer,ButtonStyle1}    from "../../utility/styleApp"

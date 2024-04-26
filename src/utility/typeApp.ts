@@ -84,6 +84,14 @@ export interface TEXT_PARAGRAPH {
     title: string;
     content: string;
 }
+export interface TEXT_IMAGE_TYPE {
+    title:TEXT_PARAGRAPH;
+    sections:TEXT_PARAGRAPH[];
+    img:string;
+    parentClass?:string;
+    firstChildClass?:string;
+    showSection?:boolean;
+}
 export interface API_DATA_1 {
     title: OBJECT_1,
     sections: OBJECT_1[] //Array<OBJECT_1>
@@ -108,4 +116,9 @@ export interface API_DATA_5 {
 }
 export interface SERVICE_TYPE {
     data:Array<API_DATA_5>
+}
+
+export interface TEXT_ICON_TYPE {
+    text:string;
+    icon:string;
 }

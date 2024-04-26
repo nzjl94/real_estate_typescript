@@ -3,10 +3,10 @@ import {useEffect } from 'react';
 import styled,{ useTheme } 								from "styled-components";
 import { useForm,SubmitHandler } 						from 'react-hook-form';
 
-import HEADER 											from "../ui/HEADER"
+import HEADER 											from "../ui/components/HEADER"
 import FormValidation 									from '../../utility/formValidation'
 import {onErrorAction} 									from "../../utility/eventAction"
-import {INPUT,RSELECT, TEXTAREA, CHECKBOX,SELECT,FILE} 	from "../ui/FORM"
+import {INPUT,RSELECT, TEXTAREA, CHECKBOX,SELECT,FILE} 	from "../ui/elements/FORM"
 import useFetch, {FetchData,usePostAPI}  				from '../../utility/customHook/API';
 import {OBJECT_1}										from "../../utility/typeApp"
 

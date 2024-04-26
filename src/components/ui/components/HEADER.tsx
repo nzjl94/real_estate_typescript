@@ -1,10 +1,10 @@
 import React               from "react";
 import styled,{ useTheme } from "styled-components";
 
-import { HEADER_TYPE_2 } from '../../utility/typeApp';
+import { HEADER_TYPE_2 } from '../../../utility/typeApp';
 
 
-import TEXT_1 from "./TEXT"
+import TEXT_1 from "../elements/TEXT"
 
 interface COM_TYPE extends HEADER_TYPE_2 {
   backgroundStyle?:any

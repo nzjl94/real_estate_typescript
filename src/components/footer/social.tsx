@@ -1,8 +1,8 @@
 import React    from 'react'
 import styled   from "styled-components";
 
-import TEXT     from "../ui/TEXT"
-import IMG      from "../ui/IMAGE"
+import TEXT     from "../ui/elements/TEXT"
+import IMG      from "../ui/elements/IMAGE"
 
 
 const Container = styled.div `

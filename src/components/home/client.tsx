@@ -1,12 +1,12 @@
 import React from 'react'
 
-import styled    from "styled-components";
+import styled               from "styled-components";
 import {useNavigate}        from 'react-router-dom';
 
 
 import { ExploreAction }    from '../../store/Context';
-import GEN_Component        from "../ui/genComponent_1"
-import STAR                 from "../ui/STAR"
+import GEN_Component        from "../ui/components/genComponent_1"
+import STAR                 from "../ui/components/STAR"
 
 const Client = () => {
 
@@ -28,7 +28,7 @@ const Client = () => {
 
     const Container = styled.div`${({theme}) => ``}`;
     
-    return <Container className='px-[80px]   py-[75px] relative'>
+    return <Container className='px-[162px]   py-[75px] relative'>
         <STAR parentClass={"top-[50px] left-[60px]"} />
 
         <ExploreAction.Provider value={propertyAction()}>

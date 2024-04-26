@@ -1,4 +1,4 @@
-import HEADER from "../ui/HEADER"
+import HEADER from "../ui/components/HEADER"
 export default () => {
   return <div className="pt-[100px]">
       <HEADER 

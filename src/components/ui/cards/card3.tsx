@@ -1,8 +1,8 @@
 import React                            from 'react'
 import styled,{ useTheme }              from "styled-components"
-import TEXT                             from "./TEXT"
-import {ButtonStyle1,CardStyle1}        from "../../utility/styleApp"
-import {API_DATA_5}                     from '../../utility/typeApp';
+import TEXT                             from "../elements/TEXT"
+import {ButtonStyle1,CardStyle1}        from "../../../utility/styleApp"
+import {API_DATA_5}                     from '../../../utility/typeApp';
 
 
 
@@ -12,7 +12,7 @@ interface COMPONET_TYPE extends API_DATA_5{
     parentClass:string;
     action:(event:React.MouseEvent<HTMLButtonElement>)=>void
 }
-const CARD_STYLE_2 = ({index,title,text,parentClass,action}:COMPONET_TYPE) => {
+const CARD_STYLE_3 = ({index,title,text,parentClass,action}:COMPONET_TYPE) => {
 
     const theme = useTheme();
 
@@ -35,4 +35,4 @@ const CARD_STYLE_2 = ({index,title,text,parentClass,action}:COMPONET_TYPE) => {
     </CardStyle1>
 }
 
-export default CARD_STYLE_2
+export default CARD_STYLE_3

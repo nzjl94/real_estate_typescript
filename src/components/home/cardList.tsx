@@ -1,10 +1,10 @@
 import React, { useEffect, useState }   from "react";
 import useFetch, {FetchData}            from '../../utility/customHook/API';
 
-import CARD3                            from "../ui/CARD_STYLE_3"
+import CARD2                            from "../ui/cards/card2"
 import styled,{ useTheme }              from "styled-components"
-import TEXT                             from "../ui/TEXT"
-import IMG                              from "../ui/IMAGE"
+import TEXT                             from "../ui/elements/TEXT"
+import IMG                              from "../ui/elements/IMAGE"
 
 
 type cardType = {
@@ -30,8 +30,7 @@ const CardList: React.FC = () => {
     useEffect(()=>{
         setUrl(`realestate/home/property?page=${currentPage}&len=${cardsPerPage}`)
         setSliceNumber(Math.ceil(counts/cardsPerPage))
-
-    },[currentPage])
+    },[currentPage,counts])
     const PaginationContainer = styled.div`${({theme}) => `
         border-top: 1px solid var(--Grey-15, #262626);
         display: flex;
@@ -48,13 +47,13 @@ const CardList: React.FC = () => {
         }
     `}`;
     
-    const paginFront = ()=> (currentPage < sliceNumber && setCurrentPage(currentPage+1)) 
-    const paginBack  = ()=> (currentPage>1 && setCurrentPage(currentPage-1)) 
+    const paginFront = ()=> (currentPage < sliceNumber && setCurrentPage(currentPage+1))
+    const paginBack  = ()=> (currentPage>1 && setCurrentPage(currentPage-1))
     
     return <>
         <div className="grid grid-flow-row gap-y-[50px]">
             <div className="grid grid-flow-row grid-cols-3 gap-x-[30px]">{
-                cards.map((card, index) => <CARD3 {...card} />)
+                cards.map((card, index) => <CARD2 {...card} />)
             }</div>
             <PaginationContainer className="">
                 <TEXT className='' text={`${currentPage} of ${Math.ceil(counts/cardsPerPage)}`} fontSize={"18px"} />

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../store/Reducer';
-import { addRow, updateRow, deleteRow } from '../../store/slice/table';
+import { RootState } from '../../../store/Reducer';
+import { addRow, updateRow, deleteRow } from '../../../store/slice/table';
 
-import Table from "../general/table"
+import Table from "../components/table"
   
 
 

@@ -12,7 +12,7 @@ import GlobalStyle from './globalStyles';
 
 
 import AppRoute from "./AppRoute"
-import Navbar from './components/general/navbar';
+import Navbar from './components/ui/components/navbar';
 import Footer from './components/footer';
 
 import { AppDispatch }              from './store/index';

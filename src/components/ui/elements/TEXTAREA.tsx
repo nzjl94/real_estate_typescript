@@ -1,9 +1,9 @@
 import {MouseEvent}  from "react";
 
-import ErrorMessage from "../../utility/ErrorType"
-import {onChangeAction} from "../../utility/eventAction"
+import ErrorMessage from "../../../utility/ErrorType"
+import {onChangeAction} from "../../../utility/eventAction"
 
-import { TEXTAREA_TYPE } from '../../utility/typeApp';
+import { TEXTAREA_TYPE } from '../../../utility/typeApp';
 
 const TextArea = (
     {inputName, inputLabel, register,errors,validation={},placeholder="",parentClassName=""}:TEXTAREA_TYPE

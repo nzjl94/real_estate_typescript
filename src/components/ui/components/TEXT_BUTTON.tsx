@@ -1,7 +1,7 @@
-import GEN_Component          from "../ui/genComponent_1"
-import { ExploreAction }      from '../../store/Context';
-import {API_DATA_4}           from "../../utility/typeApp"
-import useFetch, {FetchData}  from '../../utility/customHook/API';
+import GEN_Component          from "./genComponent_1"
+import { ExploreAction }      from '../../../store/Context';
+import {API_DATA_4}           from "../../../utility/typeApp"
+import useFetch, {FetchData}  from '../../../utility/customHook/API';
 
 export default (props:{id?:string}) => {
 

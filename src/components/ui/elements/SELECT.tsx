@@ -1,9 +1,9 @@
 import {MouseEvent}  from "react";
 
-import {onChangeAction} from "../../utility/eventAction"
-import ErrorMessage from "../../utility/ErrorType"
+import {onChangeAction} from "../../../utility/eventAction"
+import ErrorMessage from "../../../utility/ErrorType"
 
-import { SELECT_TYPE} from '../../utility/typeApp';
+import { SELECT_TYPE} from '../../../utility/typeApp';
 
 
 const Select = (

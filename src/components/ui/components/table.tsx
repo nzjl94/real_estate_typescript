@@ -1,17 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../store/Reducer';
+import { RootState } from '../../../store/Reducer';
 import React, {useReducer,useState} from 'react';
 
 
-import {TableRow} from '../../utility/typeStore';
-
-
+import {TableRow} from '../../../utility/typeStore';
 
 
 import {createColumnHelper,flexRender,getCoreRowModel,useReactTable,} from '@tanstack/react-table'
-
-
-
 
 
 const columnHelper = createColumnHelper<TableRow>()

@@ -1,6 +1,6 @@
 import Select,{StylesConfig} from "react-select"
 import {Controller } from 'react-hook-form';
-import {REACT_SELECT_TYPE,SELECT_OPTION_TYPE} from "../../utility/typeApp"
+import {REACT_SELECT_TYPE,SELECT_OPTION_TYPE} from "../../../utility/typeApp"
 
 type IsMulti = false;
 

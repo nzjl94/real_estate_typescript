@@ -6,8 +6,8 @@ import Value from "./value";
 import Journey from "./journey";
 import Team from "./team";
 import Client from "./client";
-import Start from "../general/start";
-import Theme from "../general/theme";
+import Start from "../ui/components/TEXT_BUTTON";
+import Theme from "../ui/components/theme";
 
 const Content=styled.div``;
 export default () => {

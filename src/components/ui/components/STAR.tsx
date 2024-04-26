@@ -1,5 +1,5 @@
 import React from 'react'
-import IMG  from "./IMAGE";
+import IMG  from "../elements/IMAGE";
 
 
 const STAR = ({parentClass="60px"}:{parentClass:string}) => {

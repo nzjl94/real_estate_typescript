@@ -1,11 +1,11 @@
 import React              from 'react'
 import styled,{useTheme}  from "styled-components";
 
-import TEXT               from "../ui/TEXT"
-import IMG                from "../ui/IMAGE"
+import TEXT               from "../ui/elements/TEXT"
+import IMG                from "../ui/elements/IMAGE"
 
 import {Link}         from 'react-router-dom';
-import {INPUT} 	      from "../ui/FORM"
+import {INPUT} 	      from "../ui/elements/FORM"
 import { useForm } 		from 'react-hook-form';
 
 
