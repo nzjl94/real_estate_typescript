@@ -7,6 +7,8 @@ import {useNavigate}        from 'react-router-dom';
 import { ExploreAction }    from '../../store/Context';
 import GEN_Component        from "../ui/components/genComponent_1"
 import STAR                 from "../ui/components/STAR"
+import CardList             from "./cardList/client";
+
 
 const Client = () => {
 
@@ -34,6 +36,7 @@ const Client = () => {
         <ExploreAction.Provider value={propertyAction()}>
             <GEN_Component {...data} />
         </ExploreAction.Provider>
+        <CardList />
     </Container>
         
 }
