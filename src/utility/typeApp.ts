@@ -71,6 +71,7 @@ export interface IMAGE_TYPE_2 {
     activeBorder?: boolean;
     parentClass?: string;
     eleClass?:string;
+    responsive?:string;
 }
 export interface HEADER_TYPE {
     [key: string]: string | undefined
@@ -121,4 +122,11 @@ export interface SERVICE_TYPE {
 export interface TEXT_ICON_TYPE {
     text:string;
     icon:string;
+}
+
+
+export interface responsiveType_1 {
+    [key: string]:{
+        [key: string]:number[]
+    }
 }

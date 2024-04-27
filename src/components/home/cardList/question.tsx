@@ -5,9 +5,8 @@ import CARD4                            from "../../ui/cards/card4"
 import styled,{ useTheme }              from "styled-components"
 import TEXT                             from "../../ui/elements/TEXT"
 import IMG                              from "../../ui/elements/IMAGE"
+import useScreenSize                    from '../../../utility/customHook/useScreenSize';
 
-
-    // home_question
 
 
 type cardType = {
@@ -21,16 +20,24 @@ type cardType = {
 
 const CardList: React.FC = () => {
 
-    const cardsPerPage=3
+    const [cardsPerPage, setCardsPerPage] = useState(3);
     const [currentPage, setCurrentPage] = useState(1);
     const [url, setUrl] = useState("realestate/home/question?page=1&len=3");
     const [sliceNumber, setSliceNumber] = useState(0);
+
+    const {screenSize,screenLen:_} = useScreenSize();
+
+    useEffect(()=>{
+        setCardsPerPage((screenSize==="sm"?1:3))
+        //it reset the current page, which means starting from begining. It is strong it should calculate the page number based on new slice
+        setCurrentPage(1)
+    },[screenSize])
 
     const { data:{data:cards,counts},success}: FetchData<cardType> = useFetch <cardType>(url,{data:[],counts:0});
     useEffect(()=>{
         setUrl(`realestate/home/question?page=${currentPage}&len=${cardsPerPage}`)
         setSliceNumber(Math.ceil(counts/cardsPerPage))
-    },[currentPage,counts])
+    },[currentPage,cardsPerPage,counts])
     const PaginationContainer = styled.div`${({theme}) => `
         border-top: 1px solid var(--Grey-15, #262626);
         display: flex;
@@ -52,8 +59,8 @@ const CardList: React.FC = () => {
     
     return <>
         <div className="grid grid-flow-row gap-y-[50px]">
-            <div className="grid grid-flow-row grid-cols-3 gap-x-[30px]">{
-                cards.map((card, index) => <CARD4 {...card} />)
+            <div className={`grid grid-flow-col grid-cols-${cardsPerPage} gap-x-[30px]`}>{
+                cards.map((card, index) => <CARD4 {...card}  />)
             }</div>
             <PaginationContainer className="">
                 <TEXT className='' text={`${currentPage} of ${Math.ceil(counts/cardsPerPage)}`} fontSize={"18px"} />

@@ -11,7 +11,7 @@ interface COMPONET_TYPE{
     title:string;
 }
 
-const CARD_STYLE_2 = ({id,title,content}:COMPONET_TYPE) => {
+const CARD_STYLE_2:React.FC<COMPONET_TYPE>= ({id,title,content}) => {
 
     type cardActionType = (parameter: number)=>(e: React.MouseEvent) => void;
 	const cardAction:cardActionType  = (parameter) => (event) => {
