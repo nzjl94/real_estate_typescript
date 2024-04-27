@@ -8,7 +8,6 @@ import IMG                              from "../../ui/elements/IMAGE"
 import useScreenSize                    from '../../../utility/customHook/useScreenSize';
 
 
-
 type cardType = {
     data:{ 
         id:number;
@@ -38,6 +37,7 @@ const CardList: React.FC = () => {
         setUrl(`realestate/home/question?page=${currentPage}&len=${cardsPerPage}`)
         setSliceNumber(Math.ceil(counts/cardsPerPage))
     },[currentPage,cardsPerPage,counts])
+
     const PaginationContainer = styled.div`${({theme}) => `
         border-top: 1px solid var(--Grey-15, #262626);
         display: flex;
@@ -56,7 +56,6 @@ const CardList: React.FC = () => {
     
     const paginFront = ()=> (currentPage < sliceNumber && setCurrentPage(currentPage+1))
     const paginBack  = ()=> (currentPage>1 && setCurrentPage(currentPage-1))
-    
     return <>
         <div className="grid grid-flow-row gap-y-[50px]">
             <div className={`grid grid-flow-col grid-cols-${cardsPerPage} gap-x-[30px]`}>{

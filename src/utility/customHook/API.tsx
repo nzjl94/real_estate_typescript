@@ -21,8 +21,7 @@ const useFetch = <T,>(url: string,default_value:any): FetchData<T> => {
     setLoading(true);
     setError(null); 
 
-    try {
-      
+    try {     
       const get_response = await fetch(url);
       const result = await get_response.json();
       setData(result);
