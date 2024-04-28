@@ -12,14 +12,14 @@ interface paginationType {
 }
 
 
-const usePagination = <T>(page_url:string,cardLen:number) => {
+const usePagination = <T>(page_url:string) => {
 
     type cardType = {
       data:T[],
       counts:number
     };
 
-    const [cardsPerPage, setCardsPerPage] = useState(cardLen);
+    const [cardsPerPage, setCardsPerPage] = useState(3);
     const {screenSize,screenLen:_}        = useScreenSize();
     const [currentPage, setCurrentPage]   = useState(1);
     const [sliceState, setSliceState]     = useState("first");
@@ -46,8 +46,8 @@ const usePagination = <T>(page_url:string,cardLen:number) => {
         }else{
           setSliceState("normal")
         }
-        setPagText(`${currentPage} of ${Math.ceil(total/3)}`)
-    },[currentPage,total])
+        setPagText(`${currentPage} of ${Math.ceil(total/cardsPerPage)}`)
+    },[currentPage,cardsPerPage,total])
     
     const paginFront = ()=> (currentPage < sliceNumber && setCurrentPage(currentPage+1))
     const paginBack  = ()=> (currentPage>1 && setCurrentPage(currentPage-1))

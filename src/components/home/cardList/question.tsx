@@ -1,79 +1,24 @@
-import React, { useEffect, useState }   from "react";
-import useFetch, {FetchData}            from '../../../utility/customHook/API';
-
-import CARD4                            from "../../ui/cards/card4"
-import styled,{ useTheme }              from "styled-components"
-import TEXT                             from "../../ui/elements/TEXT"
-import IMG                              from "../../ui/elements/IMAGE"
-import useScreenSize                    from '../../../utility/customHook/useScreenSize';
+import usePagination        from '../../../utility/customHook/usePagination';
+import Pagination           from "../../ui/components/Pagination"
+import CARD                 from "../../ui/cards/card4"
 
 
 type cardType = {
-    data:{ 
-        id:number;
-        content:string;
-        title:string;
-    }[],
-    counts:number
+    id:number;
+    content:string;
+    title:string;
 };
 
 const CardList: React.FC = () => {
 
-    const [cardsPerPage, setCardsPerPage] = useState(3);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [url, setUrl] = useState("realestate/home/question?page=1&len=3");
-    const [sliceNumber, setSliceNumber] = useState(0);
+    const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardType>("realestate/home/question")
 
-    const {screenSize,screenLen:_} = useScreenSize();
-
-    useEffect(()=>{
-        setCardsPerPage((screenSize==="sm"?1:3))
-        //it reset the current page, which means starting from begining. It is strong it should calculate the page number based on new slice
-        setCurrentPage(1)
-    },[screenSize])
-
-    const { data:{data:cards,counts},success}: FetchData<cardType> = useFetch <cardType>(url,{data:[],counts:0});
-    useEffect(()=>{
-        setUrl(`realestate/home/question?page=${currentPage}&len=${cardsPerPage}`)
-        setSliceNumber(Math.ceil(counts/cardsPerPage))
-    },[currentPage,cardsPerPage,counts])
-
-    const PaginationContainer = styled.div`${({theme}) => `
-        border-top: 1px solid var(--Grey-15, #262626);
-        display: flex;
-        padding-top: 20px;
-        justify-content: space-between;
-        align-items: flex-start;
-        align-self: stretch;
-
-        .pag-buttons {
-            padding: 14px;
-            border-radius: 69px;
-            border: 1px solid var(--Grey-15, #262626);
-            background: var(--Grey-10, #1A1A1A);
-        }
-    `}`;
-    
-    const paginFront = ()=> (currentPage < sliceNumber && setCurrentPage(currentPage+1))
-    const paginBack  = ()=> (currentPage>1 && setCurrentPage(currentPage-1))
-    return <>
-        <div className="grid grid-flow-row gap-y-[50px]">
-            <div className={`grid grid-flow-col grid-cols-${cardsPerPage} gap-x-[30px]`}>{
-                cards.map((card, index) => <CARD4 {...card}  />)
-            }</div>
-            <PaginationContainer className="">
-                <TEXT className='' text={`${currentPage} of ${Math.ceil(counts/cardsPerPage)}`} fontSize={"18px"} />
-                <div className="grid grid-flow-col gap-x-[10px]">
-                    <button disabled={currentPage===1} className="pag-buttons" onClick={paginBack}  >
-                        <IMG width={30} height={30} path="/image/general/arrow2.svg" activeBorder={false} eleClass={currentPage===1 ?"pag-button-disable":"pag-button-normal"} />
-                    </button>
-                    <button disabled={currentPage===sliceNumber} className="pag-buttons" onClick={(paginFront)}  >
-                        <IMG width={30} height={30} path="/image/general/arrow1.svg" activeBorder={false} eleClass={currentPage===sliceNumber ?"pag-button-disable":"pag-button-normal"} />
-                    </button>
-                </div>
-            </PaginationContainer>
-        </div>
-    </>
+    return <div className="grid grid-flow-row gap-y-[50px]">
+        <div className={`grid grid-flow-col grid-cols-${cardsPerPage} gap-x-[30px]`}>{
+            cards.map((card, index) => <CARD {...card}  />)
+        }</div>
+        <Pagination pagText={pagText} sliceState={sliceState} paginBack={paginBack} paginFront={paginFront} />
+    </div>
 };
 
 export default CardList;

@@ -21,9 +21,7 @@ const useScreenSize = () => {
             setScreenSize("sm")
         }
     };
-
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };

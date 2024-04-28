@@ -13,7 +13,7 @@ type cardType = {
 };
 
 const CardList: React.FC = () => {
-    const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardType>("realestate/home/property",3)
+    const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardType>("realestate/home/property")
     return <div className="grid grid-flow-row gap-y-[50px]">
         <div className={`grid grid-flow-row grid-cols-${cardsPerPage} gap-x-[30px]`}>{
             cards.map((card, index) => <CARD {...card} />)
