@@ -24,18 +24,9 @@ const MainWrapper=styled(MainWrapperBase)<IMAGE_TYPE>`
     }
 `;
 
-
 const Image=styled.img``
 
-const IMAGE:React.FC<IMAGE_TYPE_2>= ({
-        width,
-        height,
-        path,
-        activeBorder=true,
-        responsive,
-        parentClass="w-fit",
-        eleClass="",
-}) => {
+const IMAGE:React.FC<IMAGE_TYPE_2>= ({width,height,path,activeBorder=true,responsive,parentClass="w-fit",eleClass=""}) => {
     const {screenSize,screenLen:_} = useScreenSize();
 
     let imgWidth,imgHeight

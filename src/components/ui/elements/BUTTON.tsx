@@ -31,13 +31,13 @@ const Button:React.FC<BUTTON_PROPS_TYPE>= (props) => {
     }else if(type==="directButton"){
         return (
             <button className={className} onClick={(e)=>localAction!==undefined && localAction(e,"param")}>
-                <TEXT text={text} fontSize='18px' fontWeight={500} className={textClass} />
+                <TEXT text={text} responsive='button_set' fontWeight={500} className={textClass} />
             </button>
         )
     }else{
         return (
             <button className={className}  onClick={buttonAction} >
-                <TEXT text={text} fontSize='18px' fontWeight={500} />
+                <TEXT text={text} responsive='button_set' fontWeight={500} />
             </button>
         ) 
     }

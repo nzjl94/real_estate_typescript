@@ -24,7 +24,6 @@ const CARD_STYLE_2 = ({id,image,title,content,detail,price}:COMPONET_TYPE) => {
 	const cardAction:cardActionType  = (event,parameter) => {
 		console.log(event,`Hi ${parameter}`)
 	}
-
     const propertyDetail =(imgName:string,text:string)=>{
         const imageProp={width:21,height:21,activeBorder:false,path:`/image/home/property/${imgName}.svg`}
         const textProp={fontSize:"14px",fontWeight:500,text}
@@ -33,41 +32,38 @@ const CARD_STYLE_2 = ({id,image,title,content,detail,price}:COMPONET_TYPE) => {
             <TEXT {...textProp}   />
         </div>)
     }
-
     const theme = useTheme();
     const Item = styled.div`${({theme}) => ``}`;
-
     const TEXT_STYLE={
-        fontSize:theme.fontSizes.header.xs,
         fontWeight:theme.fontWeight.m,
         color:theme.colors.gray1
     }
     
-    return <Item key={id} className='grid grid-flow-col grid-rows-2 gap-y-[30px] p-[40px] rounded-[12px] bg-gray-2 border border-gray-1' >
-        <div className="col-start-1 col-span-1 m-2">
+    return <Item key={id} className='flex flex-col gap-y-[30px] p-[24px] md:p-[30px] lg:p-[40px] rounded-[12px] bg-gray-2 border border-gray-1' >
+        <div className="col-start-1 col-span-1 m-2 w-fit">
             <img  src={image} width={0} height={0} sizes="100%" className="h-auto w-full rounded-[10px]" /> 
         </div>
         <div className='grid grid-flow-row gap-y-[30px]'>
-            <TEXT className='text-left' text={title} fontSize={theme.fontSizes.header.s} />
-            <TEXT className='text-left' text={content}  {...TEXT_STYLE} />
-            <div className='grid grid-flow-col place-items-center'> 
+            <TEXT className='text-left' text={title} responsive='set7' />
+            <TEXT className='text-left' text={content}  {...TEXT_STYLE} responsive='set2' />
+            <div className='flex flex-row place-items-center'> 
                 {propertyDetail("bed",`${detail["bed"]} - Bedroom`)}
                 {propertyDetail("bath",`${detail["bath"]} - Bathroom`)}
                 {propertyDetail("building",detail["type"])}
             </div>
             <div className='grid grid-flow-row grid-cols-6 gap-x-[30px] h-[63px]'>
                 <div className='row-start-1 col-span-2'>
-                    <TEXT className='text-left' text="Price"  {...TEXT_STYLE} />
+                    <TEXT className='text-left' text="Price"  {...TEXT_STYLE} responsive='button_set' />
                 </div>
                 <div className='row-start-2 col-span-2'>
-                    <TEXT className='text-left' text={`$ ${price.toString()}`} fontSize='22px' />
+                    <TEXT className='text-left' text={`$ ${price.toString()}`} responsive='set7' />
                 </div>
                 <div className='row-start-1 col-span-4 row-span-2 grid place-items-center '>
                     <BUTTON 
                         text="View Property Details" 
                         localAction={cardAction} 
                         type="directButton" 
-                        className='bg-purple-1 py-[18px] px-[24px] rounded-[10px] w-full'
+                        className='bg-purple-1 py-[14px] lg:py-[18px] px-[20px] lg:px-[24px] rounded-[10px] w-full'
                         textClass="text-center" 
                     />
                 </div>

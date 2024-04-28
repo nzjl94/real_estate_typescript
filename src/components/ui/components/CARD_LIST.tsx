@@ -27,8 +27,8 @@ const CARD_LIST:React.FC<SERVICE_TYPE> = ({data}) => {
           <button className="absolute top-[10px] right-[10px]" onClick={(e)=>reDirectionButton(e,index)}>
               <IMG {...imageSize} activeBorder={false} path="/image/service/direction.svg"/>
           </button> 
-          <IMG     {...imageSize}       activeBorder={true}  path={icon} />
-          <TEXT     text={text}     fontSize="16px" />
+          <IMG     {...imageSize}   activeBorder={true}  path={icon} />
+          <TEXT     text={text}     responsive='set5' />
       </Item>)}
     </Container>
 }

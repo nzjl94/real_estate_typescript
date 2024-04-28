@@ -17,6 +17,7 @@ export interface TEXT_STYLE_1 extends TEXT_PROPS{
 export interface TEXT_STYLE_2 extends TEXT_PROPS{
     text?: string;
     className?: string;
+    responsive?:string;
 }
 export interface TEXT_STYLE_3{
     theme:DefaultTheme;
@@ -125,8 +126,8 @@ export interface TEXT_ICON_TYPE {
 }
 
 
-export interface responsiveType_1 {
+export interface responsiveType_1 <T> {
     [key: string]:{
-        [key: string]:number[]
+        [key: string]:T
     }
 }
