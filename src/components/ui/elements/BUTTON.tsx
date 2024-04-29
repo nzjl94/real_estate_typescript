@@ -37,7 +37,7 @@ const Button:React.FC<BUTTON_PROPS_TYPE>= (props) => {
     }else{
         return (
             <button className={className}  onClick={buttonAction} >
-                <TEXT text={text} responsive='button_set' fontWeight={500} />
+                <TEXT text={text} responsive='button_set' fontWeight={500} className={textClass} />
             </button>
         ) 
     }

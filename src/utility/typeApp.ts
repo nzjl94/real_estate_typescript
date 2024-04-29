@@ -77,15 +77,16 @@ export interface IMAGE_TYPE_2 {
 export interface HEADER_TYPE {
     [key: string]: string | undefined
 }
-export interface HEADER_TYPE_2 {
-    title:string;
-    content:string;
-    parentClass?:string;
-}
+
 export interface TEXT_PARAGRAPH {
     title: string;
     content: string;
 }
+
+export interface HEADER_TYPE_2 extends TEXT_PARAGRAPH{
+    parentClass?:string;
+}
+
 export interface TEXT_IMAGE_TYPE {
     title:TEXT_PARAGRAPH;
     sections:TEXT_PARAGRAPH[];
@@ -130,4 +131,27 @@ export interface responsiveType_1 <T> {
     [key: string]:{
         [key: string]:T
     }
+}
+
+
+export interface cardQuestionType extends TEXT_PARAGRAPH {
+    id:number;
+};
+export interface cardClientType extends cardQuestionType{ 
+    star:number;
+    image:string;
+    name:string;
+    location:string;
+}
+export interface cardPropertyType extends cardQuestionType {
+    price:number;
+    image:string;
+    detail: {bed:number;bath:number;type:string}
+};
+
+export interface Card6Type extends TEXT_PARAGRAPH{
+    buttonText:string;
+    parentClass?:string;
+    buttonClass?:string;
+    showButton?:boolean;
 }

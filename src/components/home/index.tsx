@@ -18,7 +18,7 @@ const Home = () =>{
 			<Client />
 			<Question />
 		</Content>
-		<Start />
+		<Start show={true} />
 	</Theme>)
 }
 

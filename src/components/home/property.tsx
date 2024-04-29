@@ -3,16 +3,18 @@ import React from 'react'
 import styled               from "styled-components";
 import {useNavigate}        from 'react-router-dom';
 
-
 import { ExploreAction }    from '../../store/Context';
-import GEN_Component        from "../ui/components/genComponent_1"
-import STAR                 from "../ui/components/STAR"
-import CardList             from "./cardList/property";
+
+import usePagination            from '../../utility/customHook/usePagination';
+import {cardPropertyType}       from "../../utility/typeApp"
+
+import {CARD2,CARD6 as GEN_COM} from "../ui/cards/"
+import {STAR,PAGINATION}        from "../ui/components/"
+
 
 const Property = () => {
 
     const navigate = useNavigate();
-
     type propertyActionType = () => (e: React.MouseEvent) => void;
 	const propertyAction:propertyActionType  = () => (e) => {
 		navigate(`/property`)
@@ -24,15 +26,21 @@ const Property = () => {
         parentClass:"mb-[80px]",
         buttonClass:"bg-gray-1 border-gray-1"
     }
-
     const Container = styled.div`${({theme}) => ``}`;
+
+    const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardPropertyType>("realestate/home/property")
     
     return <Container className='px-[16px] lg:px-[80px] xl:px-[160px] py-[75px] relative'>
         <STAR parentClass={"top-[50px] left-[60px]"} />
         <ExploreAction.Provider value={propertyAction()}>
-            <GEN_Component {...data} />
+            <GEN_COM {...data} />
         </ExploreAction.Provider>
-        <CardList />
+        <div className="grid grid-flow-row gap-y-[50px]">
+            <div className={`grid grid-flow-row grid-cols-${cardsPerPage} gap-x-[30px]`}>{
+                cards.map((card, index) => <CARD2 {...card} />)
+            }</div>
+            <PAGINATION pagText={pagText} sliceState={sliceState} paginBack={paginBack} paginFront={paginFront} />
+        </div>
     </Container>
         
 }
