@@ -46,7 +46,7 @@ const CARD_STYLE_2 = ({id,image,title,content,detail,price}:COMPONET_TYPE) => {
         <div className='grid grid-flow-row gap-y-[30px]'>
             <TEXT className='text-left' text={title} responsive='set7' />
             <TEXT className='text-left' text={content}  {...TEXT_STYLE} responsive='set2' />
-            <div className='flex flex-row place-items-center'> 
+            <div className='flex flex-row flex-wrap gap-x-[14px] gap-y-[6px]'> 
                 {propertyDetail("bed",`${detail["bed"]} - Bedroom`)}
                 {propertyDetail("bath",`${detail["bath"]} - Bathroom`)}
                 {propertyDetail("building",detail["type"])}

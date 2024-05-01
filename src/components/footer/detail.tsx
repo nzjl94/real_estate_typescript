@@ -5,7 +5,6 @@ import TEXT               from "../ui/elements/TEXT"
 import IMG                from "../ui/elements/IMAGE"
 
 import {Link}         from 'react-router-dom';
-import {INPUT} 	      from "../ui/elements/FORM"
 import { useForm } 		from 'react-hook-form';
 
 import MediaQuery     from 'react-responsive'

@@ -6,8 +6,7 @@ import { RootState } 		            from '../../store/Reducer';
 import {getSingleTitle} 	            from '../../store/slice/title';
 import useFetch, {FetchData}            from '../../utility/customHook/API';
 
-import TEXT_IMAGE                       from "../ui/components/TEXT_IMAGE";
-import CARD_LIST                        from "../ui/components/CARD_LIST"
+import {TEXT_IMAGE,CARD_LIST}           from "../ui/components/";
 
 
 import {TEXT_PARAGRAPH,TEXT_ICON_TYPE}  from '../../utility/typeApp';
@@ -22,7 +21,7 @@ const Journey = () => {
     const { data:icon_cards,success:_}: FetchData<TEXT_ICON_TYPE[]> = useFetch <TEXT_ICON_TYPE[]>('realestate/page/icon-card',[]);
 
     return <Container className='p-[0px] pb-[75px] grid grid-flow-row gap-y-[10px] '>
-        <TEXT_IMAGE title={title} sections={sections} img="/image/home/home_background.png" firstChildClass="pl-[162px]" showSection={true}/>
+        <TEXT_IMAGE title={title} sections={sections} img="/image/home/home_background.png" firstChildClass="md:pl-[80px] lg:pl-[162px]" showSection={true}/>
         <CARD_LIST data={icon_cards} />
     </Container>
         
