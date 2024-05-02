@@ -35,7 +35,7 @@ const Question = () => {
     const Container = styled.div`${({theme}) => ``}`;
 
     return <Container className='px-[16px] lg:px-[80px] xl:px-[160px] py-[75px] relative'>
-        <STAR parentClass={"top-[50px] left-[60px]"} />
+        {/* <STAR parentClass={"top-[50px] left-[60px]"} /> */}
         <ExploreAction.Provider value={propertyAction()}>
             <CARD6 {...data} />
         </ExploreAction.Provider>

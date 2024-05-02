@@ -1,8 +1,8 @@
 import { useState}            from "react";
 import styled,{ useTheme }    from "styled-components";
 
-import HEADER                 from "../ui/components/HEADER";
-import TEXT                 from "../ui/elements/TEXT"
+import {HEADER}                 from "../ui/components";
+import TEXT                   from "../ui/elements/TEXT"
 import useFetch, {FetchData}  from '../../utility/customHook/API';
 
 const Container = styled.div``;

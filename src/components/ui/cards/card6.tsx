@@ -15,7 +15,6 @@ const CARD: React.FC<Card6Type>=({title,content,buttonText,showButton=false,pare
     const theme = useTheme();
     const {screenSize,screenLen:_}        = useScreenSize();
 
-
     return (
         <Container className={`grid ${(showButton && screenSize==="sm")?"grid-flow-row":"grid-rows-2 grid-flow-col"} md:gap-x-[150] lg:gap-x-[200px] ${parentClass}`}>
             <TEXT_1 text={title}   className="text-left"  />
