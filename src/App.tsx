@@ -11,9 +11,9 @@ import GlobalStyle from './globalStyles';
 
 
 
-import AppRoute from "./AppRoute"
-import Navbar from './components/ui/components/navbar';
-import Footer from './components/footer';
+import AppRoute                     from "./AppRoute"
+import {NAVBAR,BANNER}              from './components/ui/components';
+import Footer                       from './components/footer';
 
 import { AppDispatch }              from './store/index';
 import { fetchData, selectTitle}    from './store/slice/title';
@@ -36,8 +36,8 @@ const App=() => {
     <GlobalStyle />
     <div className="App">
       <Router>
-
-        <Navbar />
+        <BANNER />
+        <NAVBAR />
         <div className="flex min-h-screen flex-col items-center justify-between bg-black">
           <AppRoute />
           

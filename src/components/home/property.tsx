@@ -9,7 +9,7 @@ import usePagination            from '../../utility/customHook/usePagination';
 import {cardPropertyType}       from "../../utility/typeApp"
 
 import {CARD2,CARD6} from "../ui/cards/"
-import {STAR,STAR_3,PAGINATION}        from "../ui/components/"
+import {STAR,PAGINATION}        from "../ui/components/"
 
 const Property = () => {
 
@@ -29,13 +29,12 @@ const Property = () => {
 
     const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardPropertyType>("realestate/home/property")
 
-    const HEADER_WITH_STAR = STAR_3(CARD6);
+    const HEADER_WITH_STAR = STAR(CARD6);
 
-    
-    return <Container className='px-[16px] lg:px-[80px] xl:px-[160px] py-[75px] relative'>
+    return <Container className='flex flex-col gap-y-[40px] md:gap-y-[60px] lg:gap-y-[80px] px-[16px] lg:px-[80px] xl:px-[160px] py-[75px]'>
+
         <ExploreAction.Provider value={propertyAction()}>
-            <HEADER_WITH_STAR {...data}  starClass={"top-[50px] left-[60px]"}/>
-
+            <HEADER_WITH_STAR {...data}  starClass={"-top-[45px] -left-[30px]"}/>
         </ExploreAction.Provider>
         <div className="grid grid-flow-row gap-y-[50px]">
             <div className={`grid grid-flow-row grid-cols-${cardsPerPage} gap-x-[30px]`}>{

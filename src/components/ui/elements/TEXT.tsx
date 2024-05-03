@@ -20,8 +20,6 @@ export default ({text,fontSize,fontStyle,fontWeight,lineHeight,color,className="
 
     fontSize  =fontSize ===undefined ?responsiveTextSet[responsive][screenSize]:fontSize
     
-    console.log(screenSize,responsive,fontSize)
-
     return <Element fontSize={fontSize} fontStyle={fontStyle} fontWeight={fontWeight} lineHeight={lineHeight} color={color} className={className}>
         {text}
     </Element>

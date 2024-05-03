@@ -1,5 +1,5 @@
 import styled           from "styled-components";
-import {STAR,STAR_3,HEADER}    from "../ui/components/"
+import {STAR,HEADER}    from "../ui/components/"
 
 
 const Search = () => {
@@ -11,11 +11,11 @@ const Search = () => {
     const Container = styled.div`${({theme}) => ``}`;
 
     
-    const HEADER_WITH_STAR = STAR_3(HEADER);
+    const HEADER_WITH_STAR = STAR(HEADER);
 
     return <Container className='px-[16px] lg:px-[80px] xl:px-[160px] py-[75px] relative'>
 
-        <HEADER_WITH_STAR title={data.title} content={data.content} starClass={"top-[50px] left-[60px]"} />
+        <HEADER_WITH_STAR title={data.title} content={data.content} starClass={"-top-[45px] -left-[30px]"} />
     </Container>
 }
 
