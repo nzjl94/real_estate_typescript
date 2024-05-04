@@ -155,3 +155,13 @@ export interface Card6Type extends TEXT_PARAGRAPH{
     buttonClass?:string;
     showButton?:boolean;
 }
+
+
+export interface FORM_TYPE  {
+    // firstName:string;
+    // lastName:string;
+    // email:string;
+    // cityName:string;
+    // availabilityDate:string;
+    //roomNumber:number;
+}

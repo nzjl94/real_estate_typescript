@@ -7,7 +7,7 @@ import TEXT 										from "../ui/elements/TEXT"
 import IMG 											from "../ui/elements/IMAGE";
 import {indTitle} 									from '../../utility/typeStore';
 import {API_DATA_3}  								from '../../utility/typeApp';
-import useFetch, {FetchData}  						from '../../utility/customHook/API';
+import useFetch, {FetchData}  						from '../../utility/customHook/useGetAPI';
 import { selectTitleData} 							from '../../store/slice/title';
 
 

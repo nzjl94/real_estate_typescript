@@ -1,17 +1,20 @@
 import {useEffect } from 'react';
 
-import styled,{ useTheme } 								from "styled-components";
-import { useForm,SubmitHandler } 						from 'react-hook-form';
+import styled,{ useTheme }		from "styled-components";
+import { useForm,SubmitHandler }from 'react-hook-form';
 
-import HEADER 											from "../ui/components/HEADER"
-import FormValidation 									from '../../utility/formValidation'
-import {onErrorAction} 									from "../../utility/eventAction"
+import HEADER					from "../ui/components/HEADER"
+import FormValidation			from '../../utility/formValidation'
+import {onErrorAction,onSubmit}	from "../../utility/eventAction"
 import {INPUT,REACT_SELECT as RSELECT, TEXTAREA, CHECKBOX,SELECT,FILE} 	from "../ui/elements/"
-import useFetch, {FetchData,usePostAPI}  				from '../../utility/customHook/API';
-import {OBJECT_1}										from "../../utility/typeApp"
+import useFetch, {FetchData}	from '../../utility/customHook/useGetAPI';
+import usePostAPI 				from '../../utility/customHook/usePostAPI';
+import {OBJECT_1}				from "../../utility/typeApp"
 
 
 const Container=styled.div`${({theme}) => ``}`;
+
+
 const FormContainer=styled.div`${({theme}) => ``}`;
 
 export default () => {
@@ -25,7 +28,6 @@ export default () => {
 		console.log('Data successfully posted:', response);
 	},[response])
 
-
 	const {register,handleSubmit,formState: { errors },setValue,reset,control,getValues} = useForm({
 		defaultValues: {
 			firstName: "Niyaz",
@@ -37,49 +39,11 @@ export default () => {
 			//sendNotification:true
 		}
 	});
-
-	interface FORM_TYPE  {
-		// firstName:string;
-		// lastName:string;
-		// email:string;
-		// cityName:string;
-		// availabilityDate:string;
-		//roomNumber:number;
-	}
-	const onSubmit: SubmitHandler<FORM_TYPE> = async (form_data) => {		
-		// const post_data=await postAPIData('realestate/contact/store',formPrepare(data)) //data or getValues()
-		// const { data:postData,success:postSuccess}: Record<string, any>  = usePostFetch ('realestate/contact/store',form_data);
-
-		// console.log(postData,postSuccess)
-		// reset()
-
-		try {
-			//you can catch the response in useEffect
-			await postData('realestate/contact/store',form_data);
-		} catch (err) {
-			// Handle error
-		}
-	};
-	const formPrepare=(formData:FORM_TYPE)=>{
-		const preData = new FormData();
-
-		for (const key in formData)
-			if(key.startsWith("file")){
-				preData.append(key, formData[key as keyof FORM_TYPE][0]);
-			}else if(key.startsWith("date")){
-				// if date and time is needed
-				//preData.append(key, new Date(formData[key as keyof FORM_TYPE]).toLocaleString("en-CA",{hour12: false}).replace(",",""));
-				preData.append(key, new Date(formData[key as keyof FORM_TYPE]).toLocaleDateString("en-CA"));
-			}else
-				preData.append(key, formData[key as keyof FORM_TYPE]);
-
-		return preData
-	}
   return (
 	<Container className="flex flex-col gap-[80px]">
     	<HEADER title={data.title} content={data.content} />
       	<FormContainer className=" border-[1px] rounded-[12px] border-gray-1">
-			<form className="w-full" onSubmit={handleSubmit(onSubmit,(error)=>onErrorAction(error,"connect"))}  >
+			<form className="w-full" onSubmit={handleSubmit((data)=>onSubmit(data,postData),(error)=>onErrorAction(error,"connect"))}  >
 				<div className="flex flex-wrap py-3">
 					<INPUT 
 						inputName="firstName" inputType="text"inputLabel="First Name" placeholder="Enter First Name" parentClassName="w-1/3" 
@@ -126,12 +90,12 @@ export default () => {
 						options={["Hawler","Karkuk","Duhok","Sulaymaniyah"]}
 					/>
 				</div>
-				<div className="flex flex-wrap py-3">	
+				{/* <div className="flex flex-wrap py-3">	
 					<TEXTAREA 
 						inputName="note" inputLabel="Note" placeholder="Please Enter any extra information"	parentClassName="w-full" 
 						register={register} errors={errors} validation={FormValidation("textArea")} 
 					/>
-				</div>
+				</div> */}
 				<div className="flex flex-wrap py-3">
 					<FILE 
 						parentClassName="w-full" inputName="fileBuildingImg" inputLabel="Building Image"
@@ -150,12 +114,12 @@ export default () => {
 						register={register} errors={errors} validation={FormValidation("checkBox")}
 						// options={{"north":"North","south":"South","east":"East","west":"West"}}
 					/>
-				</div> 
+				</div>
 				<div className="flex flex-row-reverse pt-6">
 					<button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
 						Submit
 					</button>
-				</div> 
+				</div>  
 			</form>
       </FormContainer>
     </Container>

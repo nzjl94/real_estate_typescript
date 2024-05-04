@@ -3,7 +3,7 @@ import styled,{ useTheme }    from "styled-components";
 
 import {HEADER}                 from "../ui/components";
 import TEXT                   from "../ui/elements/TEXT"
-import useFetch, {FetchData}  from '../../utility/customHook/API';
+import useFetch, {FetchData}  from '../../utility/customHook/useGetAPI';
 
 const Container = styled.div``;
 const TextContainer = styled.div`${({theme}) => `

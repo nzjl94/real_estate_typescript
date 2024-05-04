@@ -8,7 +8,7 @@ import Investment 				from "./investment"
 import Start 					from "../ui/components/TEXT_BUTTON";
 
 import HashLink 				from '../ui/components/hashLink';
-import useFetch, {FetchData}  	from '../../utility/customHook/API';
+import useFetch, {FetchData}  	from '../../utility/customHook/useGetAPI';
 import {TEXT_ICON_TYPE}			from "../../utility/typeApp"
 
 

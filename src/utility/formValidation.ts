@@ -31,8 +31,8 @@ const registerOptions = {
       required: "The field is required",
       valueAsDate: true,
       validate: {
-        maxDate:value => value.toLocaleDateString("en-CA") <= '2024-12-31' || "The maximum date is 2024-12-31",
-        minDate: value => value.toLocaleDateString("en-CA") >= '2024-01-01' || "The minimum date is 2024-01-01"
+        maxDate:(value:Date) => value.toLocaleDateString("en-CA") <= '2024-12-31' || "The maximum date is 2024-12-31",
+        minDate: (value:Date) => value.toLocaleDateString("en-CA") >= '2024-01-01' || "The minimum date is 2024-01-01"
       }
     },
     textArea:{ 
@@ -53,11 +53,11 @@ const registerOptions = {
     file:{
       required: "Image of the Desire Building is Required",
       validate: {
-        fileType:file =>  ["png","jpeg","jpg","gif"].includes(file[0].type.split("/")[1].toLowerCase()) || "The file type should be JPEG, JPG, PNG, and GIF",
-        fileSize:file =>  file[0].size/(1024*1024)<5 || "The file size should be less than 5MB"
+        fileType:(file:any) =>  ["png","jpeg","jpg","gif"].includes(file[0].type.split("/")[1].toLowerCase()) || "The file type should be JPEG, JPG, PNG, and GIF",
+        fileSize:(file:any) =>  file[0].size/(1024*1024)<5 || "The file size should be less than 5MB"
       }
     }
 };
-export default (PARAM) => {
-  return registerOptions[PARAM]
+export default (PARAM:string) => {
+  return registerOptions[PARAM as keyof typeof registerOptions]
 };

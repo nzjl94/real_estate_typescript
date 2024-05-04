@@ -3,7 +3,7 @@ import styled,{ useTheme }    from "styled-components";
 
 import HEADER                 from "../ui/components/HEADER";
 import TEXT_1                 from "../ui/elements/TEXT"
-import useFetch, {FetchData}  from '../../utility/customHook/API';
+import useFetch, {FetchData}  from '../../utility/customHook/useGetAPI';
 
 const ExperienceContainer=styled.div``;
 const ElementWrapper = styled.div`

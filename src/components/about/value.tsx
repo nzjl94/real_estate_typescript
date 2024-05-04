@@ -3,7 +3,7 @@ import styled,{ useTheme }    from "styled-components";
 import IMG                    from "../ui/elements/IMAGE";
 import TEXT_1                 from "../ui/elements/TEXT"
 import {API_DATA_1}           from '../../utility/typeApp';
-import useFetch, {FetchData}  from '../../utility/customHook/API';
+import useFetch, {FetchData}  from '../../utility/customHook/useGetAPI';
 
 const Content=styled.div``;
 const Container = styled.div`${({theme}) => `

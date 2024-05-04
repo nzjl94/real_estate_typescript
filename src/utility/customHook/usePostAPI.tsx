@@ -1,62 +1,17 @@
 import { useState, useEffect } from 'react';
 
-
-// type getAPIData= (URL:string,setFun:any,type?:string)=> void
-
-
-export interface FetchData<T> {
-    data: T;
-    loading: boolean;
-    success: boolean;
-    error: string|null;
-}
-const useFetch = <T,>(url: string,default_value:any): FetchData<T> => {
-
-  const [data,        setData] = useState<T>(default_value);
-  const [error,      setError] = useState<string|any>(null);
-  const [loading,  setLoading] = useState<boolean>(true);
-  const [success,  setSuccess] = useState<boolean>(false);
-
-  const fetchData = async () => {
-    setLoading(true);
-    setError(null); 
-
-    try {     
-      const get_response = await fetch(url);
-      const result = await get_response.json();
-      setData(result);
-      setSuccess(true);
-    } catch (error:any) {
-      console.error('Error fetching data:', error);
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-  useEffect(() => {
-    fetchData();
-    return () => {};
-  }, [url]);
-  return { data, error,loading, success};
-}
-
-export default useFetch;
-
-
-// type PostRequestType = any[] | Record<string, any> 
 interface ApiResponse {
   success: boolean;
   data?: any;
   error?: string;
 }
-export const usePostAPI =() => {
+const usePostAPI =() => {
   const [response, setResponse] = useState<ApiResponse | null>(null);
   const [loading,  setLoading]  = useState<boolean>(true);
   const [success,  setSuccess]  = useState<boolean>(false);
   const [error,      setError]  = useState<string>('');
 
 
-  // use useCallback here
   const postData = async (url:string,body:any) => {
     setLoading(true);
     setSuccess(false);
@@ -100,3 +55,4 @@ export const usePostAPI =() => {
 
   return { loading, error, success,response, postData};
 }
+export default usePostAPI

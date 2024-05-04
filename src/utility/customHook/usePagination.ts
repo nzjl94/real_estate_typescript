@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import useFetch, {FetchData}            from './API';
+import useFetch, {FetchData}            from './useGetAPI';
 import useScreenSize                    from './useScreenSize';
 
 

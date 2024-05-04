@@ -7,7 +7,7 @@ import {getSingleTitle} 	    from '../../store/slice/title';
 
 
 import {TEXT_PARAGRAPH}             from '../../utility/typeApp';
-import useFetch, {FetchData}    from '../../utility/customHook/API';
+import useFetch, {FetchData}    from '../../utility/customHook/useGetAPI';
 
 
 // This approch it work only if the files inside [src] but does not work when they inside [public]

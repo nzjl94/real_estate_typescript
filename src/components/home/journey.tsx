@@ -4,7 +4,7 @@ import { useSelector }                  from 'react-redux';
 
 import { RootState } 		            from '../../store/Reducer';
 import {getSingleTitle} 	            from '../../store/slice/title';
-import useFetch, {FetchData}            from '../../utility/customHook/API';
+import useFetch, {FetchData}            from '../../utility/customHook/useGetAPI';
 
 import {TEXT_IMAGE,CARD_LIST}           from "../ui/components/";
 
