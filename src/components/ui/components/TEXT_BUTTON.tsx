@@ -3,7 +3,7 @@ import styled,{ useTheme }    from "styled-components";
 
 import {CARD6 as CARD}        from "../cards"
 import { ExploreAction }      from '../../../store/Context';
-import {API_DATA_4}           from "../../../utility/typeApp"
+import {API_DATA_4}           from "../../../utility/types/typeApp"
 import useFetch, {FetchData}  from '../../../utility/customHook/useGetAPI';
 
 

@@ -9,7 +9,7 @@ import { ExploreAction }    from '../../store/Context';
 import {PAGINATION,STAR}    from "../ui/components"
 
 import usePagination        from '../../utility/customHook/usePagination';
-import {cardClientType}     from "../../utility/typeApp"
+import {cardClientType}     from "../../utility/types/typeApp"
 
 
 const Client = () => {

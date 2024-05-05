@@ -2,8 +2,8 @@ import { createSlice, createSelector,createAsyncThunk,PayloadAction } from '@red
 import { RootState } from '../Reducer';
 
 import {titleInitialState}    from "../initialStore"
-import {singleTitle,indTitle} from "../../utility/typeStore"
-import {TEXT_PARAGRAPH}       from "../../utility/typeApp"
+import {singleTitle,indTitle} from "../../utility/types/typeStore"
+import {TEXT_PARAGRAPH}       from "../../utility/types/typeApp"
 
 
 import {resetAll} from "../Actions"

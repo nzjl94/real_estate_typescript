@@ -6,7 +6,7 @@ import {useNavigate}        from 'react-router-dom';
 import { ExploreAction }    from '../../store/Context';
 
 import usePagination            from '../../utility/customHook/usePagination';
-import {cardPropertyType}       from "../../utility/typeApp"
+import {cardPropertyType}       from "../../utility/types/typeApp"
 
 import {CARD2,CARD6} from "../ui/cards/"
 import {STAR,PAGINATION}        from "../ui/components/"

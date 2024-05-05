@@ -9,7 +9,7 @@ import Start 					from "../ui/components/TEXT_BUTTON";
 
 import HashLink 				from '../ui/components/hashLink';
 import useFetch, {FetchData}  	from '../../utility/customHook/useGetAPI';
-import {TEXT_ICON_TYPE}			from "../../utility/typeApp"
+import {TEXT_ICON_TYPE}			from "../../utility/types/typeApp"
 
 
 const Service: React.FC = () => {

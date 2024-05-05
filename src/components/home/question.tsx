@@ -4,7 +4,7 @@ import styled    from "styled-components";
 import {useNavigate}        from 'react-router-dom';
 import usePagination        from '../../utility/customHook/usePagination';
 
-import {cardQuestionType}   from "../../utility/typeApp"
+import {cardQuestionType}   from "../../utility/types/typeApp"
 
 import { ExploreAction }    from '../../store/Context';
 

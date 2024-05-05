@@ -10,7 +10,7 @@ import HEADER               from "../ui/components/HEADER"
 import CARD1                from "../ui/cards/card1"
 import CARD2                from "../ui/cards/card3"
 
-import {SERVICE_TYPE}       from "../../utility/typeApp"
+import {SERVICE_TYPE}       from "../../utility/types/typeApp"
 
 const Management = ({data}:SERVICE_TYPE) => {
 

@@ -3,7 +3,7 @@ import styled,{ useTheme } 		from "styled-components";
 
 import IMG 						from "../ui/elements/IMAGE";
 import TEXT_1 					from "../ui/elements/TEXT"
-import {API_DATA_1}  			from '../../utility/typeApp';
+import {API_DATA_1}  			from '../../utility/types/typeApp';
 import useFetch, {FetchData}  	from '../../utility/customHook/useGetAPI';
 import HEADER               	from "../ui/components/HEADER"
 

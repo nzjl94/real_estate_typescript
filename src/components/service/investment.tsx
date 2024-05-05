@@ -9,8 +9,8 @@ import CARD1                from "../ui/cards/card1"
 
 import TEXT                 from "../ui/elements/TEXT"
 
-import {SERVICE_TYPE}                   from "../../utility/typeApp"
-import {ImageContainer,ButtonStyle1}    from "../../utility/styleApp"
+import {SERVICE_TYPE}                   from "../../utility/types/typeApp"
+import {ImageContainer,ButtonStyle1}    from "../../utility/types/styleApp"
 
 
 const Investment = ({data}:SERVICE_TYPE) => {

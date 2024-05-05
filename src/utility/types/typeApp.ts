@@ -165,3 +165,9 @@ export interface FORM_TYPE  {
     // availabilityDate:string;
     //roomNumber:number;
 }
+
+export interface PROPERTY_FORM_TYPE {
+    [key:string]:{
+        [key:string]:string|number
+    }
+}

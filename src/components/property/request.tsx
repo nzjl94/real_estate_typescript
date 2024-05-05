@@ -2,7 +2,11 @@ import styled                       from "styled-components";
 
 
 import {INPUT,REACT_SELECT, TEXTAREA, CHECKBOX} 	from "../ui/elements/"
-import FormValidation			    from '../../utility/formValidation'
+import FormValidation			    	from '../../utility/form/formValidation'
+import useFetch, {FetchData}			from '../../utility/customHook/useGetAPI';
+
+import {PROPERTY_FORM_TYPE}				from "../../utility/types/typeApp"
+
 
 import { useForm,SubmitHandler }    from 'react-hook-form';
 
@@ -10,10 +14,14 @@ import {STAR,HEADER}                from "../ui/components/"
 
 const Request = () => {
     
-    const data ={
+    const {title,content} ={
         title:"Let's Make it Happen",
         content:"Ready to take the first step toward your dream property? Fill out the form below, and our real estate wizards will work their magic to find your perfect match. Don't wait; let's embark on this exciting journey together."
     }
+	const { data:{bath_number,bed_number,budget,location,type:property_type},success}: FetchData<PROPERTY_FORM_TYPE> = useFetch <PROPERTY_FORM_TYPE>('realestate/property/form/detail',{});
+
+	console.log(bath_number,bed_number,budget,location,property_type)
+
     const Container = styled.div`${({theme}) => ``}`;
     const FormContainer=styled.div`${({theme}) => ``}`;
 
@@ -37,7 +45,7 @@ const Request = () => {
     
     return <Container className='flex flex-col gap-y-[40px] md:gap-y-[60px] lg:gap-y-[80px] px-[16px] lg:px-[80px] xl:px-[160px] py-[75px] relative'>
 
-        <HEADER_WITH_STAR title={data.title} content={data.content} starClass={"-top-[45px] -left-[30px]"} />
+        <HEADER_WITH_STAR title={title} content={content} starClass={"-top-[45px] -left-[30px]"} />
 
         <FormContainer className=" border-[1px] rounded-[12px] border-gray-1">
             <form className="w-full" onSubmit={handleSubmit(()=>{},()=>{})}  >
@@ -62,15 +70,28 @@ const Request = () => {
 				</div>
 				<div className="flex flex-wrap py-3">
 					<REACT_SELECT 
-						inputName="buldingType" inputLabel="Building Type" control={control} parentClassName="w-1/2"
-						options={[
-							{ value: "office",  	label: "Office" },
-							{ value: "cabin", 		label: "Cabin" },
-							{ value: "apartment",   label: "Apartment" },
-							{ value: "vila",    	label: "Vila" },
-							{ value: "house",    	label: "House" },
-						]}
-						placeholder="Building Type"
+						inputName="buldingType" inputLabel="Preferred Location" control={control} parentClassName="w-1/4"
+						options={location!==undefined && Object.keys(location).map(key=>({value:key,label:location[key]}))}
+
+						placeholder="Select Location"
+						register={register} errors={errors} required 
+					/>
+					<REACT_SELECT 
+						inputName="buldingType" inputLabel="Property Type" control={control} parentClassName="w-1/4"
+						options={property_type!==undefined && Object.keys(property_type).map(key=>({value:key,label:property_type[key]}))}
+						placeholder="Select Property Type"
+						register={register} errors={errors} required 
+					/>
+					<REACT_SELECT 
+						inputName="buldingType" inputLabel="No. of Bathrooms" control={control} parentClassName="w-1/4"
+						options={bath_number!==undefined && Object.keys(bath_number).map(key=>({value:key,label:bath_number[key]}))}
+						placeholder="Select no. of Bathrooms"
+						register={register} errors={errors} required 
+					/>
+					<REACT_SELECT 
+						inputName="buldingType" inputLabel="No. of Bedrooms" control={control} parentClassName="w-1/4"
+						options={bed_number!==undefined && Object.keys(bed_number).map(key=>({value:key,label:bed_number[key]}))}
+						placeholder="Select no. of Bedrooms"
 						register={register} errors={errors} required 
 					/>
 				</div>

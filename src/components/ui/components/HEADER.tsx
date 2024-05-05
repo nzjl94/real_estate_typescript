@@ -1,7 +1,7 @@
 import React               from "react";
 import styled,{ useTheme } from "styled-components";
 
-import { HEADER_TYPE_2 } from '../../../utility/typeApp';
+import { HEADER_TYPE_2 } from '../../../utility/types/typeApp';
 
 
 import TEXT_1 from "../elements/TEXT"

@@ -1,12 +1,12 @@
 import React                from 'react'
 
 
-import {TEXT_STYLE_3,API_DATA_5}    from '../../../utility/typeApp';
+import {TEXT_STYLE_3,API_DATA_5}    from '../../../utility/types/typeApp';
 
 import styled,{ useTheme }          from "styled-components"
 import TEXT                         from "../elements/TEXT"
 import IMG                          from "../elements/IMAGE"
-import {CardStyle1}                 from "../../../utility/styleApp"
+import {CardStyle1}                 from "../../../utility/types/styleApp"
 
 interface COMPONET_TYPE extends API_DATA_5{
     index:number;

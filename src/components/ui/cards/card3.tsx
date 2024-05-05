@@ -1,8 +1,8 @@
 import React                            from 'react'
 import styled,{ useTheme }              from "styled-components"
 import TEXT                             from "../elements/TEXT"
-import {ButtonStyle1,CardStyle1}        from "../../../utility/styleApp"
-import {API_DATA_5}                     from '../../../utility/typeApp';
+import {ButtonStyle1,CardStyle1}        from "../../../utility/types/styleApp"
+import {API_DATA_5}                     from '../../../utility/types/typeApp';
 
 
 

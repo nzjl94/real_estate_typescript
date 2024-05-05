@@ -2,8 +2,8 @@ import React                from 'react'
 import styled               from "styled-components";
 
 import {IMAGE as IMG,TEXT}  from "../elements/";
-import {SERVICE_TYPE}       from "../../../utility/typeApp"
-import {CardStyle1}         from "../../../utility/styleApp"
+import {SERVICE_TYPE}       from "../../../utility/types/typeApp"
+import {CardStyle1}         from "../../../utility/types/styleApp"
 
 const CARD_LIST:React.FC<SERVICE_TYPE> = ({data}) => {
 

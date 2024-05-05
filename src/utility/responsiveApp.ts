@@ -1,4 +1,4 @@
-import {responsiveType_1} from "./typeApp"
+import {responsiveType_1} from "./types/typeApp"
 
 export const responsiveImageSet :responsiveType_1<number[]>={
     set1:{"xl2":[34,34],"xl":[34,34],"lg":[24,24],"md":[24,24],"sm":[20,20]},

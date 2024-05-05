@@ -9,7 +9,7 @@ import useFetch, {FetchData}            from '../../utility/customHook/useGetAPI
 import {TEXT_IMAGE,CARD_LIST}           from "../ui/components/";
 
 
-import {TEXT_PARAGRAPH,TEXT_ICON_TYPE}  from '../../utility/typeApp';
+import {TEXT_PARAGRAPH,TEXT_ICON_TYPE}  from '../../utility/types/typeApp';
 
 const Journey = () => {
 

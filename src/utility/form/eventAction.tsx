@@ -4,7 +4,7 @@ import {MouseEvent}  from "react";
 import {FieldErrors,SubmitHandler } from 'react-hook-form';
 
 
-import {FORM_TYPE} from "./typeApp"
+import {FORM_TYPE} from "../types/typeApp"
 
 
 type onChangeAction= (e:MouseEvent<HTMLInputElement>,type:string)=>void

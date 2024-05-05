@@ -3,7 +3,7 @@ import styled,{ useTheme } from "styled-components";
 import TEXT_1   from "../elements/TEXT"
 import BUTTON   from "../elements/BUTTON"
 
-import {Card6Type}    from '../../../utility/typeApp';
+import {Card6Type}    from '../../../utility/types/typeApp';
 
 import useScreenSize  from '../../../utility/customHook/useScreenSize';
 

@@ -1,6 +1,6 @@
 import styled,{ useTheme }    from "styled-components";
 import TEXT_1                 from "../elements/TEXT"
-import {TEXT_IMAGE_TYPE}      from '../../../utility/typeApp';
+import {TEXT_IMAGE_TYPE}      from '../../../utility/types/typeApp';
 import {useNavigate}          from 'react-router-dom';
 import BUTTON                 from "../elements/BUTTON"
 

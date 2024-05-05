@@ -1,7 +1,7 @@
 import styled                   from "styled-components";
 
 import usePagination            from '../../utility/customHook/usePagination';
-import {cardPropertyType}       from "../../utility/typeApp"
+import {cardPropertyType}       from "../../utility/types/typeApp"
 
 import {CARD2}                  from "../ui/cards/"
 import {STAR,PAGINATION,HEADER} from "../ui/components/"

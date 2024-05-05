@@ -6,7 +6,7 @@ import { RootState } 		    from '../../store/Reducer';
 import {getSingleTitle} 	    from '../../store/slice/title';
 
 
-import {TEXT_PARAGRAPH}             from '../../utility/typeApp';
+import {TEXT_PARAGRAPH}             from '../../utility/types/typeApp';
 import useFetch, {FetchData}    from '../../utility/customHook/useGetAPI';
 
 

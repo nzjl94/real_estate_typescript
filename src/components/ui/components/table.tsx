@@ -3,7 +3,7 @@ import { RootState } from '../../../store/Reducer';
 import React, {useReducer,useState} from 'react';
 
 
-import {TableRow} from '../../../utility/typeStore';
+import {TableRow} from '../../../utility/types/typeStore';
 
 
 import {createColumnHelper,flexRender,getCoreRowModel,useReactTable,} from '@tanstack/react-table'

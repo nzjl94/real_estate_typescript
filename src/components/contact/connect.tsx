@@ -4,12 +4,12 @@ import styled,{ useTheme }		from "styled-components";
 import { useForm,SubmitHandler }from 'react-hook-form';
 
 import HEADER					from "../ui/components/HEADER"
-import FormValidation			from '../../utility/formValidation'
-import {onErrorAction,onSubmit}	from "../../utility/eventAction"
+import FormValidation			from '../../utility/form/formValidation'
+import {onErrorAction,onSubmit}	from "../../utility/form/eventAction"
 import {INPUT,REACT_SELECT as RSELECT, TEXTAREA, CHECKBOX,SELECT,FILE} 	from "../ui/elements/"
 import useFetch, {FetchData}	from '../../utility/customHook/useGetAPI';
 import usePostAPI 				from '../../utility/customHook/usePostAPI';
-import {OBJECT_1}				from "../../utility/typeApp"
+import {OBJECT_1}				from "../../utility/types/typeApp"
 
 
 const Container=styled.div`${({theme}) => ``}`;
