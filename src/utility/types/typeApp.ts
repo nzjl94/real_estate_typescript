@@ -49,7 +49,9 @@ export interface SELECT_TYPE extends INPUT_FIELD_1{
 }
 export interface REACT_SELECT_TYPE extends INPUT_FIELD_1, Pick<INPUT_FIELD_2,"required" | "control">{
     validation?:any;
-    options:any;
+    options:{
+        [key:string]:string|number
+    };
 }
 export type SELECT_OPTION_TYPE = Pick<INPUT_FIELD_2, "label" | "value">
 export interface INPUT_TYPE extends INPUT_FIELD_1, Pick<INPUT_FIELD_2,"inputType" >{

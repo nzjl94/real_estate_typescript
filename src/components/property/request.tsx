@@ -2,25 +2,24 @@ import styled                       from "styled-components";
 
 
 import {INPUT,REACT_SELECT, TEXTAREA, CHECKBOX} 	from "../ui/elements/"
-import FormValidation			    	from '../../utility/form/formValidation'
-import useFetch, {FetchData}			from '../../utility/customHook/useGetAPI';
-
-import {PROPERTY_FORM_TYPE}				from "../../utility/types/typeApp"
-
-
-import { useForm,SubmitHandler }    from 'react-hook-form';
-
-import {STAR,HEADER}                from "../ui/components/"
+import useFetch, {FetchData}						from '../../utility/customHook/useGetAPI';
+			
+import {PROPERTY_FORM_TYPE}							from "../../utility/types/typeApp"
+			
+import {GENERATE_ELEMENT}							from "../../utility/form/formUtility"
+			
+import { useForm}    								from 'react-hook-form';
+			
+import {STAR,HEADER}                				from "../ui/components/"
 
 const Request = () => {
+
     
     const {title,content} ={
         title:"Let's Make it Happen",
         content:"Ready to take the first step toward your dream property? Fill out the form below, and our real estate wizards will work their magic to find your perfect match. Don't wait; let's embark on this exciting journey together."
     }
 	const { data:{bath_number,bed_number,budget,location,type:property_type},success}: FetchData<PROPERTY_FORM_TYPE> = useFetch <PROPERTY_FORM_TYPE>('realestate/property/form/detail',{});
-
-	console.log(bath_number,bed_number,budget,location,property_type)
 
     const Container = styled.div`${({theme}) => ``}`;
     const FormContainer=styled.div`${({theme}) => ``}`;
@@ -29,16 +28,7 @@ const Request = () => {
 		defaultValues: {}
 	});
 
-    const generate_input =(inputType:string,pClass:string,valText:string|undefined,inputName:string,inputLabel:string,placeholder:string)=>({
-        inputName,
-        inputType,
-        inputLabel ,
-        placeholder,
-        parentClassName:pClass, 
-		register:register ,
-        errors:errors ,
-        ...(valText!==undefined && {validation:FormValidation(valText)})
-    })
+	const generate_element=new GENERATE_ELEMENT(control,errors,register,true)
 
 
     const HEADER_WITH_STAR = STAR(HEADER);
@@ -50,13 +40,13 @@ const Request = () => {
         <FormContainer className=" border-[1px] rounded-[12px] border-gray-1">
             <form className="w-full" onSubmit={handleSubmit(()=>{},()=>{})}  >
 				<div className="flex flex-wrap py-3">
-					<INPUT {...generate_input("text","w-1/4","textFiled","firstName","First Name","Enter First Name")}/>
-					<INPUT {...generate_input("text","w-1/4","textFiled","lastName","Last Name","Enter Last Name")}/>
-					<INPUT {...generate_input("text","w-1/4",undefined,"email","Email","Enter Email ")}/>
-					<INPUT {...generate_input("text","w-1/4","textFiled","phone","Phone","Enter Phone Name")}/>
+					<INPUT {...generate_element.INPUT("text","w-1/4","textFiled","firstName","First Name","Enter First Name")}/>
+					<INPUT {...generate_element.INPUT("text","w-1/4","textFiled","lastName","Last Name","Enter Last Name")}/>
+					<INPUT {...generate_element.INPUT("text","w-1/4",undefined,"email","Email","Enter Email ")}/>
+					<INPUT {...generate_element.INPUT("text","w-1/4","textFiled","phone","Phone","Enter Phone Name")}/>
 				</div>
 				<div className="flex flex-wrap py-3">
-					<INPUT 
+					{/* <INPUT 
 						inputType="number" inputName="roomNumber"  inputLabel="Room Number" placeholder="Please Enter the Room Number"	
 						parentClassName="w-1/2" 
 						register={register} errors={errors} 
@@ -66,34 +56,13 @@ const Request = () => {
 						inputType="date" inputName="dateAvailability"  inputLabel="Availability Date" placeholder="Please Enter the Availability Date"	
 						parentClassName="w-1/2" 
 						register={register} errors={errors} validation={FormValidation("dateFiled")} 
-					/>
+					/> */}
 				</div>
 				<div className="flex flex-wrap py-3">
-					<REACT_SELECT 
-						inputName="buldingType" inputLabel="Preferred Location" control={control} parentClassName="w-1/4"
-						options={location!==undefined && Object.keys(location).map(key=>({value:key,label:location[key]}))}
-
-						placeholder="Select Location"
-						register={register} errors={errors} required 
-					/>
-					<REACT_SELECT 
-						inputName="buldingType" inputLabel="Property Type" control={control} parentClassName="w-1/4"
-						options={property_type!==undefined && Object.keys(property_type).map(key=>({value:key,label:property_type[key]}))}
-						placeholder="Select Property Type"
-						register={register} errors={errors} required 
-					/>
-					<REACT_SELECT 
-						inputName="buldingType" inputLabel="No. of Bathrooms" control={control} parentClassName="w-1/4"
-						options={bath_number!==undefined && Object.keys(bath_number).map(key=>({value:key,label:bath_number[key]}))}
-						placeholder="Select no. of Bathrooms"
-						register={register} errors={errors} required 
-					/>
-					<REACT_SELECT 
-						inputName="buldingType" inputLabel="No. of Bedrooms" control={control} parentClassName="w-1/4"
-						options={bed_number!==undefined && Object.keys(bed_number).map(key=>({value:key,label:bed_number[key]}))}
-						placeholder="Select no. of Bedrooms"
-						register={register} errors={errors} required 
-					/>
+					<REACT_SELECT {...generate_element.SELECT("location","Preferred Location","w-1/4","Select Location",location)}/>
+					<REACT_SELECT {...generate_element.SELECT("property","Property Type","w-1/4","Select Property Type",property_type)}/>
+					<REACT_SELECT {...generate_element.SELECT("nf_bathroom","No. of Bathrooms","w-1/4","Select no. of Bathrooms",bath_number)}/>
+					<REACT_SELECT {...generate_element.SELECT("nf_bedroom","Preferred Location","w-1/4","Select no. of Bedrooms",bed_number)}/>
 				</div>
 				{/* <div className="flex flex-wrap py-3">	
 					<TEXTAREA 

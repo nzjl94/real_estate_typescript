@@ -74,13 +74,7 @@ export default () => {
 				<div className="flex flex-wrap py-3">
 					<RSELECT 
 						inputName="buldingType" inputLabel="Building Type" control={control} parentClassName="w-1/2"
-						options={[
-							{ value: "office",  	label: "Office" },
-							{ value: "cabin", 		label: "Cabin" },
-							{ value: "apartment",   label: "Apartment" },
-							{ value: "vila",    	label: "Vila" },
-							{ value: "house",    	label: "House" },
-						]}
+						options={{"office":"Office","cabin":"Cabin","apartment":"Apartment","vila": "Vila","house": "House"}}
 						placeholder="Building Type"
 						register={register} errors={errors} required 
 					/>

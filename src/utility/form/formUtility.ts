@@ -1,6 +1,8 @@
-import {StylesConfig}  from "react-select"
-import {SELECT_OPTION_TYPE} from "../types/typeApp"
+import {StylesConfig}                             from "react-select"
+import {Control,FieldErrors,UseFormRegister}    	from 'react-hook-form';
 
+import {SELECT_OPTION_TYPE}                       from "../types/typeApp"
+import FormValidation			    				            from './formValidation'
 
 
 export const customReactSelectStyles= (background:string,borderColor:string)=>{
@@ -60,4 +62,46 @@ export const customReactSelectStyles= (background:string,borderColor:string)=>{
   };
 
   return react_select
+}
+
+export class GENERATE_ELEMENT {
+  
+  control:Control<{}, any, {}>;
+  errors:FieldErrors;
+  register:UseFormRegister<{}>;
+  required:boolean;
+
+  constructor(control: Control<{}, any, {}>, errors: FieldErrors, register: UseFormRegister<{}>,required:boolean) {
+      this.control  = control;
+      this.errors   = errors;
+      this.register = register;
+      this.required = required;
+  }
+
+  SELECT (inputName:string,inputLabel:string,pClass:string,placeholder:string,options:{[key:string]:string|number}){
+    return {
+      inputName,
+      inputLabel ,
+      placeholder,
+      register:this.register,
+      options,
+      control:this.control ,
+      errors:this.errors ,
+      required:this.required,
+      parentClassName:pClass
+    }
+  }
+
+  INPUT (inputType:string,pClass:string,valText:string|undefined,inputName:string,inputLabel:string,placeholder:string){
+    return {
+      inputName,
+      inputType,
+      inputLabel ,
+      placeholder,
+      errors:this.errors ,
+      register:this.register,
+      parentClassName:pClass, 
+      ...(valText!==undefined && {validation:FormValidation(valText)})
+    }
+  }
 }

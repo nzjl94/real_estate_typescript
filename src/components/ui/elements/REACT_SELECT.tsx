@@ -6,10 +6,7 @@ import {REACT_SELECT_TYPE}        from "../../../utility/types/typeApp"
 import {customReactSelectStyles}  from "../../../utility/form/formUtility"
 
 
-
-
-
-const SELECT=({ inputName, inputLabel, control,options, placeholder="",parentClassName="",register,errors, required}:REACT_SELECT_TYPE) => {
+const SELECT=({ inputName, inputLabel, control,options={}, placeholder="",parentClassName="",register,errors, required}:REACT_SELECT_TYPE) => {
 
   const theme = useTheme();
 
@@ -25,7 +22,7 @@ const SELECT=({ inputName, inputLabel, control,options, placeholder="",parentCla
                     <Select 
                         styles={customReactSelectStyles(theme.colors.gray5,theme.colors.gray5)} 
                         {...field} 
-                        options={options} 
+                        options={Object.keys(options).map(key=>({value:key,label:options[key]}))} 
                         //defaultValue={options[2]} 
                         placeholder={placeholder} //If default value selected then it does not appear
                     />
