@@ -1,5 +1,5 @@
-import {FieldErrors } from 'react-hook-form';
-import {DefaultTheme} from "styled-components";
+import {FieldErrors,UseFormRegister,FieldValues}   from 'react-hook-form';
+import {DefaultTheme}                   from "styled-components";
 
 export interface OBJECT_1 {
     [key: string]:string
@@ -27,8 +27,8 @@ interface INPUT_FIELD_1 {
     inputName:string;
     inputLabel:string;
     parentClassName:string;
-    // register:UseFormRegister<FieldValues>;
-    register:any;
+    register:UseFormRegister<FieldValues>;
+    // register:UseFormRegister<{}>;
     errors:FieldErrors;
     placeholder?:string;
 }
@@ -41,7 +41,7 @@ interface INPUT_FIELD_2 {
     listType?:string;
 }
 export interface TEXTAREA_TYPE extends INPUT_FIELD_1{
-    validation:OBJECT_1
+    validation:{[key:string]:string|number}|{}
 }
 export interface SELECT_TYPE extends INPUT_FIELD_1{
     validation:{};
@@ -56,6 +56,7 @@ export interface REACT_SELECT_TYPE extends INPUT_FIELD_1, Pick<INPUT_FIELD_2,"re
 export type SELECT_OPTION_TYPE = Pick<INPUT_FIELD_2, "label" | "value">
 export interface INPUT_TYPE extends INPUT_FIELD_1, Pick<INPUT_FIELD_2,"inputType" >{
     validation?:any;
+    defaultValue?:any
 }
 export interface CHECKBOX_TYPE extends Omit<INPUT_FIELD_1,"placeholder">, Pick<INPUT_FIELD_2,"listType" >{
     options:string[] | OBJECT_1;

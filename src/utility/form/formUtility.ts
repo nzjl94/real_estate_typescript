@@ -91,7 +91,6 @@ export class GENERATE_ELEMENT {
       parentClassName:pClass
     }
   }
-
   INPUT (inputType:string,pClass:string,valText:string|undefined,inputName:string,inputLabel:string,placeholder:string){
     return {
       inputName,
@@ -102,6 +101,23 @@ export class GENERATE_ELEMENT {
       register:this.register,
       parentClassName:pClass, 
       ...(valText!==undefined && {validation:FormValidation(valText)})
+    }
+  }
+
+  
+
+  TEXTAREA (pClass:string,valText:string,inputName:string,inputLabel:string,placeholder:string){
+    
+    console.log("----------------------",FormValidation(valText))
+    return {
+      inputName,
+      inputLabel ,
+      placeholder,
+      errors:this.errors ,
+      register:this.register,
+      parentClassName:pClass, 
+      validation:FormValidation(valText)
+      // ...(valText!==undefined && {validation:FormValidation(valText)})
     }
   }
 }

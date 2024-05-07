@@ -64,17 +64,18 @@ const Request = () => {
 					<REACT_SELECT {...generate_element.SELECT("nf_bathroom","No. of Bathrooms","w-1/4","Select no. of Bathrooms",bath_number)}/>
 					<REACT_SELECT {...generate_element.SELECT("nf_bedroom","Preferred Location","w-1/4","Select no. of Bedrooms",bed_number)}/>
 				</div>
-				{/* <div className="flex flex-wrap py-3">	
-					<TEXTAREA 
-						inputName="note" inputLabel="Note" placeholder="Please Enter any extra information"	parentClassName="w-full" 
-						register={register} errors={errors} validation={FormValidation("textArea")} 
-					/>
-				</div> */}
+				<div className="flex flex-wrap py-3">	
+					<TEXTAREA {...generate_element.TEXTAREA("w-full","textArea","message","Message","Enter your Message here...")} />
+				</div>
 				<div className="flex flex-wrap py-3">	
 					<CHECKBOX 
-						parentClassName="w-full" inputName="sendNotification" inputLabel="Send Notifications"
+						parentClassName="w-full" 
+						inputName="sendNotification" 
+						inputLabel="Send Notifications"
 						options={{id:"yes",value:"Yes, Notify Me"}}
-						register={register} errors={errors} validation={{}}
+						register={register} 
+						errors={errors} 
+						validation={{}}
 					/>
 				</div>
 				<div className="flex flex-row-reverse pt-6">

@@ -1,7 +1,7 @@
 import {useEffect } from 'react';
 
 import styled,{ useTheme }		from "styled-components";
-import { useForm,SubmitHandler }from 'react-hook-form';
+import { useForm,SubmitHandler,FieldValues} from 'react-hook-form';
 
 import HEADER					from "../ui/components/HEADER"
 import FormValidation			from '../../utility/form/formValidation'
@@ -29,15 +29,7 @@ export default () => {
 	},[response])
 
 	const {register,handleSubmit,formState: { errors },setValue,reset,control,getValues} = useForm({
-		defaultValues: {
-			firstName: "Niyaz",
-			lastName: "Jalal",
-			email:"nzjl94@gmail.com",
-			dateAvailability:"2024-04-21",
-			roomNumber:3,
-			cityName:"null",
-			//sendNotification:true
-		}
+		defaultValues: {}//it has problems with typing
 	});
   return (
 	<Container className="flex flex-col gap-[80px]">
@@ -46,16 +38,35 @@ export default () => {
 			<form className="w-full" onSubmit={handleSubmit((data)=>onSubmit(data,postData),(error)=>onErrorAction(error,"connect"))}  >
 				<div className="flex flex-wrap py-3">
 					<INPUT 
-						inputName="firstName" inputType="text"inputLabel="First Name" placeholder="Enter First Name" parentClassName="w-1/3" 
-						register={register} errors={errors} validation={FormValidation("textFiled")} 
+						inputName="firstName"
+						inputType="text"
+						inputLabel="First Name" 
+						placeholder="Enter First Name" 
+						parentClassName="w-1/3" 
+						defaultValue="Niyaz"
+						register={register} 
+						errors={errors} validation={FormValidation("textFiled")} 
 					/>
 					<INPUT 
-						inputName="lastName"  inputLabel="Last Name" placeholder="Enter Last Name"	parentClassName="w-1/3" 
-						register={register} errors={errors} validation={FormValidation("textFiled")} 
+						inputName="lastName"  
+						inputLabel="Last Name" 
+						placeholder="Enter Last Name"	
+						parentClassName="w-1/3" 
+						register={register} 
+						errors={errors} 
+						defaultValue="Jalal"
+						validation={FormValidation("textFiled")} 
 					/>
 					<INPUT 
-						inputType="email" inputName="email" inputLabel="Email" placeholder="Enter Email" parentClassName="w-1/3" 
-						register={register} errors={errors}  
+						inputType="email" 
+						inputName="email" 
+						inputLabel="Email" 
+						placeholder="Enter Email" 
+						parentClassName="w-1/3" 
+						register={register} 
+						errors={errors}  
+						defaultValue="nzjl94@gmail.com"
+
 					/>
 				</div>
 				<div className="flex flex-wrap py-3">
@@ -64,10 +75,12 @@ export default () => {
 						parentClassName="w-1/2" 
 						register={register} errors={errors} 
 						validation={FormValidation("numberFiled")} 
+						defaultValue={3}
 					/>
 					<INPUT
 						inputType="date" inputName="dateAvailability"  inputLabel="Availability Date" placeholder="Please Enter the Availability Date"	
-						parentClassName="w-1/2" 
+						parentClassName="w-1/2"
+						defaultValue={"2024-04-21"}
 						register={register} errors={errors} validation={FormValidation("dateFiled")} 
 					/>
 				</div>

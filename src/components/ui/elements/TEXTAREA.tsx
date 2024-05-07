@@ -5,18 +5,19 @@ import {onChangeAction} from "../../../utility/form/eventAction"
 
 import { TEXTAREA_TYPE } from '../../../utility/types/typeApp';
 
-const TextArea = (
-    {inputName, inputLabel, register,errors,validation={},placeholder="",parentClassName=""}:TEXTAREA_TYPE
-) => {
+const TextArea = (props:TEXTAREA_TYPE) => {
+
+	const {inputName, inputLabel, register,errors,validation={},placeholder="",parentClassName=""}=props
+	console.log(validation)
 	return (
 		<div className={`${parentClassName} px-3`}>
             <label className="block uppercase text-left mb-2" htmlFor={inputName}>{inputLabel}</label>
 			<textarea
-				type="text" placeholder={placeholder} rows="5" 
+				placeholder={placeholder} rows={5}
 				//onKeyDown={ commentOnSubmit}
                 className={`appearance-none block w-full bg-gray-200 text-gray-700 ${errors[inputName] && "border border-red-500"} rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white`}
 
-				name={inputName} id={inputName}
+				id={inputName}
                 {...register(inputName,
 					{ 
 						...validation,

@@ -14,7 +14,6 @@ const Select = (
 			<label className="block uppercase mb-2 text-left" htmlFor="grid-state">{inputLabel}</label>	
 			<select 
 				className="h-[48px] text-black rounded-lg block w-full py-[12px] px-4"
-				name={inputName}
 				{...register(inputName,{ 
 					...validation,
 					onChange: (e:MouseEvent<HTMLInputElement>) => {onChangeAction(e,"select")},
