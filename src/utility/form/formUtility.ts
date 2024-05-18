@@ -10,9 +10,10 @@ export const customReactSelectStyles= (background:string,borderColor:string)=>{
       control: (baseStyles, state) => {
         return {
           ...baseStyles,
-          borderWidth:"1px",
+          borderWidth:"0px",
           boxShadow: state.isFocused ? "#0ff" : "#0f0",
-          padding: '22px 20px',
+          padding: '24px 20px',
+          // overflow:"auto",
           background,
           borderColor,
           "&:hover": {
@@ -33,6 +34,7 @@ export const customReactSelectStyles= (background:string,borderColor:string)=>{
       valueContainer: (provided, state) => ({
         ...provided,
         padding: '0px 0px',
+        textAlign:"left"
       }),
       input: (provided, state) => ({
         ...provided,
@@ -46,7 +48,8 @@ export const customReactSelectStyles= (background:string,borderColor:string)=>{
         ...provided,
       }),
       dropdownIndicator: base => ({
-        ...base
+        ...base,
+        padding: '0px 0px',
       }),
       singleValue: base => ({
         ...base

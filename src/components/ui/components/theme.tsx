@@ -3,6 +3,8 @@ import { ThemeProvider } from "styled-components";
 
 const theme = {
   colors: {
+    transparent: 'transparent',
+    current: 'currentColor',
     white: "#FFF",
     black: "#000",
     gray1: "#999",
@@ -10,7 +12,19 @@ const theme = {
     gray3: "#191919",
     gray4: "#141414",
     gray5: "#1A1A1A",
-    purple1:"#703BF7"
+    gray6: "#666",
+    purple1:"#703BF7",
+    'cgray': {
+      100: '#666',
+      200: '#a5f3fc',
+      300: '#67e8f9',
+      400: '#22d3ee',
+      500: '#06b6d4',
+      600: '#0891b2',
+      700: '#0e7490',
+      800: '#155e75',
+      900: '#164e63',
+    },
   },
   fonts: ["sans-serif", "Roboto"],
   fontSizes: {
@@ -38,7 +52,7 @@ const theme = {
     m:"100%",
     l:"150%",
     xl:"200%"
-  }
+  },
 };
 interface Props {
     children?: ReactNode

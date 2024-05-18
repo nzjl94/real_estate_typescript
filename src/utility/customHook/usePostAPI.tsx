@@ -6,6 +6,7 @@ interface ApiResponse {
   error?: string;
 }
 const usePostAPI =() => {
+
   const [response, setResponse] = useState<ApiResponse | null>(null);
   const [loading,  setLoading]  = useState<boolean>(true);
   const [success,  setSuccess]  = useState<boolean>(false);
@@ -13,8 +14,10 @@ const usePostAPI =() => {
 
 
   const postData = async (url:string,body:any) => {
+
     setLoading(true);
     setSuccess(false);
+
     try {
       const preData = new FormData();
       for (const key in body){
@@ -28,7 +31,6 @@ const usePostAPI =() => {
           preData.append(key, body[key]);
         }
       }
-
       const requestOptions: RequestInit = {
         method: "POST",
         headers: {
