@@ -61,6 +61,7 @@ export interface INPUT_TYPE extends INPUT_FIELD_1, Pick<INPUT_FIELD_2,"inputType
 export interface CHECKBOX_TYPE extends Omit<INPUT_FIELD_1,"placeholder">, Pick<INPUT_FIELD_2,"listType" >{
     options:string[] | OBJECT_1;
     validation:{};
+    show_label?:boolean;
 }
 export interface FILE_TYPE extends  Omit<INPUT_FIELD_1,"placeholder">{
     validation:{};

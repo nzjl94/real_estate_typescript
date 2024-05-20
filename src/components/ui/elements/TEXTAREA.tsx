@@ -1,9 +1,16 @@
-import {MouseEvent}  from "react";
+import {MouseEvent}  		from "react";
+import styled 				from "styled-components";
 
-import ErrorMessage from "../../../utility/form/ErrorType"
-import {onChangeAction} from "../../../utility/form/eventAction"
+import ErrorMessage 		from "../../../utility/form/ErrorType"
+import {onChangeAction} 	from "../../../utility/form/eventAction"
+import { TEXTAREA_TYPE } 	from '../../../utility/types/typeApp';
 
-import { TEXTAREA_TYPE } from '../../../utility/types/typeApp';
+
+const TEXT_AREA_COM = styled.textarea`${({theme}) =>`
+    padding: 16px 20px;
+	border-radius: 6px;
+	background:${theme.colors.gray5};
+`}`
 
 const TextArea = (props:TEXTAREA_TYPE) => {
 
@@ -11,18 +18,16 @@ const TextArea = (props:TEXTAREA_TYPE) => {
 	console.log(validation)
 	return (
 		<div className={`${parentClassName} px-3`}>
-            <label className="block uppercase text-left mb-2" htmlFor={inputName}>{inputLabel}</label>
-			<textarea
+            <label className="block text-left text-[16px] pb-[16px]" htmlFor={inputName}>{inputLabel}</label>
+			<TEXT_AREA_COM
 				placeholder={placeholder} rows={5}
-				//onKeyDown={ commentOnSubmit}
-                className={`appearance-none block w-full bg-gray-200 text-gray-700 ${errors[inputName] && "border border-red-500"} rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white`}
-
+                className={`w-full placeholder-current text-[14px] text-gray-3 border border-gray-1 focus:outline-none ${errors[inputName] && "border-red-500"} `}
 				id={inputName}
                 {...register(inputName,
 					{ 
 						...validation,
 						onChange: (e:MouseEvent<HTMLInputElement>) => {onChangeAction(e,"textarea")},
-						onBlur: (e:MouseEvent<HTMLInputElement>) => {console.log("On Blur")}
+						onBlur:   (e:MouseEvent<HTMLInputElement>) => {console.log("On Blur")}
 					}
 				)}
 			/>

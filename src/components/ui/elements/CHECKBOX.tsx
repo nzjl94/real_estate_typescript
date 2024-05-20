@@ -20,18 +20,24 @@ const checkBoxItem =(name:string,value:string,label:string,register:any,validati
 
 const CHECKBOX= (props:CHECKBOX_TYPE) => {
 
-    const { inputName, inputLabel,options, register,errors,validation={},parentClassName="",listType="single"}=props
+    const { inputName, inputLabel,options, register,errors,validation={},parentClassName="",listType="single",show_label=true}=props
     
-    
+  
     let temContent;
     if (listType==="single" && !Array.isArray(options)){
         temContent=(
-            <label className="block py-3 text-left" >
+            <label className={`block py-3 bg-grey-1 text-left text-[16px] text-gray-4`} >
 				<input 
 					id={inputName} 
                     // name={inputName} 
-                    type="checkbox" value={options.id}
-                    className="rounded  text-blue-600 ring-offset-gray-700 focus:ring-offset-gray-700 bg-gray-600 border-gray-500"
+                    type="checkbox" 
+                    value={options.id}
+                    // className={`rounded text-blue-600 ring-offset-gray-700 focus:ring-offset-gray-700 bg-gray-600 border-gray-500`}
+                    className={`
+                        appearance-none 
+                        w-[24px] h-[24px] border-1 border-gray-1 rounded-[4px] bg-gray-1 
+                        checked:bg-blue-800 
+                    `}
                     {...register(inputName,{ 
                         ...validation,
 						onChange: (e:MouseEvent<HTMLInputElement>) => {onChangeAction(e,"checkbox")}
@@ -43,18 +49,17 @@ const CHECKBOX= (props:CHECKBOX_TYPE) => {
         temContent=(
             <ul className={`${listType==="vertical"?"w-48":"flex w-full"} border rounded-lg border-white-900`}>
                 {
-                    Array.isArray(options)  &&  options.map((value,index)=>
-                        checkBoxItem(inputName,value.toLowerCase(),value,register,validation,index===options.length-1?"":"border-r"))
+                    Array.isArray(options)  &&  options.map((value,index)=>checkBoxItem(inputName,value.toLowerCase(),value,register,validation,index===options.length-1?"":"border-r"))
                 }
                 {
-                    !Array.isArray(options)  &&  Object.keys(options).map(key=>
-                        checkBoxItem(inputName,key,options[key],register,validation))}
+                    !Array.isArray(options)  &&  Object.keys(options).map(key=>checkBoxItem(inputName,key,options[key],register,validation))
+                }
             </ul>
         )
     }
 	return (
 		<div className={`${parentClassName} px-3`}>
-            <label className="block uppercase mb-2 text-left">{inputLabel}</label>
+            {show_label===true && <label className="block uppercase mb-2 text-left">{inputLabel}</label>}
             {temContent}
             <ErrorMessage inputName={inputName} errors={errors} />
 		</div>

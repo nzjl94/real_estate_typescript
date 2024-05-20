@@ -12,7 +12,7 @@ const SELECT=({ inputName, inputLabel, control,options={}, placeholder="",parent
 
   return (
     <div className={`${parentClassName} px-3`}>
-	    <label className="block uppercase mb-2 text-left" htmlFor={inputName}>{inputLabel}</label>
+	    <label className="block text-left text-[16px] pb-[16px]" htmlFor={inputName}>{inputLabel}</label>
         <Controller
             name={inputName}
             control={control}

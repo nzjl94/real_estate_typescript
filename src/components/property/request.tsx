@@ -36,16 +36,15 @@ const Request = () => {
     return <Container className='flex flex-col gap-y-[40px] md:gap-y-[60px] lg:gap-y-[80px] px-[16px] lg:px-[80px] xl:px-[160px] py-[75px] relative'>
 
         <HEADER_WITH_STAR title={title} content={content} starClass={"-top-[45px] -left-[30px]"} />
-
-        <FormContainer className=" border-[1px] rounded-[12px] border-gray-1">
-            <form className="w-full" onSubmit={handleSubmit(()=>{},()=>{})}  >
-				<div className="flex flex-wrap py-3">
+        <form className="w-full" onSubmit={handleSubmit(()=>{},()=>{})}  >
+			<FormContainer className="flex flex-col gap-y-[30px] border-[1px] rounded-[12px] border-gray-1 p-[50px]">
+				<div className="flex flex-wrap">
 					<INPUT {...generate_element.INPUT("text","w-1/4","textFiled","firstName","First Name","Enter First Name")}/>
 					<INPUT {...generate_element.INPUT("text","w-1/4","textFiled","lastName","Last Name","Enter Last Name")}/>
 					<INPUT {...generate_element.INPUT("text","w-1/4",undefined,"email","Email","Enter Email ")}/>
 					<INPUT {...generate_element.INPUT("text","w-1/4","textFiled","phone","Phone","Enter Phone Name")}/>
 				</div>
-				<div className="flex flex-wrap py-3">
+				<div className="flex flex-wrap">
 					{/* <INPUT 
 						inputType="number" inputName="roomNumber"  inputLabel="Room Number" placeholder="Please Enter the Room Number"	
 						parentClassName="w-1/2" 
@@ -58,33 +57,33 @@ const Request = () => {
 						register={register} errors={errors} validation={FormValidation("dateFiled")} 
 					/> */}
 				</div>
-				<div className="flex flex-wrap py-3">
+				<div className="flex flex-wrap">
 					<REACT_SELECT {...generate_element.SELECT("location","Preferred Location","w-1/4","Select Location",location)}/>
 					<REACT_SELECT {...generate_element.SELECT("property","Property Type","w-1/4","Select Property Type",property_type)}/>
 					<REACT_SELECT {...generate_element.SELECT("nf_bathroom","No. of Bathrooms","w-1/4","Select no. of Bathrooms",bath_number)}/>
 					<REACT_SELECT {...generate_element.SELECT("nf_bedroom","Preferred Location","w-1/4","Select no. of Bedrooms",bed_number)}/>
 				</div>
-				<div className="flex flex-wrap py-3">	
+				<div className="flex flex-wrap">	
 					<TEXTAREA {...generate_element.TEXTAREA("w-full","textArea","message","Message","Enter your Message here...")} />
 				</div>
-				<div className="flex flex-wrap py-3">	
+				<div className="flex justify-between flex-wrap">	
 					<CHECKBOX 
-						parentClassName="w-full" 
+						parentClassName="" 
 						inputName="sendNotification" 
 						inputLabel="Send Notifications"
-						options={{id:"yes",value:"Yes, Notify Me"}}
+						show_label={false}
+						options={{id:"termCheckbox",value:"I agree with Terms of Use and Privacy Policy"}}
 						register={register} 
 						errors={errors} 
 						validation={{}}
 					/>
-				</div>
-				<div className="flex flex-row-reverse pt-6">
 					<button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
 						Submit
 					</button>
-				</div>  
-			</form>
-        </FormContainer>
+				</div> 
+        	</FormContainer>
+		</form>
+
     </Container>  
 }
 export default Request
