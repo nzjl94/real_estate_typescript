@@ -17,7 +17,7 @@ const TextArea = (props:TEXTAREA_TYPE) => {
 	const {inputName, inputLabel, register,errors,validation={},placeholder="",parentClassName=""}=props
 	console.log(validation)
 	return (
-		<div className={`${parentClassName} px-3`}>
+		<div className={`${parentClassName}`}>
             <label className="block text-left text-[16px] pb-[16px]" htmlFor={inputName}>{inputLabel}</label>
 			<TEXT_AREA_COM
 				placeholder={placeholder} rows={5}

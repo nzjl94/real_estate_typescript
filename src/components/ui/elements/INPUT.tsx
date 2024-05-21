@@ -17,7 +17,7 @@ const onBlurAction   =(e:any)=>{}
 const Input = (props:INPUT_TYPE) => {
 	const {inputName,inputLabel,inputType="text",placeholder="",parentClassName="",register,errors,validation={},defaultValue}=props
 	return (
-		<div className={`${parentClassName} px-3`}>
+		<div className={`${parentClassName}`}>
 			<label className="block text-left text-[16px] pb-[16px]">{inputLabel}</label>
 			<INPUT_COM 
 				className={`w-full placeholder-current text-[14px] text-gray-3 border border-gray-1 focus:outline-none ${errors[inputName] && "border-red-500"} `}

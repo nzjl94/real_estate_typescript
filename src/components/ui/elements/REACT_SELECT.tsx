@@ -11,7 +11,7 @@ const SELECT=({ inputName, inputLabel, control,options={}, placeholder="",parent
   const theme = useTheme();
 
   return (
-    <div className={`${parentClassName} px-3`}>
+    <div className={`${parentClassName}`}>
 	    <label className="block text-left text-[16px] pb-[16px]" htmlFor={inputName}>{inputLabel}</label>
         <Controller
             name={inputName}

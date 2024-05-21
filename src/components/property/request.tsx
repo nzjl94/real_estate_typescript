@@ -38,30 +38,20 @@ const Request = () => {
         <HEADER_WITH_STAR title={title} content={content} starClass={"-top-[45px] -left-[30px]"} />
         <form className="w-full" onSubmit={handleSubmit(()=>{},()=>{})}  >
 			<FormContainer className="flex flex-col gap-y-[30px] border-[1px] rounded-[12px] border-gray-1 p-[50px]">
-				<div className="flex flex-wrap">
-					<INPUT {...generate_element.INPUT("text","w-1/4","textFiled","firstName","First Name","Enter First Name")}/>
-					<INPUT {...generate_element.INPUT("text","w-1/4","textFiled","lastName","Last Name","Enter Last Name")}/>
-					<INPUT {...generate_element.INPUT("text","w-1/4",undefined,"email","Email","Enter Email ")}/>
-					<INPUT {...generate_element.INPUT("text","w-1/4","textFiled","phone","Phone","Enter Phone Name")}/>
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-[30px] gap-y-[20px] lg:gap-y-[0px]">
+					<INPUT {...generate_element.INPUT("text","","textFiled","firstName","First Name","Enter First Name")}/>
+					<INPUT {...generate_element.INPUT("text","","textFiled","lastName","Last Name","Enter Last Name")}/>
+					<INPUT {...generate_element.INPUT("text","",undefined,"email","Email","Enter Email ")}/>
+					<INPUT {...generate_element.INPUT("text","","textFiled","phone","Phone","Enter Phone Name")}/>
 				</div>
-				<div className="flex flex-wrap">
-					{/* <INPUT 
-						inputType="number" inputName="roomNumber"  inputLabel="Room Number" placeholder="Please Enter the Room Number"	
-						parentClassName="w-1/2" 
-						register={register} errors={errors} 
-						validation={FormValidation("numberFiled")} 
-					/>
-					<INPUT
-						inputType="date" inputName="dateAvailability"  inputLabel="Availability Date" placeholder="Please Enter the Availability Date"	
-						parentClassName="w-1/2" 
-						register={register} errors={errors} validation={FormValidation("dateFiled")} 
-					/> */}
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[30px] gap-y-[20px] lg:gap-y-[0px]">
+					<REACT_SELECT {...generate_element.SELECT("property","Property Type","","Select Property Type",property_type)}/>
+					<REACT_SELECT {...generate_element.SELECT("nf_bathroom","No. of Bathrooms", "","Select no. of Bathrooms",bath_number)}/>
+					<REACT_SELECT {...generate_element.SELECT("nf_bedroom","Preferred Location","","Select no. of Bedrooms",bed_number)}/>
 				</div>
-				<div className="flex flex-wrap">
-					<REACT_SELECT {...generate_element.SELECT("location","Preferred Location","w-1/4","Select Location",location)}/>
-					<REACT_SELECT {...generate_element.SELECT("property","Property Type","w-1/4","Select Property Type",property_type)}/>
-					<REACT_SELECT {...generate_element.SELECT("nf_bathroom","No. of Bathrooms","w-1/4","Select no. of Bathrooms",bath_number)}/>
-					<REACT_SELECT {...generate_element.SELECT("nf_bedroom","Preferred Location","w-1/4","Select no. of Bedrooms",bed_number)}/>
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-x-[30px] gap-y-[20px] md:gap-y-[0px]">
+					<REACT_SELECT {...generate_element.SELECT("location","Preferred Location","","Select Location",location)}/>
+					<REACT_SELECT {...generate_element.SELECT("budget","Budget","","Select Buget",budget)}/>
 				</div>
 				<div className="flex flex-wrap">	
 					<TEXTAREA {...generate_element.TEXTAREA("w-full","textArea","message","Message","Enter your Message here...")} />
@@ -77,8 +67,8 @@ const Request = () => {
 						errors={errors} 
 						validation={{}}
 					/>
-					<button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-						Submit
+					<button type="submit" className="text-white text-[14px] bg-purple-1 py-[14px] px-[34px] rounded">
+						Send Your Message
 					</button>
 				</div> 
         	</FormContainer>
