@@ -3,8 +3,7 @@ import styled,{ useTheme } 							from "styled-components";
 import { useSelector,useDispatch }					from 'react-redux';
 
 import HEADER 										from "../ui/components/HEADER";
-import TEXT 										from "../ui/elements/TEXT"
-import IMG 											from "../ui/elements/IMAGE";
+import {TEXT,IMAGE} 								from "../ui/elements"
 import {indTitle} 									from '../../utility/types/typeStore';
 import {API_DATA_3}  								from '../../utility/types/typeApp';
 import useFetch, {FetchData}  						from '../../utility/customHook/useGetAPI';
@@ -64,7 +63,7 @@ export default () => {
 						<div className="secondContainer grid grid-flow-row grid-cols-11 gap-x-[30px]">
 							<div className="col-span-5 grid grid-flow-row gap-y-[8px] ">
 								<div className="flex flex-row gap-x-[6px]">
-									<IMG width={24} height={24} path="/image/about/client/Icon_1.svg" activeBorder={false} />
+									<IMAGE width={24} height={24} path="/image/about/client/Icon_1.svg" activeBorder={false} />
 									<TEXT text="Domain" {...textStyle()} />
 								</div>
 								<TEXT text={section2.title1} {...textStyle()}/>
@@ -74,7 +73,7 @@ export default () => {
 							</div>
 							<div className="col-span-5 grid grid-flow-row gap-y-[8px]">
 								<div className="flex flex-row gap-x-[6px]">
-									<IMG width={24} height={24} path="/image/about/client/Icon_2.svg" activeBorder={false} />
+									<IMAGE width={24} height={24} path="/image/about/client/Icon_2.svg" activeBorder={false} />
 									<TEXT text="Category" {...textStyle()} />
 								</div>
 								<TEXT text={section2.title2} {...textStyle()} />

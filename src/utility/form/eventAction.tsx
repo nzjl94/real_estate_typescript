@@ -24,7 +24,11 @@ export const onErrorAction:onErrorAction =(error,type)=>{
     }
 }
 // : SubmitHandler<FORM_TYPE>
-export const onSubmit = async (form_data:FORM_TYPE,postData:(url: string, body: any) => Promise<void>) => {
+export const onSubmit = async (
+    URL:string,
+    form_data:FORM_TYPE,
+    postData:(url: string, body: any) => Promise<void>
+) => {
     
     console.log(form_data)
     // const post_data=await postAPIData('realestate/contact/store',formPrepare(data)) //data or getValues()
@@ -33,7 +37,7 @@ export const onSubmit = async (form_data:FORM_TYPE,postData:(url: string, body: 
     // reset()
     try {
         //you can catch the response in useEffect
-        await postData('realestate/contact/store',form_data);
+        await postData(`realestate/${URL}`,form_data);
     } catch (err) {
         // Handle error
     }

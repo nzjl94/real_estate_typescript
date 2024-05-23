@@ -1,9 +1,11 @@
-import Select                     from "react-select"
-import {Controller }              from 'react-hook-form';
-import styled,{ useTheme }	      from "styled-components";
+import Select                       from "react-select"
+import {Controller }                from 'react-hook-form';
+import styled,{ useTheme }	        from "styled-components";
 
-import {REACT_SELECT_TYPE}        from "../../../utility/types/typeApp"
-import {customReactSelectStyles}  from "../../../utility/form/formUtility"
+import {TEXT}			            from "./"
+import {REACT_SELECT_TYPE}          from "../../../utility/types/typeApp"
+import {customReactSelectStyles}    from "../../../utility/form/formUtility"
+
 
 
 const SELECT=({ inputName, inputLabel, control,options={}, placeholder="",parentClassName="",register,errors, required}:REACT_SELECT_TYPE) => {
@@ -12,7 +14,9 @@ const SELECT=({ inputName, inputLabel, control,options={}, placeholder="",parent
 
   return (
     <div className={`${parentClassName}`}>
-	    <label className="block text-left text-[16px] pb-[16px]" htmlFor={inputName}>{inputLabel}</label>
+	    <label className="block text-left pb-[16px]" htmlFor={inputName}>
+			<TEXT text={inputLabel} responsive="set8" />
+        </label>
         <Controller
             name={inputName}
             control={control}

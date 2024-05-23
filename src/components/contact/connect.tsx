@@ -6,7 +6,7 @@ import { useForm,SubmitHandler,FieldValues} from 'react-hook-form';
 import HEADER					from "../ui/components/HEADER"
 import FormValidation			from '../../utility/form/formValidation'
 import {onErrorAction,onSubmit}	from "../../utility/form/eventAction"
-import {INPUT,REACT_SELECT as RSELECT, TEXTAREA, CHECKBOX,SELECT,FILE} 	from "../ui/elements/"
+import {INPUT,REACT_SELECT, TEXTAREA, CHECKBOX,SELECT,FILE} 	from "../ui/elements/"
 import useFetch, {FetchData}	from '../../utility/customHook/useGetAPI';
 import usePostAPI 				from '../../utility/customHook/usePostAPI';
 import {OBJECT_1}				from "../../utility/types/typeApp"
@@ -35,7 +35,7 @@ export default () => {
 	<Container className="flex flex-col gap-[80px]">
     	<HEADER title={data.title} content={data.content} />
       	<FormContainer className=" border-[1px] rounded-[12px] border-gray-1">
-			<form className="w-full" onSubmit={handleSubmit((data)=>onSubmit(data,postData),(error)=>onErrorAction(error,"connect"))}  >
+			<form className="w-full" onSubmit={handleSubmit((data)=>onSubmit("contact/store",data,postData),(error)=>onErrorAction(error,"connect"))}  >
 				<div className="flex flex-wrap py-3">
 					<INPUT 
 						inputName="firstName"
@@ -85,7 +85,7 @@ export default () => {
 					/>
 				</div>
 				<div className="flex flex-wrap py-3">
-					<RSELECT 
+					<REACT_SELECT 
 						inputName="buldingType" inputLabel="Building Type" control={control} parentClassName="w-1/2"
 						options={{"office":"Office","cabin":"Cabin","apartment":"Apartment","vila": "Vila","house": "House"}}
 						placeholder="Building Type"

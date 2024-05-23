@@ -15,6 +15,7 @@ export const customReactSelectStyles= (background:string,borderColor:string)=>{
           padding: '24px 20px',
           // overflow:"auto",
           background,
+          borderRadius:"8px",
           borderColor,
           "&:hover": {
             borderColor
@@ -34,7 +35,7 @@ export const customReactSelectStyles= (background:string,borderColor:string)=>{
       valueContainer: (provided, state) => ({
         ...provided,
         padding: '0px 0px',
-        textAlign:"left"
+        textAlign:"left",
       }),
       input: (provided, state) => ({
         ...provided,
@@ -57,6 +58,7 @@ export const customReactSelectStyles= (background:string,borderColor:string)=>{
       menu: base => ({
         ...base,
         background,
+
       }),
       menuList: base => ({
         ...base,
@@ -73,14 +75,12 @@ export class GENERATE_ELEMENT {
   errors:FieldErrors;
   register:UseFormRegister<{}>;
   required:boolean;
-
   constructor(control: Control<{}, any, {}>, errors: FieldErrors, register: UseFormRegister<{}>,required:boolean) {
       this.control  = control;
       this.errors   = errors;
       this.register = register;
       this.required = required;
   }
-
   SELECT (inputName:string,inputLabel:string,pClass:string,placeholder:string,options:{[key:string]:string|number}){
     return {
       inputName,
@@ -106,12 +106,19 @@ export class GENERATE_ELEMENT {
       ...(valText!==undefined && {validation:FormValidation(valText)})
     }
   }
-
-  
-
+  CHECKOX (pClass:string,inputName:string,inputLabel:string,show_label:boolean,options:{[key :string]:string}){
+    return {
+      inputName,
+      inputLabel ,
+      show_label,
+      parentClassName:pClass, 
+      options,
+      errors:this.errors ,
+      register:this.register,
+      validation:{}
+    }
+  }
   TEXTAREA (pClass:string,valText:string,inputName:string,inputLabel:string,placeholder:string){
-    
-    console.log("----------------------",FormValidation(valText))
     return {
       inputName,
       inputLabel ,

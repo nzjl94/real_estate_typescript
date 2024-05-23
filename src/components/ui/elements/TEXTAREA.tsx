@@ -1,6 +1,7 @@
 import {MouseEvent}  		from "react";
 import styled 				from "styled-components";
 
+import {TEXT}			    from "./"
 import ErrorMessage 		from "../../../utility/form/ErrorType"
 import {onChangeAction} 	from "../../../utility/form/eventAction"
 import { TEXTAREA_TYPE } 	from '../../../utility/types/typeApp';
@@ -18,7 +19,9 @@ const TextArea = (props:TEXTAREA_TYPE) => {
 	console.log(validation)
 	return (
 		<div className={`${parentClassName}`}>
-            <label className="block text-left text-[16px] pb-[16px]" htmlFor={inputName}>{inputLabel}</label>
+            <label className="block text-left text-[16px] pb-[16px]" htmlFor={inputName}>
+				<TEXT text={inputLabel} responsive="set8" />
+			</label>
 			<TEXT_AREA_COM
 				placeholder={placeholder} rows={5}
                 className={`w-full placeholder-current text-[14px] text-gray-3 border border-gray-1 focus:outline-none ${errors[inputName] && "border-red-500"} `}

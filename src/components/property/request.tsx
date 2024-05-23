@@ -1,16 +1,16 @@
-import styled                       from "styled-components";
+import styled                       				from "styled-components";
+import { useForm}    								from 'react-hook-form';
 
 
 import {INPUT,REACT_SELECT, TEXTAREA, CHECKBOX} 	from "../ui/elements/"
 import useFetch, {FetchData}						from '../../utility/customHook/useGetAPI';
-			
 import {PROPERTY_FORM_TYPE}							from "../../utility/types/typeApp"
-			
 import {GENERATE_ELEMENT}							from "../../utility/form/formUtility"
-			
-import { useForm}    								from 'react-hook-form';
+import {onErrorAction,onSubmit}						from "../../utility/form/eventAction"
 			
 import {STAR,HEADER}                				from "../ui/components/"
+
+
 
 const Request = () => {
 
@@ -47,7 +47,7 @@ const Request = () => {
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[30px] gap-y-[20px] lg:gap-y-[0px]">
 					<REACT_SELECT {...generate_element.SELECT("property","Property Type","","Select Property Type",property_type)}/>
 					<REACT_SELECT {...generate_element.SELECT("nf_bathroom","No. of Bathrooms", "","Select no. of Bathrooms",bath_number)}/>
-					<REACT_SELECT {...generate_element.SELECT("nf_bedroom","Preferred Location","","Select no. of Bedrooms",bed_number)}/>
+					<REACT_SELECT {...generate_element.SELECT("nf_bedroom","No. of Bedrooms","","Select no. of Bedrooms",bed_number)}/>
 				</div>
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-x-[30px] gap-y-[20px] md:gap-y-[0px]">
 					<REACT_SELECT {...generate_element.SELECT("location","Preferred Location","","Select Location",location)}/>
@@ -58,14 +58,9 @@ const Request = () => {
 				</div>
 				<div className="flex justify-between flex-wrap">	
 					<CHECKBOX 
-						parentClassName="" 
-						inputName="sendNotification" 
-						inputLabel="Send Notifications"
-						show_label={false}
-						options={{id:"termCheckbox",value:"I agree with Terms of Use and Privacy Policy"}}
-						register={register} 
-						errors={errors} 
-						validation={{}}
+						{...generate_element.CHECKOX(
+							"","sendNotification","Send Notifications",false,{id:"termCheckbox",value:"I agree with Terms of Use and Privacy Policy"}
+						)}
 					/>
 					<button type="submit" className="text-white text-[14px] bg-purple-1 py-[14px] px-[34px] rounded">
 						Send Your Message
