@@ -23,22 +23,17 @@ export const onErrorAction:onErrorAction =(error,type)=>{
         console.log("Errors from Connect form",error)
     }
 }
-// : SubmitHandler<FORM_TYPE>
-export const onSubmit = async (
-    URL:string,
-    form_data:FORM_TYPE,
-    postData:(url: string, body: any) => Promise<void>
-) => {
+
+export const onSubmit = async (URL:string,form_data:FORM_TYPE,postData:(url: string, body: any) => Promise<void>) => {
     
-    console.log(form_data)
     // const post_data=await postAPIData('realestate/contact/store',formPrepare(data)) //data or getValues()
     // const { data:postData,success:postSuccess}: Record<string, any>  = usePostFetch ('realestate/contact/store',form_data);
     // console.log(postData,postSuccess)
     // reset()
     try {
-        //you can catch the response in useEffect
-        await postData(`realestate/${URL}`,form_data);
+       //you can catch the response in useEffect
+       await postData(`realestate/${URL}`,form_data);
     } catch (err) {
-        // Handle error
+       // Handle error
     }
 };

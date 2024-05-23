@@ -24,6 +24,9 @@ module.exports = {
         'purple-1': { DEFAULT: '#703BF7', dark: '#00A1A7' },
         'gray-1':   { DEFAULT: '#262626', dark: '#262626' },
         'gray-2':   { DEFAULT: '#141414', dark: '#141414' },
+      },
+      placeholderColor: {
+        'gray-1': '#666',
       }
     }
   },

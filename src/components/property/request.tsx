@@ -7,12 +7,16 @@ import useFetch, {FetchData}						from '../../utility/customHook/useGetAPI';
 import {PROPERTY_FORM_TYPE}							from "../../utility/types/typeApp"
 import {GENERATE_ELEMENT}							from "../../utility/form/formUtility"
 import {onErrorAction,onSubmit}						from "../../utility/form/eventAction"
+
+import usePostAPI 									from '../../utility/customHook/usePostAPI';
 			
 import {STAR,HEADER}                				from "../ui/components/"
 
 
 
 const Request = () => {
+
+	const { loading, error, response, postData } = usePostAPI();
 
     
     const {title,content} ={
@@ -36,12 +40,13 @@ const Request = () => {
     return <Container className='flex flex-col gap-y-[40px] md:gap-y-[60px] lg:gap-y-[80px] px-[16px] lg:px-[80px] xl:px-[160px] py-[75px] relative'>
 
         <HEADER_WITH_STAR title={title} content={content} starClass={"-top-[45px] -left-[30px]"} />
-        <form className="w-full" onSubmit={handleSubmit(()=>{},()=>{})}  >
+		{/*  */}
+        <form className="w-full" onSubmit={handleSubmit((data)=>onSubmit("property/request",data,postData),(error)=>onErrorAction(error,"request"))}  >
 			<FormContainer className="flex flex-col gap-y-[30px] border-[1px] rounded-[12px] border-gray-1 p-[50px]">
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-[30px] gap-y-[20px] lg:gap-y-[0px]">
 					<INPUT {...generate_element.INPUT("text","","textFiled","firstName","First Name","Enter First Name")}/>
 					<INPUT {...generate_element.INPUT("text","","textFiled","lastName","Last Name","Enter Last Name")}/>
-					<INPUT {...generate_element.INPUT("text","",undefined,"email","Email","Enter Email ")}/>
+					<INPUT {...generate_element.INPUT("text","",undefined,"email","Email","Enter Email")}/>
 					<INPUT {...generate_element.INPUT("text","","textFiled","phone","Phone","Enter Phone Name")}/>
 				</div>
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[30px] gap-y-[20px] lg:gap-y-[0px]">

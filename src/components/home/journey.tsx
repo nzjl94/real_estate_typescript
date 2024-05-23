@@ -15,7 +15,7 @@ const Journey = () => {
 
     const Container = styled.div`${({theme}) => ``}`;
 
-    const title = useSelector((state: RootState) => getSingleTitle(state, "home_journey"));
+    const title = useSelector((state: RootState) => getSingleTitle(state, "home_journey") || "");
     const { data:sections,success}: FetchData<TEXT_PARAGRAPH[]> = useFetch <TEXT_PARAGRAPH[]>('realestate/about/journey',[]);
 
     const { data:icon_cards,success:_}: FetchData<TEXT_ICON_TYPE[]> = useFetch <TEXT_ICON_TYPE[]>('realestate/page/icon-card',[]);

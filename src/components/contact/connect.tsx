@@ -12,14 +12,10 @@ import usePostAPI 				from '../../utility/customHook/usePostAPI';
 import {OBJECT_1}				from "../../utility/types/typeApp"
 
 
-const Container=styled.div`${({theme}) => ``}`;
-
-
-const FormContainer=styled.div`${({theme}) => ``}`;
+const     Container = styled.div`${({theme}) => ``}`;
+const FormContainer = styled.div`${({theme}) => ``}`;
 
 export default () => {
-
-	const theme = useTheme();
 
 	const { data,success}: FetchData<OBJECT_1> = useFetch <OBJECT_1>('realestate/contact/connect',{});
 	const { loading, error, response, postData } = usePostAPI();

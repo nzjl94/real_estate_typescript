@@ -44,9 +44,6 @@ const AppRoute = () => {
 };
 
 
-
-
-
 // const App: React.FC = () => {
 //   return (
 //     <Router>

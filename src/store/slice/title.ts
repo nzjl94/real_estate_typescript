@@ -1,25 +1,19 @@
-import { createSlice, createSelector,createAsyncThunk,PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../Reducer';
-
+import { 
+  createSlice, createSelector,
+  createAsyncThunk,
+  PayloadAction 
+}                             from '@reduxjs/toolkit'
+import { RootState }          from '../Reducer'
 import {titleInitialState}    from "../initialStore"
 import {singleTitle,indTitle} from "../../utility/types/typeStore"
 import {TEXT_PARAGRAPH}       from "../../utility/types/typeApp"
+import {resetAll}             from "../Actions"
+import API                    from "../../utility/Axios"
 
-
-import {resetAll} from "../Actions"
-
-
-
-const getAPIDataReducer =async (URL:string) => {
-  let response = await fetch(`${URL}`)
-  // response = await response.json()
-
-  return response.json()
-}
-
-export const fetchData = createAsyncThunk('realestate/page/title', async () => {
-  const response = await getAPIDataReducer("realestate/page/title"); // Your API call to fetch data
-  return response; // Adjust based on your API response structure
+// accepts three parameters: a string action type value, a payloadCreator callback, and an options object.
+export const fetchData = createAsyncThunk('page/title', async () => {
+  const response = await API.get("realestate/page/title")
+  return response.data
 });
 
 const dataSlice = createSlice({
@@ -69,7 +63,6 @@ const dataSlice = createSlice({
 
 });
 
-
 export const getSingleTitle = createSelector(
   [
     (state: RootState) => state.title.data,
@@ -77,7 +70,7 @@ export const getSingleTitle = createSelector(
   ], 
   (data:indTitle, sectionId:string) => {
     // Should handle wrong [sectionId]
-    // console.log(data)
+    // console.log(data,sectionId,data)
     return data[sectionId]
   }
 );

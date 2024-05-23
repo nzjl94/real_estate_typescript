@@ -39,6 +39,7 @@ export const customReactSelectStyles= (background:string,borderColor:string)=>{
       }),
       input: (provided, state) => ({
         ...provided,
+        
         margin: '0px',
         padding: '0px',
       }),
@@ -53,7 +54,9 @@ export const customReactSelectStyles= (background:string,borderColor:string)=>{
         padding: '0px 0px',
       }),
       singleValue: base => ({
-        ...base
+        ...base,
+        color: '#FFF',
+
       }),
       menu: base => ({
         ...base,

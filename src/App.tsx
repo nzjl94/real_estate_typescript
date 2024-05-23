@@ -21,16 +21,18 @@ import { fetchData, selectTitle}    from './store/slice/title';
 
 const App=() => {
 
-  const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
-
+  // const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
   let titleInfo = useSelector(selectTitle);
 
+  
 	const dispatch = useDispatch<AppDispatch>();
-	useEffect( () => {
-		if(isAuthenticated && titleInfo.loading==="idle"){
+  // dispatch(fetchData());
+
+	useEffect(() => {
+		// if(titleInfo.loading==="idle"){
 			dispatch(fetchData());
-		}
-	}, [fetchData,isAuthenticated])
+		// }
+	},[])
 
   return (<>
     <GlobalStyle />
