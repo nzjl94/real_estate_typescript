@@ -26,7 +26,14 @@ const SELECT=({ inputName, inputLabel, control,options={}, placeholder="",parent
                     <Select 
                         styles={customReactSelectStyles(theme.colors.gray5,theme.colors.gray5)} 
                         {...field} 
-                        options={Object.keys(options).map(key=>({value:key,label:options[key]}))} 
+                        options={
+                            !Array.isArray(options) ? 
+                            Object.keys(options).map(key=>({value:key,label:options[key]}))
+                            :options.map(value=>({value,label:value}))
+                        } 
+
+                        
+                        
                         //defaultValue={options[2]} 
                         placeholder={placeholder} //If default value selected then it does not appear
                     />
