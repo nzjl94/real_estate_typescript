@@ -27,7 +27,7 @@ const Property = () => {
     }
     const Container = styled.div`${({theme}) => ``}`;
 
-    const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardPropertyType>("realestate/home/property")
+    const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardPropertyType>("home/property")
 
     const HEADER_WITH_STAR = STAR(CARD6);
 

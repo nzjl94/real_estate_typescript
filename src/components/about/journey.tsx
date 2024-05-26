@@ -16,7 +16,7 @@ import profilePic             from '../../image/about/journey/title.png'
 const Journey = () => {
 
     const title = useSelector((state: RootState) => getSingleTitle(state, "service_experience"));
-    const { data:sections,success}: FetchData<TEXT_PARAGRAPH[]> = useFetch <TEXT_PARAGRAPH[]>('realestate/about/journey',[]);
+    const { data:sections,success}: FetchData<TEXT_PARAGRAPH[]> = useFetch <TEXT_PARAGRAPH[]>('about/journey',[]);
 
     return (
         <TEXT_IMAGE title={title} sections={sections} img={profilePic} parentClass='mt-[100px]' />

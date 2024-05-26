@@ -19,7 +19,7 @@ const useGetAPI = <T,>(url: string,default_value:any): FetchData<T> => {
     setError(null); 
 
     try {     
-      const get_response = await fetch(url);
+      const get_response = await fetch(`realestate/${url}`);
       const result = await get_response.json();
       setData(result);
       setSuccess(true);

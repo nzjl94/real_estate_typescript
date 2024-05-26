@@ -23,7 +23,7 @@ const ElementWrapper = styled.div`
   }
 `;
 const Experience = () => {
-  const { data,success}: FetchData<[]> = useFetch <[]>('realestate/about/experience',[]);
+  const { data,success}: FetchData<[]> = useFetch <[]>('about/experience',[]);
 
   const [headerData, setDeaderData] = useState({
     title:"Navigating the Estatein Experience",

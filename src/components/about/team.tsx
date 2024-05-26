@@ -11,7 +11,7 @@ const Container = styled.div``;
 
 const Team= () => {
   	const theme = useTheme();
-	const { data,success}: FetchData<API_DATA_1> = useFetch <API_DATA_1>('realestate/about/team',{title:{},sections:[]});
+	const { data,success}: FetchData<API_DATA_1> = useFetch <API_DATA_1>('about/team',{title:{},sections:[]});
 	const teamTwitterButton=(event:MouseEvent<HTMLButtonElement>)=>{
 		console.log("Twitter",event)
 	}

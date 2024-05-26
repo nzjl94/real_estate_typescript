@@ -26,7 +26,7 @@ export default () => {
 
   	const theme = useTheme();
 	
-  	const { data,success}: FetchData<API_DATA_3> = useFetch <API_DATA_3>('realestate/about/client',{title:{},sections:[]});
+  	const { data,success}: FetchData<API_DATA_3> = useFetch <API_DATA_3>('about/client',{title:{},sections:[]});
 
 	const visitWebsiteButton=(event:MouseEvent<HTMLButtonElement>,url:string)=>{
 		//dispatch(addEditTitle({

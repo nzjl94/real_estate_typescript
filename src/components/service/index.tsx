@@ -21,8 +21,8 @@ const Service: React.FC = () => {
 		investment:any;
 	}
 
-	const { data:{value:s_value,management,investment},success}: FetchData<DATA_TYPE> = useFetch <DATA_TYPE>('realestate/service/detail',{});
-	const { data:icon_cards,success:_}: FetchData<TEXT_ICON_TYPE[]> = useFetch <TEXT_ICON_TYPE[]>('realestate/page/icon-card',[]);
+	const { data:{value:s_value,management,investment},success}: FetchData<DATA_TYPE> = useFetch <DATA_TYPE>('service/detail',{});
+	const { data:icon_cards,success:_}: FetchData<TEXT_ICON_TYPE[]> = useFetch <TEXT_ICON_TYPE[]>('page/icon-card',[]);
 
 
 	// 

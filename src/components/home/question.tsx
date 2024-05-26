@@ -22,7 +22,7 @@ const Question = () => {
 		navigate(`/property`)
 	}
 
-    const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardQuestionType>("realestate/home/question")
+    const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardQuestionType>("home/question")
 
     const data ={
         title:"Frequently Asked Questions",

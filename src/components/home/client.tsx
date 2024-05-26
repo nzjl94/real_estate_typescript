@@ -29,7 +29,7 @@ const Client = () => {
         buttonClass:"bg-gray-1 border-gray-1"
     }
 
-    const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardClientType>("realestate/home/client")
+    const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardClientType>("home/client")
     const Container = styled.div`${({theme}) => ``}`;
 
     const HEADER_WITH_STAR = STAR(CARD6);

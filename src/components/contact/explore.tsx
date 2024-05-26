@@ -6,7 +6,7 @@ import useFetch, {FetchData}  from '../../utility/customHook/useGetAPI';
 const Container=styled.div`${({theme}) => ``}`;
 
 export default () => {
-  const { data,success}: FetchData<[]> = useFetch <[]>('realestate/contact/explore',[]);
+  const { data,success}: FetchData<[]> = useFetch <[]>('contact/explore',[]);
   return (
     <Container className="grid grid-cols-2 grid-flow-row gap-[20px] p-[80px]">
       {data.map((value,key)=>{

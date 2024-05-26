@@ -13,7 +13,7 @@ const TextContainer = styled.div`${({theme}) => `
 export default () => {
 
   const theme = useTheme();
-  const { data,success}: FetchData<[]> = useFetch <[]>('realestate/about/achievement',[]);
+  const { data,success}: FetchData<[]> = useFetch <[]>('about/achievement',[]);
 
   const [headerData, setDeaderData] = useState({
     title:"Our Achievements",

@@ -29,21 +29,8 @@ const CHECKBOX= (props:CHECKBOX_TYPE) => {
             <label className={`flex gap-x-[6px] py-3 bg-grey-1 text-left text-[16px] text-gray-4`} >
 				<input 
 					id={inputName} 
-                    // name={inputName} 
-                    type="checkbox" 
-                    value={options.id}
-                    // placeholder-current
-                      
-                    // className={`rounded text-blue-600 ring-offset-gray-700 focus:ring-offset-gray-700 bg-gray-600 border-gray-500`}
-                    className={`
-                        w-[24px] h-[24px] 
-                        border-1 
-                        border-gray-1
-                        text-purple-1
-                        rounded-[4px]
-                        bg-gray-1 
-                        focus:ring-0 focus:ring-offset-0
-                    `}
+                    type="checkbox"                       
+                    className={`w-[24px] h-[24px]  border-1  border-gray-1 text-purple-1 rounded-[4px] bg-gray-1  focus:ring-0 focus:ring-offset-0`}
                     {...register(inputName,{ 
                         ...validation,
 						onChange: (e:MouseEvent<HTMLInputElement>) => {onChangeAction(e,"checkbox")}

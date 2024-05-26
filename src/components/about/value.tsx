@@ -14,7 +14,7 @@ const Container = styled.div`${({theme}) => `
 
 export default () => {
   const theme = useTheme();
-  const { data,success}: FetchData<API_DATA_1> = useFetch <API_DATA_1>('realestate/about/value',{title:{},sections:[]});
+  const { data,success}: FetchData<API_DATA_1> = useFetch <API_DATA_1>('about/value',{title:{},sections:[]});
 
   return (
     <Container className="grid grid-cols-3 gap-10">

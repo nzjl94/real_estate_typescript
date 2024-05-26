@@ -35,7 +35,7 @@ const Container = styled.div`${({theme}) => `
 
 const TEXT_BUTTON:React.FC<{id?:string,show?:boolean}>=({id=undefined,show=false}) => {
 
-  const { data,success}: FetchData<API_DATA_4> = useFetch <API_DATA_4>('realestate/about/start',{title:"",content:"",url:""});
+  const { data,success}: FetchData<API_DATA_4> = useFetch <API_DATA_4>('about/start',{title:"",content:"",url:""});
 	type visitWebsiteType = (parameter: string) => (e: React.MouseEvent) => void;
 
 	const visitWebsiteButton:visitWebsiteType  = (parameter) => (e) => {
