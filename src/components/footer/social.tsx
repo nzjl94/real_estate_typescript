@@ -4,23 +4,16 @@ import styled   from "styled-components";
 import TEXT     from "../ui/elements/TEXT"
 import IMG      from "../ui/elements/IMAGE"
 
-
 const Container = styled.div `
     background: var(--Grey-10, #1A1A1A);
-
     .pag-buttons{
         background: var(--Grey-08, #141414);
         border-radius: 58px;
         padding: 14px;
     }
 `
-
 const Social = () => {
-
-    const TEXT_PARAM ={
-        fontSize:"18px",
-        fontWeight:500
-    }
+    const TEXT_PARAM ={fontSize:"18px",fontWeight:500}
     return (
         <Container  className='grid grid-flow-col px-[162px] py-[16px] w-full justify-between'>
             <div className='grid grid-flow-col gap-x-[38px] py-[10px] place-items-center' >
@@ -44,5 +37,4 @@ const Social = () => {
         </Container>
     )
 }
-
 export default Social

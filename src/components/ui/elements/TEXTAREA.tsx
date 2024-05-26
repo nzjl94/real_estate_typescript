@@ -16,7 +16,6 @@ const TEXT_AREA_COM = styled.textarea`${({theme}) =>`
 const TextArea = (props:TEXTAREA_TYPE) => {
 
 	const {inputName, inputLabel, register,errors,validation={},placeholder="",parentClassName=""}=props
-	console.log(validation)
 	return (
 		<div className={`${parentClassName}`}>
             <label className="block text-left text-[16px] pb-[16px]" htmlFor={inputName}>

@@ -103,7 +103,7 @@ export class GENERATE_ELEMENT {
       inputType,
       inputLabel ,
       placeholder,
-      errors:this.errors ,
+      errors:this.errors,
       register:this.register,
       parentClassName:pClass, 
       ...(valText!==undefined && {validation:FormValidation(valText)})

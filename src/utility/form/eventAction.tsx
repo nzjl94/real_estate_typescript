@@ -19,7 +19,10 @@ export const onChangeAction:onChangeAction =(e,type)=>{
 }
 type onErrorAction= (error:FieldErrors,type:string)=>void
 export const onErrorAction:onErrorAction =(error,type)=>{
+    console.log(error,type)
     if(type==="connect"){
+        console.log("Errors from Connect form",error)
+    }else if(type==="request"){
         console.log("Errors from Connect form",error)
     }
 }

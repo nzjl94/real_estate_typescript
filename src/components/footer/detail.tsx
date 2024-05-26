@@ -3,15 +3,9 @@ import styled,{useTheme}  from "styled-components";
 
 import TEXT               from "../ui/elements/TEXT"
 import IMG                from "../ui/elements/IMAGE"
+import {Link}             from 'react-router-dom';
 
-import {Link}         from 'react-router-dom';
-import { useForm } 		from 'react-hook-form';
-
-import MediaQuery     from 'react-responsive'
-
-
-
-
+import MediaQuery         from 'react-responsive'
 
 const Container = styled.div ``
 const Detail = () => {
@@ -58,11 +52,6 @@ const Detail = () => {
     className:`text-left ${className}`,
     color
   })
-  const {register,handleSubmit,formState: { errors },setValue,reset,control,getValues} = useForm({
-		defaultValues: {
-			email: "Niyaz",
-		}
-	});
   return <>
     <MediaQuery minWidth={640}>
       <Container className='grid grid-flow-col w-full gap-x-[80px] grid-cols-3 py-[100px] px-[160]'>
@@ -131,9 +120,6 @@ const Detail = () => {
       </Container>
     </MediaQuery>
   </>
-  
-  
-  
 }
 
 export default Detail
