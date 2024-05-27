@@ -1,11 +1,8 @@
-import { useContext }   from 'react';
-
-import styled           from "styled-components";
-import { Link }         from 'react-router-dom';
-
+import { useContext }       from 'react';
+import styled               from "styled-components";
+import { Link }             from 'react-router-dom';
 import { ExploreAction }    from '../../../store/Context';
-// import {OBJECT_1 as BUTTON_PROPS_TYPE}  from '../../utility/typeApp';
-import TEXT from "./TEXT"
+import TEXT                 from "./TEXT"
 
 const LinkElement = styled(Link)`${({theme}) => ``}`;
 
