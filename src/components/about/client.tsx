@@ -1,13 +1,13 @@
-import { MouseEvent} 								from "react";
-import styled,{ useTheme } 							from "styled-components";
-import { useSelector,useDispatch }					from 'react-redux';
+import { MouseEvent} 				from "react";
+import styled,{ useTheme } 			from "styled-components";
+import { useSelector,useDispatch }	from 'react-redux';
 
-import HEADER 										from "../ui/components/HEADER";
-import {TEXT,IMAGE} 								from "../ui/elements"
-import {indTitle} 									from '../../utility/types/typeStore';
-import {API_DATA_3}  								from '../../utility/types/typeApp';
-import useFetch, {FetchData}  						from '../../utility/customHook/useGetAPI';
-import { selectTitleData} 							from '../../store/slice/title';
+import HEADER 						from "../ui/components/HEADER";
+import {TEXT,IMAGE} 				from "../ui/elements"
+import {API_DATA_3}  				from '../../utility/types/typeApp';
+import useFetch, {FetchData}  		from '../../utility/customHook/useGetAPI';
+import { RootState } 		    	from '../../store/Reducer';
+import {getSingleTitle} 	    	from '../../store/slice/title';
 
 
 const Container = styled.div``;
@@ -21,18 +21,19 @@ export default () => {
 
 	const dispatch = useDispatch();
 
-	const title_section:indTitle = useSelector(selectTitleData);
-	const {title,content}=title_section.about_client
+
+	const {key,title,content} = useSelector((state: RootState) => getSingleTitle(state, "about_client"));
+
 
   	const theme = useTheme();
 	
-  	const { data,success}: FetchData<API_DATA_3> = useFetch <API_DATA_3>('about/client',{title:{},sections:[]});
+  	const { data,success}: FetchData<API_DATA_3> = useFetch <API_DATA_3>('about/client',[]);
 
 	const visitWebsiteButton=(event:MouseEvent<HTMLButtonElement>,url:string)=>{
-		//dispatch(addEditTitle({
-		//	id:"about_client",
-		//	content:{title:"Hello Redux",content:"Hello WWWW"}
-		//}))
+		// dispatch(addEditTitle({
+			// id:"about_client",
+			// content:{title:"Hello Redux",content:"Hello WWWW"}
+		// }))
 		// dispatch(removeTitle("existingKey"))
 	}
 
@@ -47,7 +48,7 @@ export default () => {
 		<Container className="grid grid-flow-row gap-y-[60px]"> 
 		<HEADER title={title} content={content} />
 		<Content className="grid grid-flow-col gap-x-[50px]" >
-			{data.sections.map(({section1,section2,section3},index) => {
+			{data.map(({section1,section2,section3},index) => {
 				return (
 					<div key={index} className="sectionContainer bg-gray-2 p-[50px] rounded-[12px] border-[1px] border-gray-1 grid grid-flow-row gap-y-[40px]" >
 						<div className="firstContainer grid grid-rows-2 grid-flow-col">

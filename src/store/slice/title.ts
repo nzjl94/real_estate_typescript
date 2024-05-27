@@ -23,19 +23,22 @@ const dataSlice = createSlice({
     addEditTitle: (state, action: PayloadAction<singleTitle>) => {
       // const existingKey = Object.keys(state.data).find((key)=>key===id)
       const { id,content } = action.payload;
-      state.data={
+      
+      state.data=[
         ...state.data,
-        [id as string]:content
-      }
+        {...content,key:id}
+      ]
     },
     removeTitle: (state, action: PayloadAction<string>) => {
 
       const itemIdToRemove = action.payload;
-      state.data = Object.keys(state.data).reduce((new_data, key) => {
-        if (key !== itemIdToRemove)
-          new_data[key] = state.data[key];
-        return new_data;
-      }, {} as Record<string, TEXT_PARAGRAPH>);      
+      state.data = state.data.filter(({key})=>key!==itemIdToRemove)
+      
+      // Object.keys(state.data).reduce((new_data, key) => {
+        // if (key !== itemIdToRemove)
+          // new_data[key] = state.data[key];
+        // return new_data;
+      // }, {} as Record<string, TEXT_PARAGRAPH>);      
       // Object.keys(state.data).filter((key) => key !== action.payload);
     },
     getTitle: (state,action:PayloadAction<string>)=>{
@@ -68,10 +71,13 @@ export const getSingleTitle = createSelector(
     (state: RootState) => state.title.data,
     (state: RootState, sectionId: string) => sectionId
   ], 
-  (data:indTitle, sectionId:string) => {
+  (data:indTitle[], sectionId:string) => {
     // Should handle wrong [sectionId]
-    // console.log(data,sectionId,data)
-    return data[sectionId]
+    // console.log(data,sectionId)
+
+    return data.filter(({key})=>key===sectionId)[0]
+    // data.filter(({key})=>key===sectionId)
+    // data[sectionId]
   }
 );
 

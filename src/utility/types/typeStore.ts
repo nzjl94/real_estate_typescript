@@ -36,13 +36,15 @@ export interface tableState {
 
 
 export interface indTitle {
-    [key: string]:TEXT_PARAGRAPH
+    key:string;
+    title:string;
+    content:string;
 }
   
 export interface titleState {
     loading: 'idle' | 'pending' | 'fulfilled' | 'rejected';
     error: string | null;
-    data:indTitle;
+    data:indTitle[];
 }
 
 export interface singleTitle{

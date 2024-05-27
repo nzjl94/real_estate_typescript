@@ -1,9 +1,14 @@
-import { useState}            from "react";
 import styled,{ useTheme }    from "styled-components";
 
 import {HEADER}                 from "../ui/components";
 import TEXT                   from "../ui/elements/TEXT"
 import useFetch, {FetchData}  from '../../utility/customHook/useGetAPI';
+
+import {API_DATA_6}           from '../../utility/types/typeApp';
+
+import { useSelector }	      from 'react-redux';
+import { RootState } 		    	from '../../store/Reducer';
+import {getSingleTitle} 	    from '../../store/slice/title';
 
 const Container = styled.div``;
 const TextContainer = styled.div`${({theme}) => `
@@ -13,16 +18,12 @@ const TextContainer = styled.div`${({theme}) => `
 export default () => {
 
   const theme = useTheme();
-  const { data,success}: FetchData<[]> = useFetch <[]>('about/achievement',[]);
-
-  const [headerData, setDeaderData] = useState({
-    title:"Our Achievements",
-    content:"Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary."
-  })
+  const { data,success}: FetchData<API_DATA_6> = useFetch <API_DATA_6>('about/achievement',[]);
+  const {key,title,content} = useSelector((state: RootState) => getSingleTitle(state, "about_achievement"));
 
   return (
     <Container className="grid flex-col gap-10">
-      <HEADER title={headerData.title} content={headerData.content} />
+      <HEADER title={title} content={content} />
         <div className="grid grid-flow-row grid-cols-3 gap-x-[40px]">
             {data.map(({title,content},index) => {
               return (

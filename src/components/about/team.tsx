@@ -3,15 +3,20 @@ import styled,{ useTheme } 		from "styled-components";
 
 import IMG 						from "../ui/elements/IMAGE";
 import TEXT_1 					from "../ui/elements/TEXT"
-import {API_DATA_1}  			from '../../utility/types/typeApp';
+import {API_DATA_6}  			from '../../utility/types/typeApp';
 import useFetch, {FetchData}  	from '../../utility/customHook/useGetAPI';
 import HEADER               	from "../ui/components/HEADER"
+import { useSelector }	      	from 'react-redux';
+import { RootState } 		    from '../../store/Reducer';
+import {getSingleTitle} 	    from '../../store/slice/title';
 
 const Container = styled.div``;
 
 const Team= () => {
   	const theme = useTheme();
-	const { data,success}: FetchData<API_DATA_1> = useFetch <API_DATA_1>('about/team',{title:{},sections:[]});
+	const { data,success}: FetchData<API_DATA_6> = useFetch <API_DATA_6>('about/team',[]);
+	const {key,title,content} = useSelector((state: RootState) => getSingleTitle(state, "about_team"));
+
 	const teamTwitterButton=(event:MouseEvent<HTMLButtonElement>)=>{
 		console.log("Twitter",event)
 	}
@@ -20,9 +25,9 @@ const Team= () => {
 	}
 	return (
 		<Container className="grid grid-flow-row gap-y-[60px]">
-			<HEADER title={data.title?.title} content={data.title?.content} />
+			<HEADER title={title} content={content} />
 			<div className="grid grid-flow-row grid-cols-4 gap-x-2" >
-				{data.sections.map(({title,subtitle,icon},index) => {
+				{data.map(({title,subtitle,icon},index) => {
 				return (
 					<div key={index} className="elementContainer  border-[1px] border-gray-1 rounded-[12px] p-[30px] grid grid-flow-row" >
 						<div className="relative">

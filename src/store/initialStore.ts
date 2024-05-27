@@ -19,7 +19,7 @@ export const cartInitialState: CartState = {
 export const titleInitialState: titleState = {
   loading: 'idle',
   error: null,
-  data: {},
+  data: [],
 };
 
 export const loginInitialState: AuthState = {

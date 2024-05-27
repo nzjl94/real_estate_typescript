@@ -5,6 +5,10 @@ import HEADER                 from "../ui/components/HEADER";
 import TEXT_1                 from "../ui/elements/TEXT"
 import useFetch, {FetchData}  from '../../utility/customHook/useGetAPI';
 
+import { useSelector }	      from 'react-redux';
+import { RootState } 		    	from '../../store/Reducer';
+import {getSingleTitle} 	    from '../../store/slice/title';
+
 const ExperienceContainer=styled.div``;
 const ElementWrapper = styled.div`
   display: flex;
@@ -25,16 +29,15 @@ const ElementWrapper = styled.div`
 const Experience = () => {
   const { data,success}: FetchData<[]> = useFetch <[]>('about/experience',[]);
 
-  const [headerData, setDeaderData] = useState({
-    title:"Navigating the Estatein Experience",
-    content:"At Estatein, we've designed a straightforward process to help you find and purchase your dream property with ease. Here's a step-by-step guide to how it all works."
-  })
+  const {key,title,content} = useSelector((state: RootState) => getSingleTitle(state, "about_experience"));
+
+
   const theme = useTheme();
 
 
   return (
     <ExperienceContainer className="grid flex-col gap-10">
-      <HEADER title={headerData.title} content={headerData.content} />
+      <HEADER title={title} content={content} />
       <div className="grid grid-flow-row grid-cols-3  gap-5 items-stretch">
         {data.map(({m_title,s_title,content},index) => {
           return (

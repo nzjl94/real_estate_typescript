@@ -107,10 +107,8 @@ export interface API_DATA_2 {
     title: OBJECT_1,
     sections: TEXT_PARAGRAPH[]
 }
-export interface API_DATA_3 {
-    title: OBJECT_1,
-    sections: Array<{[key: string]:OBJECT_1}>
-}
+export type API_DATA_3 =Array<{[key: string]:OBJECT_1}>
+
 export interface API_DATA_4 {
     title:string;
     content:string;
@@ -121,6 +119,9 @@ export interface API_DATA_5 {
     text:string;
     icon?:string;
 }
+
+export type API_DATA_6 = OBJECT_1[]
+
 export interface SERVICE_TYPE {
     data:Array<API_DATA_5>
 }
