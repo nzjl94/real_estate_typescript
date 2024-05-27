@@ -1,18 +1,14 @@
+import { useSelector }                          from 'react-redux';
 import {useRoutes,RouteObject,Navigate}         from 'react-router-dom';
-
-import PrivateRoute     from "./PrivateRoute"
-
-import About            from './components/about';
-import Contact          from './components/contact';
-import Home             from './components/home';
-import Property         from './components/property';
-import Service          from './components/service';
-import Login            from './components/auth/Login';
-
-import { useSelector }  from 'react-redux';
-
-import { RootState }    from './store/Reducer';
-
+import PrivateRoute                             from "./PrivateRoute"
+import About                                    from './components/about';
+import Contact                                  from './components/contact';
+import Home                                     from './components/home';
+import Property                                 from './components/property';
+import PropertyDetail                           from './components/propertyDetail';
+import Service                                  from './components/service';
+import Login                                    from './components/auth/Login';
+import { RootState }                            from './store/Reducer';
 
 
 const AppRoute = () => {
@@ -23,11 +19,12 @@ const AppRoute = () => {
         {
         path: '/',
         children: [
-            { index: true,          element: <Home /> },
-            { path: '/home',        element: <Home /> },
-            { path: '/property',    element: <Property /> },
-            { path: '/service',     element: <Service /> },
-            { path: '/contact',     element: <Contact /> },
+            { index: true,                  element: <Home /> },
+            { path: '/home',                element: <Home /> },
+            { path: '/property',            element: <Property /> },
+            { path: '/property_detail',     element: <PropertyDetail /> },
+            { path: '/service',             element: <Service /> },
+            { path: '/contact',             element: <Contact /> },
             {
                 path: '/about',
                 element: isAuthenticated ?(<PrivateRoute> <About /> </PrivateRoute>):(<Navigate to="/login" replace />)

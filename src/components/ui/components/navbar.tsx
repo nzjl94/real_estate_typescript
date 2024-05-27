@@ -20,7 +20,8 @@ const Navbar: React.FC = () => {
     { href: "home", label: "Home" },
     { href: "about", label: "About Us" },
     { href: "property", label: "Properties" },
-    { href: "service", label: "Services" }
+    { href: "service", label: "Services" },
+    { href: "property_detail", label: "Prop Detail" },
   ];
 
   const navigate = useNavigate();

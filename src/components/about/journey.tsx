@@ -3,7 +3,7 @@ import {
 } 							from "./header"
 import {TEXT_IMAGE}         from "../ui/components";
 import {TEXT_PARAGRAPH}     from '../../utility/types/typeApp';
-import profilePic           from '../../image/about/journey/title.png' // This approch it work only if the files inside [src] but does not work when they inside [public]
+import profilePic           from '../../image/title.png' // This approch it work only if the files inside [src] but does not work when they inside [public]
 
 const Journey = () => {
     const title = useSelector((state: RootState) => getSingleTitle(state, "about_journey"));
