@@ -1,4 +1,4 @@
-import Theme 	from "../ui/components/theme";
+import Theme 	from "../ui/elements/theme";
 import styled 	from "styled-components";
 
 import Start 	from "../ui/components/TEXT_BUTTON";
@@ -12,7 +12,7 @@ const Home = () =>{
 	const Content=styled.div``;
 
 	return (<Theme>
-		<Content className="grid pb-[96px] ">
+		<Content className="grid pb-[96px] px-[16px] lg:px-[80px] xl:px-[160px] py-[75px]">
 			<Journey />
 			<Property />
 			<Client />

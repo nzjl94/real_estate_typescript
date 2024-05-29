@@ -7,7 +7,7 @@ import Journey from "./journey";
 import Team from "./team";
 import Client from "./client";
 import Start from "../ui/components/TEXT_BUTTON";
-import Theme from "../ui/components/theme";
+import Theme from "../ui/elements/theme";
 
 export default () => {
 

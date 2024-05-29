@@ -1,14 +1,14 @@
 import React from 'react'
 
-import styled               from "styled-components";
-import {useNavigate}        from 'react-router-dom';
+import styled                   from "styled-components";
+import {useNavigate}            from 'react-router-dom';
 
-import { ExploreAction }    from '../../store/Context';
+import { ExploreAction }        from '../../store/Context';
 
 import usePagination            from '../../utility/customHook/usePagination';
 import {cardPropertyType}       from "../../utility/types/typeApp"
 
-import {CARD2,CARD6} from "../ui/cards/"
+import {CARD2,CARD6}            from "../ui/cards/"
 import {STAR,PAGINATION}        from "../ui/components/"
 
 const Property = () => {
@@ -31,7 +31,7 @@ const Property = () => {
 
     const HEADER_WITH_STAR = STAR(CARD6);
 
-    return <Container className='flex flex-col gap-y-[40px] md:gap-y-[60px] lg:gap-y-[80px] px-[16px] lg:px-[80px] xl:px-[160px] py-[75px]'>
+    return <Container className='flex flex-col gap-y-[40px] md:gap-y-[60px] lg:gap-y-[80px] py-[75px]'>
 
         <ExploreAction.Provider value={propertyAction()}>
             <HEADER_WITH_STAR {...data}  starClass={"-top-[45px] -left-[30px]"}/>

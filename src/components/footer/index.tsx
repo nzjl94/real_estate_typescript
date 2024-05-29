@@ -1,5 +1,5 @@
 import React    from 'react'
-import Theme    from "../ui/components/theme";
+import Theme    from "../ui/elements/theme";
 
 import Detail   from "./detail";
 import Social   from "./social";

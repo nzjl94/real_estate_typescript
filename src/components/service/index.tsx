@@ -1,5 +1,5 @@
 import React from 'react';
-import Theme from "../ui/components/theme";
+import Theme from "../ui/elements/theme";
 
 import Experience 				from "./experience"
 import Value 					from "./value"

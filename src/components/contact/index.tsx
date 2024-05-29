@@ -5,7 +5,7 @@ import Connect 		from "./connect";
 import Explore 		from "./explore";
 import Contact 		from "./contact";
 import Start 		from "../ui/components/TEXT_BUTTON";
-import Theme 		from "../ui/components/theme";
+import Theme 		from "../ui/elements/theme";
 
 const Content=styled.div``;
 
