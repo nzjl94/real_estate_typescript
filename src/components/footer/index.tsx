@@ -4,11 +4,7 @@ import Theme    from "../ui/elements/theme";
 import Detail   from "./detail";
 import Social   from "./social";
 
-export default () => {
-  return <Theme>
+export default () => <Theme>
     <Detail />
     <Social />
-  </Theme>
-    
-
-}
+</Theme>

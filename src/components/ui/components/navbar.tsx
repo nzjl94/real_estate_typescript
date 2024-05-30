@@ -3,12 +3,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useNavigate,Link}         from 'react-router-dom';
 import { RootState }              from '../../../store/Reducer';
 import {BUTTON,IMAGE}             from "../elements";
-
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-
-
-
-import { resetAll,showNotification, hideNotification } from '../../../store/Actions';
+import { AiOutlineClose }         from 'react-icons/ai';
+import { resetAll }               from '../../../store/Actions';
 
 const Navbar: React.FC = () => {
 
@@ -23,14 +19,11 @@ const Navbar: React.FC = () => {
     { href: "service", label: "Services" },
     { href: "property_detail", label: "Prop Detail" },
   ];
-
   const navigate = useNavigate();
-
   const logoutAction=()=>{
     dispatch(resetAll())
     navigate("/login")
   }
-
   return (
     <>
       <header className="sm:px-8 px-4 py-2 z-10 w-full bg-gray-1">

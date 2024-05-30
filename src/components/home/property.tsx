@@ -1,32 +1,26 @@
-import React from 'react'
+import {
+    cardPropertyType,propertyActionType
+}                               from "../../utility/types/typeApp"
+import {
+	getSingleTitle,useSelector,RootState,STAR,PAGINATION,CARD2,CARD6,
+    styled,usePagination,ExploreAction,useNavigate
+}                               from "./header"
 
-import styled                   from "styled-components";
-import {useNavigate}            from 'react-router-dom';
-
-import { ExploreAction }        from '../../store/Context';
-
-import usePagination            from '../../utility/customHook/usePagination';
-import {cardPropertyType}       from "../../utility/types/typeApp"
-
-import {CARD2,CARD6}            from "../ui/cards/"
-import {STAR,PAGINATION}        from "../ui/components/"
+const Container = styled.div`${({theme}) => ``}`;
 
 const Property = () => {
 
     const navigate = useNavigate();
-    type propertyActionType = () => (e: React.MouseEvent) => void;
 	const propertyAction:propertyActionType  = () => (e) => {
 		navigate(`/property`)
 	}
+    const {key,title,content} = useSelector((state: RootState) => getSingleTitle(state, "home_property"));
+
     const data ={
-        title:"Featured Properties",
-        content:"Explore our handpicked selection of featured properties. Each listing offers a glimpse into exceptional homes and investments available through Estatein. Click 'View Details' for more information.",
         buttonText:"View All Properties",
         parentClass:"mb-[80px]",
         buttonClass:"bg-gray-1 border-gray-1"
     }
-    const Container = styled.div`${({theme}) => ``}`;
-
     const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardPropertyType>("home/property")
 
     const HEADER_WITH_STAR = STAR(CARD6);
@@ -34,7 +28,7 @@ const Property = () => {
     return <Container className='flex flex-col gap-y-[40px] md:gap-y-[60px] lg:gap-y-[80px] py-[75px]'>
 
         <ExploreAction.Provider value={propertyAction()}>
-            <HEADER_WITH_STAR {...data}  starClass={"-top-[45px] -left-[30px]"}/>
+            <HEADER_WITH_STAR {...data} title={title} content={content} starClass={"-top-[45px] -left-[30px]"}/>
         </ExploreAction.Provider>
         <div className="grid grid-flow-row gap-y-[50px]">
             <div className={`grid grid-flow-row grid-cols-${cardsPerPage} gap-x-[30px]`}>{

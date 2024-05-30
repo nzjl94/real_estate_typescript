@@ -1,14 +1,15 @@
-import styled                       				from "styled-components";
 import { useForm}    								from 'react-hook-form';
-import {useEffect } 								from 'react';
-
 import {INPUT,REACT_SELECT, TEXTAREA, CHECKBOX} 	from "../ui/elements/"
 import useFetch, {FetchData}						from '../../utility/customHook/useGetAPI';
 import {PROPERTY_FORM_TYPE}							from "../../utility/types/typeApp"
 import {GENERATE_ELEMENT}							from "../../utility/form/formUtility"
 import {onErrorAction,onSubmit}						from "../../utility/form/eventAction"
 import usePostAPI 									from '../../utility/customHook/usePostAPI';
-import {STAR,HEADER}                				from "../ui/components/"
+
+import {
+	getSingleTitle,useSelector,RootState,HEADER,
+	STAR,styled
+}   from "./header"
 
 
 const Container    = styled.div`${({theme}) => ``}`;
@@ -17,11 +18,9 @@ const FormContainer= styled.div`${({theme}) => ``}`;
 const Request = () => {
 
 	const { loading, error, response, postData } = usePostAPI();
+	const {key,title,content} = useSelector((state: RootState) => getSingleTitle(state, "property_request"));
     
-    const {title,content} ={
-        title:"Let's Make it Happen",
-        content:"Ready to take the first step toward your dream property? Fill out the form below, and our real estate wizards will work their magic to find your perfect match. Don't wait; let's embark on this exciting journey together."
-    }
+
 	const { data:{bath_number,bed_number,budget,location,type:property_type},success}: FetchData<PROPERTY_FORM_TYPE> = useFetch <PROPERTY_FORM_TYPE>('property/form/detail',{});
 
     const {register,handleSubmit,setFocus,formState: { errors },setValue,reset,control,getValues} = useForm({

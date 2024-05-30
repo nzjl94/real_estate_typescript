@@ -1,14 +1,7 @@
 
+import {FORM_TYPE,onChangeActionType,onErrorActionType}      from "../types/typeApp"
 
-import {MouseEvent}  from "react";
-import {FieldErrors,SubmitHandler } from 'react-hook-form';
-
-
-import {FORM_TYPE} from "../types/typeApp"
-
-
-type onChangeAction= (e:MouseEvent<HTMLInputElement>,type:string)=>void
-export const onChangeAction:onChangeAction =(e,type)=>{
+export const onChangeAction:onChangeActionType =(e,type)=>{
     if(type==="textarea"){
         console.log("Text Area have been changed")
     }else if (type==="checkbox"){
@@ -17,8 +10,7 @@ export const onChangeAction:onChangeAction =(e,type)=>{
         console.log("Select have been changed")
     }
 }
-type onErrorAction= (error:FieldErrors,type:string)=>void
-export const onErrorAction:onErrorAction =(error,type)=>{
+export const onErrorAction:onErrorActionType =(error,type)=>{
     console.log(error,type)
     if(type==="connect"){
         console.log("Errors from Connect form",error)
@@ -26,7 +18,6 @@ export const onErrorAction:onErrorAction =(error,type)=>{
         console.log("Errors from Connect form",error)
     }
 }
-
 export const onSubmit = async (URL:string,form_data:FORM_TYPE,postData:(url: string, body: any) => Promise<void>) => {
     
     // const post_data=await postAPIData('realestate/contact/store',formPrepare(data)) //data or getValues()

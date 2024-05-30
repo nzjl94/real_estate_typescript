@@ -1,20 +1,14 @@
-import React              from 'react'
 import styled,{useTheme}  from "styled-components";
 
-import TEXT               from "../ui/elements/TEXT"
-import IMG                from "../ui/elements/IMAGE"
+import {TEXT,IMAGE}       from "../ui/elements"
 import {Link}             from 'react-router-dom';
-
 import MediaQuery         from 'react-responsive'
+import {pageLinksType}    from "../../utility/types/typeApp"
 
 const Container = styled.div ``
 const Detail = () => {
-
   const theme = useTheme();
 
-  type pageLinksType ={
-    [key : string]:{text:string;plink:string;}[]
-  }
   const pageLinks:pageLinksType ={
     "Home":[
       {text:"Hero Section",plink:""},
@@ -52,13 +46,13 @@ const Detail = () => {
     className:`text-left ${className}`,
     color
   })
-  return <>
+  return <div className="px-[16px] lg:px-[80px] xl:px-[160px]">
     <MediaQuery minWidth={640}>
       <Container className='grid grid-flow-col w-full gap-x-[80px] grid-cols-3 py-[100px] px-[160]'>
           <div className='grid grid-flow-row grid-cols-6 content-start gap-y-[30px] place-content-start'>
             <div className='col-span-3'>
               <Link to="/" className="text-2xl font-bold text-white flex justify-center items-center gap-4">
-                <IMG path="image/logo.svg" width={48} height={48} activeBorder={false} />
+                <IMAGE path="image/logo.svg" width={48} height={48} activeBorder={false} />
                 <TEXT fontSize={"32px"} text="Estatein"/>
               </Link>
             </div>
@@ -91,7 +85,7 @@ const Detail = () => {
           <div className='grid grid-flow-row grid-cols-6 content-start gap-y-[30px] place-content-start'>
             <div className='col-span-2'>
               <Link to="/" className="text-2xl font-bold text-white flex justify-center items-center gap-4">
-                <IMG path="image/logo.svg" width={48} height={48} activeBorder={false} />
+                <IMAGE path="image/logo.svg" width={48} height={48} activeBorder={false} />
                 <TEXT fontSize={"32px"} text="Estatein"/>
               </Link>
             </div>
@@ -112,14 +106,14 @@ const Detail = () => {
             </div>
           </div>
           <div className='grid grid-flow-row grid-cols-2 justify-between col-span-2 gap-y-[20px] gap-x-[20px]'>{
-            Object.keys(pageLinks).map((key,index)=>(<div className={` ${["Properties","Contact Us"].includes(key)?"row-span-1":"row-span-2"} col-span-1 grid grid-flow-row pb-[20px] gap-y-[8px] border-b border-gray-1 content-start`}> 
+            Object.keys(pageLinks).map((key,index)=>(<div className={`${["Properties","Contact Us"].includes(key)?"row-span-1":"row-span-2"} col-span-1 grid grid-flow-row pb-[20px] gap-y-[8px] border-b border-gray-1 content-start`}> 
               {<TEXT {...TEXT_PARAM(theme.colors.gray1,"16px","pb-[16px]")} text={key}/>}
               {pageLinks[key].map(({text,plink},index)=><Link to={plink} >{<TEXT {...TEXT_PARAM(theme.colors.white,"14px")} text={text}/>}</Link>)}
             </div>)) 
           }</div>
       </Container>
     </MediaQuery>
-  </>
+  </div>
 }
 
 export default Detail

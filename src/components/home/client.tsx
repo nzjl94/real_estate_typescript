@@ -1,33 +1,26 @@
-import React from 'react'
-
-import styled               from "styled-components";
-import {useNavigate}        from 'react-router-dom';
-
-import {CARD5,CARD6}        from "../ui/cards/"
-import { ExploreAction }    from '../../store/Context';
-
-import {PAGINATION,STAR}    from "../ui/components"
-
-import usePagination        from '../../utility/customHook/usePagination';
-import {cardClientType}     from "../../utility/types/typeApp"
+import {
+    cardClientType,propertyActionType
+}                           from "../../utility/types/typeApp"
+import {
+	getSingleTitle,useSelector,RootState,STAR,PAGINATION,CARD5,CARD6,
+    styled,usePagination,ExploreAction,useNavigate
+}                           from "./header"
 
 
 const Client = () => {
 
     const navigate = useNavigate();
-    type propertyActionType = () => (e: React.MouseEvent) => void;
-
 
 	const propertyAction:propertyActionType  = () => (e) => {
 		navigate(`/property`)
 	}
     const data ={
-        title:"What Our Clients Say",
-        content:"Read the success stories and heartfelt testimonials from our valued clients. Discover why they chose Estatein for their real estate needs.",
         buttonText:"View All Testimonials",
         parentClass:"mb-[80px]",
         buttonClass:"bg-gray-1 border-gray-1"
     }
+    const {key,title,content} = useSelector((state: RootState) => getSingleTitle(state, "home_client"));
+
 
     const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardClientType>("home/client")
     const Container = styled.div`${({theme}) => ``}`;
@@ -37,7 +30,7 @@ const Client = () => {
     
     return <Container className='flex flex-col gap-y-[40px] md:gap-y-[60px] lg:gap-y-[80px] py-[75px]'>
         <ExploreAction.Provider value={propertyAction()}>
-            <HEADER_WITH_STAR {...data}  starClass={"-top-[45px] -left-[30px]"}/>
+            <HEADER_WITH_STAR {...data}  title={title} content={content} starClass={"-top-[45px] -left-[30px]"}/>
 
         </ExploreAction.Provider>
         <div className="grid grid-flow-row gap-y-[50px]">

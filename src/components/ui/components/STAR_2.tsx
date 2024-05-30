@@ -1,5 +1,5 @@
-import React, { useState,FC}  from 'react';
-import IMG                  from "../elements/IMAGE";
+import React, {FC}    from 'react';
+import {IMAGE}        from "../elements";
 
 
 interface StarType {
@@ -14,9 +14,9 @@ const STAR = <P extends StarType>(WrappedComponent: React.ComponentType<Omit<P,"
     const {starClass}=props
     return <>
       <div className={`absolute ${starClass} grid grid-flow-row grid-cols-3 gap-x-[6px] place-items-center`}>
-          <IMG width={30} height={30}   activeBorder={false} path="/image/general/star1.svg"/>
-          <IMG width={18} height={18}   activeBorder={false} path="/image/general/star2.svg"/>
-          <IMG width={8.4} height={8.4} activeBorder={false} path="/image/general/star3.svg"/>
+          <IMAGE width={30} height={30}   activeBorder={false} path="/image/general/star1.svg"/>
+          <IMAGE width={18} height={18}   activeBorder={false} path="/image/general/star2.svg"/>
+          <IMAGE width={8.4} height={8.4} activeBorder={false} path="/image/general/star3.svg"/>
       </div>
       <WrappedComponent {...props}  parentClass="60px" />
     </>

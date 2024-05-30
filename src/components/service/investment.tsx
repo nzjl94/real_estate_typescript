@@ -1,44 +1,35 @@
-import React from 'react'
 
-import { RootState } 		from '../../store/Reducer'
-import {getSingleTitle} 	from '../../store/slice/title'
-import { useSelector }      from 'react-redux';
-import styled,{ useTheme }  from "styled-components"
+import { RootState } 		            from '../../store/Reducer'
+import {getSingleTitle} 	            from '../../store/slice/title'
+import { useSelector }                  from 'react-redux';
+import styled,{ useTheme }              from "styled-components"
 
-import CARD1                from "../ui/cards/card1"
-
-import TEXT                 from "../ui/elements/TEXT"
+import CARD1                            from "../ui/cards/card1"
+import TEXT                             from "../ui/elements/TEXT"
 
 import {SERVICE_TYPE}                   from "../../utility/types/typeApp"
 import {ImageContainer,ButtonStyle1}    from "../../utility/types/styleApp"
 
 
+const Container = styled.div`${({theme}) => `
+    .card-container-1{
+        background: ${theme.colors.gray5};
+    }
+`}`;
+const Button = styled(ButtonStyle1)`${({theme}) => `
+    padding: 14px 20px;
+`}`;
 const Investment = ({data}:SERVICE_TYPE) => {
 
     const theme = useTheme();
 
-
     const {title,content} = useSelector((state: RootState) => getSingleTitle(state, "service_investment_title"));
     const {title:subtitle,content:subcontent} = useSelector((state: RootState) => getSingleTitle(state, "service_investment_subtitle"));
-
-    const Component = styled.div`${({theme}) => ``}`;
-
-    const Container = styled.div`${({theme}) => `
-        .card-container-1{
-            background: ${theme.colors.gray5};
-        }
-    `}`;
-
-    const Button = styled(ButtonStyle1)`${({theme}) => `
-        padding: 14px 20px;
-    `}`;
-
     const TEXT_STYLE={
         fontSize:"14px",
         fontWeight:theme.fontWeight.m
     }
-
-    return <Component className='px-[162px]' id="service_investment">
+    return <div className='px-[162px]' id="service_investment">
         <Container className="my-[120px] grid grid-flow-row grid-cols-3 gap-x-[50px]">
             <div className='grid grid-flow-row grid-cols-1 gap-y-[10px]'>
                 <div className='grid grid-flow-row grid-cols-1'>
@@ -57,8 +48,7 @@ const Investment = ({data}:SERVICE_TYPE) => {
                 data.map((row,index) => <CARD1 index={index} {...row} background={theme.colors.gray4} />
             )}</div>
         </Container>
-    </Component>
+    </div>
     
 }
-
 export default Investment

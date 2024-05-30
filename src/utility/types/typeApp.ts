@@ -1,5 +1,6 @@
-import {FieldErrors,UseFormRegister,FieldValues}   from 'react-hook-form';
-import {DefaultTheme}                   from "styled-components";
+import {FieldErrors,UseFormRegister,FieldValues}    from 'react-hook-form';
+import {DefaultTheme}                               from "styled-components";
+import {MouseEvent}                                 from "react";
 
 export interface OBJECT_1 {
     [key: string]:string
@@ -131,13 +132,11 @@ export interface TEXT_ICON_TYPE {
     icon:string;
 }
 
-
 export interface responsiveType_1 <T> {
     [key: string]:{
         [key: string]:T
     }
 }
-
 
 export interface cardQuestionType extends TEXT_PARAGRAPH {
     id:number;
@@ -154,14 +153,6 @@ export interface cardPropertyType extends cardQuestionType {
     detail: {bed:number;bath:number;type:string}
 };
 
-export interface Card6Type extends TEXT_PARAGRAPH{
-    buttonText:string;
-    parentClass?:string;
-    buttonClass?:string;
-    showButton?:boolean;
-}
-
-
 export interface FORM_TYPE  {
     // firstName:string;
     // lastName:string;
@@ -170,9 +161,66 @@ export interface FORM_TYPE  {
     // availabilityDate:string;
     //roomNumber:number;
 }
-
 export interface PROPERTY_FORM_TYPE {
     [key:string]:{
         [key:string]:string|number
     }
+}
+
+export type visitWebsiteType   = (parameter: string) => (e: MouseEvent) => void;
+export type CARD_4_Action_Type = (parameter: number) =>(e: MouseEvent) => void;
+export type onChangeActionType = (e:MouseEvent<HTMLInputElement>,type:string)=>void
+export type onErrorActionType  = (error:FieldErrors,type:string)=>void
+export type propertyActionType = () => (e: MouseEvent) => void;
+export type cardActionType     = (e:MouseEvent,parameter: string) => void;
+
+
+
+
+export interface ERROR_TYPE {
+    errors:FieldErrors;
+    inputName:string;
+}
+
+export type pageLinksType ={
+    [key : string]:{text:string;plink:string;}[]
+}
+
+export interface CARD2_TYPE {
+    id:number;
+    price:number;
+    content:string;
+    title:string;
+    image:string;
+    detail: {
+        bed:number;
+        bath:number;
+        type:string
+    }
+}
+export interface CARD4_TYPE {
+    id:number;
+    content:string;
+    title:string;
+}
+export interface CARD5_TYPE {
+    id:number;
+    star:number;
+    content:string;
+    title:string;
+    image:string;
+    name:string;
+    location:string;
+}
+export interface CARD6_TYPE extends TEXT_PARAGRAPH{
+    buttonText:string;
+    parentClass?:string;
+    buttonClass?:string;
+    showButton?:boolean;
+}
+export interface PaginationType {
+    pagText:string;
+    sliceState:string;
+    paginFront:()=>boolean|void;
+    paginBack:() =>boolean|void;
 }

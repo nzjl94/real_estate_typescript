@@ -1,43 +1,31 @@
-import React from 'react'
+import {
+    cardQuestionType,propertyActionType
+}                           from "../../utility/types/typeApp"
+import {
+	getSingleTitle,useSelector,RootState,STAR,PAGINATION,styled,
+    CARD4,CARD6,usePagination,ExploreAction,useNavigate
+}   from "./header"
 
-import styled    from "styled-components";
-import {useNavigate}        from 'react-router-dom';
-import usePagination        from '../../utility/customHook/usePagination';
-
-import {cardQuestionType}   from "../../utility/types/typeApp"
-
-import { ExploreAction }    from '../../store/Context';
-
-import {STAR,PAGINATION}    from "../ui/components/"
-import {CARD4,CARD6}        from "../ui/cards/"
-
-
+const Container = styled.div`${({theme}) => ``}`;
 
 const Question = () => {
-
     const navigate = useNavigate();
-
-    type propertyActionType = () => (e: React.MouseEvent) => void;
 	const propertyAction:propertyActionType  = () => (e) => {
 		navigate(`/property`)
 	}
-
     const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardQuestionType>("home/question")
 
     const data ={
-        title:"Frequently Asked Questions",
-        content:"Find answers to common questions about Estatein's services, property listings, and the real estate process. We're here to provide clarity and assist you every step of the way.",
         buttonText:"View All FAQ’s",
         parentClass:"mb-[80px]",
         buttonClass:"bg-gray-1 border-gray-1"
     }
-    const Container = styled.div`${({theme}) => ``}`;
+    const {key,title,content} = useSelector((state: RootState) => getSingleTitle(state, "home_question"));
     const HEADER_WITH_STAR = STAR(CARD6);
-
 
     return <Container className='flex flex-col gap-y-[40px] md:gap-y-[60px] lg:gap-y-[80px] py-[75px]'>
         <ExploreAction.Provider value={propertyAction()}>
-            <HEADER_WITH_STAR {...data}  starClass={"-top-[45px] -left-[30px]"}/>
+            <HEADER_WITH_STAR {...data} title={title} content={content} starClass={"-top-[45px] -left-[30px]"}/>
         </ExploreAction.Provider>
         <div className="grid grid-flow-row gap-y-[50px]">
             <div className={`grid grid-flow-col grid-cols-${cardsPerPage} gap-x-[30px]`}>{
@@ -45,8 +33,6 @@ const Question = () => {
             }</div>
             <PAGINATION pagText={pagText} sliceState={sliceState} paginBack={paginBack} paginFront={paginFront} />
         </div>
-
-    </Container>
-        
+    </Container>    
 }
 export default Question

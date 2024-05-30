@@ -1,27 +1,22 @@
-import styled from "styled-components";
-
-import Achievement from "./achievement";
-import Experience from "./experience";
-import Value from "./value";
-import Journey from "./journey";
-import Team from "./team";
-import Client from "./client";
-import Start from "../ui/components/TEXT_BUTTON";
-import Theme from "../ui/elements/theme";
+import Achievement 	from "./achievement";
+import Experience 	from "./experience";
+import Value 		from "./value";
+import Journey 		from "./journey";
+import Team 		from "./team";
+import Client 		from "./client";
+import Start 		from "../ui/components/TEXT_BUTTON";
+import Theme 		from "../ui/elements/theme";
 
 export default () => {
-
-	const Content=styled.div``;
-
 	return (<Theme>
-		<Content className="grid gap-y-[150px] px-[16px] lg:px-[80px] xl:px-[160px] pb-[150px] ">
+		<div className="grid gap-y-[150px] px-[16px] lg:px-[80px] xl:px-[160px] pb-[150px] ">
 			<Journey />
 			<Value />
 			<Achievement />
 			<Experience />
 			<Team />
 			<Client />
-		</Content>
+		</div>
 		<Start />
 	</Theme>)
 }

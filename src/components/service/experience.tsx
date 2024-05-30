@@ -12,9 +12,10 @@ import {SERVICE_TYPE}       from "../../utility/types/typeApp"
 import {BackgroundStyle1}   from "../../utility/types/styleApp"
 
 
+const Component = styled(BackgroundStyle1)`${({theme}) => ``}`;
+
 const Experience = ({data}:SERVICE_TYPE) => {    
 
-    const Component = styled(BackgroundStyle1)`${({theme}) => ``}`;
     const {title,content} = useSelector((state: RootState) => getSingleTitle(state, "service_experience"));
     
     return <Component id="service_experience">

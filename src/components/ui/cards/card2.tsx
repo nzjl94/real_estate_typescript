@@ -1,45 +1,27 @@
-import React                from 'react'
+import { useTheme }                 from "styled-components"
+import {cardActionType,CARD2_TYPE}  from "../../../utility/types/typeApp"
+import {TEXT,BUTTON,IMAGE}          from "../elements"
 
-import styled,{ useTheme }  from "styled-components"
-import TEXT                 from "../elements/TEXT"
-import BUTTON               from "../elements/BUTTON"
-import IMG                  from "../elements/IMAGE"
-
-interface COMPONET_TYPE{
-    id:number;
-    price:number;
-    content:string;
-    title:string;
-    image:string;
-    detail: {
-        bed:number;
-        bath:number;
-        type:string
-    }
+const propertyDetail =(imgName:string,text:string)=>{
+    const imageProp={width:21,height:21,activeBorder:false,path:`/image/home/property/${imgName}.svg`}
+    const textProp={fontSize:"14px",fontWeight:500,text}
+    return (<div className='grid grid-flow-col gap-x-[5px] py-[8px] px-[14px] rounded-[28px] border border-gray-1 bg-gray-1 place-items-center'>
+        <IMAGE {...imageProp}  />
+        <TEXT {...textProp}   />
+    </div>)
+}
+const cardAction:cardActionType  = (event,parameter) => {
+    console.log(event,`Hi ${parameter}`)
 }
 
-const CARD_STYLE_2 = ({id,image,title,content,detail,price}:COMPONET_TYPE) => {
+const CARD_STYLE_2 = ({id,image,title,content,detail,price}:CARD2_TYPE) => {
 
-    type cardActionType = (e: React.MouseEvent,parameter: string) => void;
-	const cardAction:cardActionType  = (event,parameter) => {
-		console.log(event,`Hi ${parameter}`)
-	}
-    const propertyDetail =(imgName:string,text:string)=>{
-        const imageProp={width:21,height:21,activeBorder:false,path:`/image/home/property/${imgName}.svg`}
-        const textProp={fontSize:"14px",fontWeight:500,text}
-        return (<div className='grid grid-flow-col gap-x-[5px] py-[8px] px-[14px] rounded-[28px] border border-gray-1 bg-gray-1 place-items-center'>
-            <IMG {...imageProp}  />
-            <TEXT {...textProp}   />
-        </div>)
-    }
     const theme = useTheme();
-    const Item = styled.div`${({theme}) => ``}`;
     const TEXT_STYLE={
         fontWeight:theme.fontWeight.m,
         color:theme.colors.gray1
     }
-    
-    return <Item key={id} className='flex flex-col gap-y-[30px] p-[24px] md:p-[30px] lg:p-[40px] rounded-[12px] bg-gray-2 border border-gray-1' >
+    return <div key={id} className='flex flex-col gap-y-[30px] p-[24px] md:p-[30px] lg:p-[40px] rounded-[12px] bg-gray-2 border border-gray-1' >
         <div className="col-start-1 col-span-1 m-2 w-fit">
             <img  src={image} width={0} height={0} sizes="100%" className="h-auto w-full rounded-[10px]" /> 
         </div>
@@ -69,7 +51,7 @@ const CARD_STYLE_2 = ({id,image,title,content,detail,price}:COMPONET_TYPE) => {
                 </div>
             </div>
         </div>
-    </Item>
+    </div>
 }
 
 export default CARD_STYLE_2

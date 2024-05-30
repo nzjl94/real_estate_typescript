@@ -1,9 +1,9 @@
 import styled,{ useTheme }    from "styled-components";
-
-
-import {CARD6 as CARD}        from "../cards"
+import {CARD6}                from "../cards"
 import { ExploreAction }      from '../../../store/Context';
-import {API_DATA_4}           from "../../../utility/types/typeApp"
+import {
+  API_DATA_4,visitWebsiteType
+}                             from "../../../utility/types/typeApp"
 import useFetch, {FetchData}  from '../../../utility/customHook/useGetAPI';
 
 
@@ -32,24 +32,21 @@ const Container = styled.div`${({theme}) => `
    bottom: -33px;
   }
 `}`;
-
+const visitWebsiteButton:visitWebsiteType  = (parameter) => (e) => {
+  console.log(`About Us ${parameter}`)
+}
 const TEXT_BUTTON:React.FC<{id?:string,show?:boolean}>=({id=undefined,show=false}) => {
 
   const { data,success}: FetchData<API_DATA_4> = useFetch <API_DATA_4>('about/start',{title:"",content:"",url:""});
-	type visitWebsiteType = (parameter: string) => (e: React.MouseEvent) => void;
-
-	const visitWebsiteButton:visitWebsiteType  = (parameter) => (e) => {
-		console.log(`About Us ${parameter}`)
-	}
   return <Container id={id!==undefined?id:""}>
     <div className="background-1 z-1"></div>
     <div className="relative z-10">
       <ExploreAction.Provider value={visitWebsiteButton(data.url)}>
-        <CARD title={data.title} content={data.content} buttonText={"Explore Properties"} showButton={show} />
+        <CARD6 title={data.title} content={data.content} buttonText={"Explore Properties"} showButton={show} />
       </ExploreAction.Provider>
     </div>
     <div className="background-2 z-1"></div>
   </Container>
-};
 
+};
 export default TEXT_BUTTON
