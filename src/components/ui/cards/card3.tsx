@@ -4,7 +4,7 @@ import {TEXT}                           from "../elements"
 import {ButtonStyle1,CardStyle1}        from "../../../utility/types/styleApp"
 import {API_DATA_5}                     from '../../../utility/types/typeApp';
 
-interface COMPONET_TYPE extends API_DATA_5{
+interface COMPONET_TYPE extends API_DATA_5 {
     index:number;
     parentClass:string;
     action:(event:React.MouseEvent<HTMLButtonElement>)=>void

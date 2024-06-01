@@ -1,4 +1,3 @@
-import Theme 	from "../ui/elements/theme";
 import styled 	from "styled-components";
 import Start 	from "../ui/components/TEXT_BUTTON";
 
@@ -10,14 +9,14 @@ import Inquiry 	from "./inquiry"
 
 const Content=styled.div``;
 const Home = () =>{
-	return (<Theme>
-		<Content className="grid gap-y-[150px] px-[16px] lg:px-[80px] xl:px-[160px] pb-[150px] ">
+	return (<>
+		<Content className="grid gap-y-[150px] px-[16px] lg:px-[80px] xl:px-[160px] pb-[150px] pt-[120px]">
 			<View />
 			<Inquiry />
 			<Price />
 			<Question />
 		</Content>
 		<Start show={true} />
-	</Theme>)
+	</>)
 }
 export default Home;

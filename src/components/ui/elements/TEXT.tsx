@@ -1,8 +1,7 @@
-import styled from "styled-components";
+import styled                       from "styled-components";
 import { TEXT_STYLE_1,TEXT_STYLE_2} from '../../../utility/types/typeApp';
-
 import useScreenSize                from '../../../utility/customHook/useScreenSize';
-import {responsiveTextSet}         from '../../../utility/responsiveApp';
+import {responsiveTextSet}          from '../../../utility/responsiveApp';
 
 
 

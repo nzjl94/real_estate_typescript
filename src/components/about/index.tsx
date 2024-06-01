@@ -5,10 +5,9 @@ import Journey 		from "./journey";
 import Team 		from "./team";
 import Client 		from "./client";
 import Start 		from "../ui/components/TEXT_BUTTON";
-import Theme 		from "../ui/elements/theme";
 
 export default () => {
-	return (<Theme>
+	return <>
 		<div className="grid gap-y-[150px] px-[16px] lg:px-[80px] xl:px-[160px] pb-[150px] ">
 			<Journey />
 			<Value />
@@ -18,5 +17,5 @@ export default () => {
 			<Client />
 		</div>
 		<Start />
-	</Theme>)
+	</>
 }

@@ -1,10 +1,6 @@
-import React                from 'react'
-
-
 import {TEXT_STYLE_3,API_DATA_5}    from '../../../utility/types/typeApp';
-
 import styled,{ useTheme }          from "styled-components"
-import {TEXT,IMAGE}                         from "../elements"
+import {TEXT,IMAGE}                 from "../elements"
 import {CardStyle1}                 from "../../../utility/types/styleApp"
 
 interface COMPONET_TYPE extends API_DATA_5{
@@ -15,7 +11,7 @@ const Item = styled(CardStyle1)<TEXT_STYLE_3>`${({theme,background}) => `
     background: ${background!==undefined?background:theme.colors.gray5};
 `}`;
 
-const CARD_STYLE_1 = ({index,icon,title,text,background}:COMPONET_TYPE) => {
+const CARD1 = ({index,icon,title,text,background}:COMPONET_TYPE) => {
     const theme = useTheme();
     
     const TEXT_STYLE={
@@ -32,4 +28,4 @@ const CARD_STYLE_1 = ({index,icon,title,text,background}:COMPONET_TYPE) => {
 </Item>
 }
 
-export default CARD_STYLE_1
+export default CARD1

@@ -25,7 +25,6 @@ const View = () => {
       path:`/image/home/property/${imgName}.svg`
     }
 
-
     return (<div className='grid grid-rows-2 gap-y-[10px]'>
       <div className="flex space-x-[10px] w-full items-center">
         <IMAGE {...imageProp}  />
@@ -37,10 +36,21 @@ const View = () => {
 
   return  <Container>
     <div className="">
+      <div className="flex flex-wrap justify-start gap-x-[20px] gap-y-[10px] items-center mb-[30px] lg:mb-[40px] xl:mb-[50px]">
+        <TEXT text={"Seaside Serenity Villa"} responsive="set9" className="" />
+        <div className="flex items-center border border-gray-1 rounded-[8px] space-x-[6px] p-[8px] md:p-[10px]">
+            <IMAGE width={24} height={24} path="/image/property_detail/location.svg" activeBorder={false} />
+            <TEXT text={"Malibu, California"} responsive="set2" fontWeight={500} color={theme.colors.gray1} />
+        </div>
+        <div className="md:ml-auto	 grid grid-flow-col gap-y-0 gap-x-[4px] md:gap-x-0 md:grid-flow-row md:gap-y-[2px]">
+          <TEXT text="Price" responsive="set2" color={theme.colors.gray1} />
+          <TEXT text="$1,250,000" responsive="set7" />
+        </div>
+      </div>
       <Galary />
     </div>
 
-    <div className="grid grid-cols-2 gap-x-[30px]">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[30px] gap-y-[20px]">
       <div className="p-[20px] md:p-[30px] lg:p-[40px] xl:p-[50px] flex flex-col space-y-[20px] md:space-y-[30px] lg:space-y-[40px] xl:space-y-[50px]">
         <HEADER title={title} content={content} parentClass="grid-cols-4 gap-y-[14px]" titleSet="set7" />
         <div className="flex flex-row flex-wrap justify-between	border-t border-gray-1 pt-[20px] px-[10px]">

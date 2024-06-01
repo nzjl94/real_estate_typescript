@@ -2,7 +2,7 @@ import React, { useState }        from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigate,Link}         from 'react-router-dom';
 import { RootState }              from '../../../store/Reducer';
-import {BUTTON,IMAGE}             from "../elements";
+import {BUTTON,IMAGE,TEXT}        from "../elements";
 import { AiOutlineClose }         from 'react-icons/ai';
 import { resetAll }               from '../../../store/Actions';
 
@@ -16,8 +16,7 @@ const Navbar: React.FC = () => {
     { href: "home", label: "Home" },
     { href: "about", label: "About Us" },
     { href: "property", label: "Properties" },
-    { href: "service", label: "Services" },
-    { href: "property_detail", label: "Prop Detail" },
+    { href: "service", label: "Services" }
   ];
   const navigate = useNavigate();
   const logoutAction=()=>{
@@ -26,16 +25,19 @@ const Navbar: React.FC = () => {
   }
   return (
     <>
-      <header className="sm:px-8 px-4 py-2 z-10 w-full bg-gray-1">
+      <header className="px-[16px] md:px-[60px] lg:px-[80px] xl:px-[160px] py-[20px] md:py-[14px] lg:py-[20px] z-10 w-full bg-gray-1">
         <nav className="flex justify-between items-center max-container">
           <Link to="/" className="text-2xl font-bold text-white flex justify-center items-center gap-4">
-            <IMAGE path="image/logo.svg" width={40} height={40} activeBorder={false} />
+            <IMAGE path="image/logo.svg" responsive="set5" activeBorder={false} />
             Estatein
           </Link>
-          <ul className="flex-1 flex justify-center items-center gap-16 max-md:hidden">
+          <ul className="flex-1 flex justify-center items-center gap-x-[20px] md:gap-x-[24px] lg:gap-x-[30px] max-md:hidden">
             {navLinks.map((item) => 
                 <li key={item.label}>
-                  <Link to={item.href} className="leading-normal text-sm md:text-lg text-slate-gray text-white">{item.label}</Link>
+                  <Link to={item.href} className="">
+                    <TEXT responsive="set2" fontWeight={500} text={item.label} />
+
+                  </Link>
                 </li>
             )
             }
@@ -54,7 +56,7 @@ const Navbar: React.FC = () => {
             })()}
             
           </ul>
-          <div className="flex gap-2 text-lg leading-normal font-medium max-lg:hidden wide:mr-24 text-white">
+          <div className="max-md:hidden">
             <BUTTON url="/contact" text="Contact Us" /> 
           </div>
           <div className="hidden max-md:block cursor-pointer" onClick={() => {setIsMenuOpen(!isMenuOpen);}}>

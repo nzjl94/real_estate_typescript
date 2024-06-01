@@ -14,8 +14,7 @@ const cardAction:cardActionType  = (event,parameter) => {
     console.log(event,`Hi ${parameter}`)
 }
 
-const CARD_STYLE_2 = ({id,image,title,content,detail,price}:CARD2_TYPE) => {
-
+const CARD2 = ({id,image,title,content,detail,price}:CARD2_TYPE) => {
     const theme = useTheme();
     const TEXT_STYLE={
         fontWeight:theme.fontWeight.m,
@@ -53,5 +52,4 @@ const CARD_STYLE_2 = ({id,image,title,content,detail,price}:CARD2_TYPE) => {
         </div>
     </div>
 }
-
-export default CARD_STYLE_2
+export default CARD2

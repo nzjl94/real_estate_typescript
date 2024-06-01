@@ -5,7 +5,7 @@ import useScreenSize    from '../../../utility/customHook/useScreenSize';
 
 
 
-const CARD: React.FC<CARD6_TYPE>=({title,content,buttonText,showButton=false,parentClass="px-[16px] py-[50px] lg:py-[100px] lg:px-[162px] border-y border-gray-1",buttonClass="bg-purple-1"}) => {
+const CARD6: React.FC<CARD6_TYPE>=({title,content,buttonText,showButton=false,parentClass="px-[16px] py-[50px] lg:py-[100px] lg:px-[162px] border-y border-gray-1",buttonClass="bg-purple-1"}) => {
     const theme = useTheme();
     const {screenSize,screenLen:_}        = useScreenSize();
 
@@ -21,4 +21,4 @@ const CARD: React.FC<CARD6_TYPE>=({title,content,buttonText,showButton=false,par
             </div>        
         </div>
 };
-export default CARD;
+export default CARD6;

@@ -14,6 +14,8 @@ import GlobalStyle from './globalStyles';
 import AppRoute                     from "./AppRoute"
 import {NAVBAR,BANNER}              from './components/ui/components';
 import Footer                       from './components/footer';
+import Theme 	                      from "./components/ui/elements/theme";
+
 
 import { AppDispatch }              from './store/index';
 import { fetchData, selectTitle}    from './store/slice/title';
@@ -34,7 +36,7 @@ const App=() => {
 		// }
 	},[])
 
-  return (<>
+  return (<Theme>
     <GlobalStyle />
     <div className="App">
       <Router>
@@ -58,7 +60,7 @@ const App=() => {
         </div>
       </Router>
     </div>
-  </>);
+  </Theme>);
 }
 
 export default App;

@@ -5,6 +5,8 @@ import Detail   from "./detail";
 import Social   from "./social";
 
 export default () => <Theme>
-    <Detail />
-    <Social />
+    <div className="w-full">
+        <Detail />
+        <Social />
+    </div>
 </Theme>

@@ -20,7 +20,7 @@ const Button:React.FC<BUTTON_PROPS_TYPE>= (props) => {
 
     const {text,type,url,className,localAction,textClass}={
         type:"link",url:"",textClass:"",
-        className:"px-[24px] py-[16px] rounded-[10px] border-[1px] border-gray-1 bg-gray-2",
+        className:"py-[14px] px-[20px] lg:py-[16px] lg:px-[24px] rounded-[10px] border-[1px] border-gray-1 bg-gray-2",
         ...props
     }
     if (type==="link"){

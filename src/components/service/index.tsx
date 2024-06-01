@@ -1,5 +1,4 @@
 import React from 'react';
-import Theme from "../ui/elements/theme";
 
 import Experience 				from "./experience"
 import Value 					from "./value"
@@ -26,7 +25,7 @@ const Service: React.FC = () => {
 
 
 	// 
-	return (success ? <Theme>
+	return (success ? <>
 		<Experience data={icon_cards} />
 		<Value 		data={s_value} />
 		<Management data={management} />
@@ -34,7 +33,7 @@ const Service: React.FC = () => {
 		<Start id="service_start" />
         <HashLink />
 
-	</Theme>:<></>)
+	</>:<></>)
 }
 
 export default Service;

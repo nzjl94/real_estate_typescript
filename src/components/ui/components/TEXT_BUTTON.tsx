@@ -12,24 +12,24 @@ const Container = styled.div`${({theme}) => `
   position: relative;
 
   .background-1{
-   background-image: url('/image/general/back1.svg');
-   height: 394px; 
-   width: 725px; 
-   background-position: left; 
-   background-repeat: no-repeat;
-   position: absolute;
-   left: 0px;
-   bottom: -42px;
+    background-image: url('/image/general/back1.svg');
+    height: 394px; 
+    width: 725px; 
+    background-position: left; 
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0px;
+    bottom: -42px;
   }
   .background-2{
-   background-image: url('/image/general/back2.svg');
-   height: 394px; 
-   width: 725px; 
-   background-position: right; 
-   background-repeat: no-repeat;
-   position: absolute;
-   right: 0px;
-   bottom: -33px;
+    background-image: url('/image/general/back2.svg');
+    height: 394px; 
+    width: 725px; 
+    background-position: right; 
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0px;
+    bottom: -33px;
   }
 `}`;
 const visitWebsiteButton:visitWebsiteType  = (parameter) => (e) => {
