@@ -1,7 +1,7 @@
 
 import {
   getSingleTitle,useSelector,styled,RootState,
-  TEXT,useFetch,FetchData,IMAGE,useTheme,HEADER
+  TEXT,useFetch,FetchData,IMAGE,useTheme,HEADER,Galary
 }  from "./header"
 
 const Container = styled.div`${({theme}) => ``}`;
@@ -36,7 +36,10 @@ const View = () => {
   }
 
   return  <Container>
-    <div className="">View</div>
+    <div className="">
+      <Galary />
+    </div>
+
     <div className="grid grid-cols-2 gap-x-[30px]">
       <div className="p-[20px] md:p-[30px] lg:p-[40px] xl:p-[50px] flex flex-col space-y-[20px] md:space-y-[30px] lg:space-y-[40px] xl:space-y-[50px]">
         <HEADER title={title} content={content} parentClass="grid-cols-4 gap-y-[14px]" titleSet="set7" />

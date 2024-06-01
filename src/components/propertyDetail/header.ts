@@ -5,4 +5,6 @@ export {default as useFetch,type FetchData}  	from '../../utility/customHook/use
 export {default as styled, useTheme }           from "styled-components";
 export { type RootState } 		                from '../../store/Reducer';
 export {IMAGE,TEXT} 			                from "../ui/elements";
-export {HEADER}                                 from "../ui/components";
+export {HEADER,STAR,Galary}                     from "../ui/components";
+export {CARD7}                                  from "../ui/cards"
+
