@@ -5,8 +5,8 @@ export const responsiveImageSet :responsiveType_1<number[]>={
     set2:{"xl2":[24,24],"xl":[24,24],"lg":[20,20],"md":[20,20],"sm":[18,18]},
     set3:{"xl2":[60,60],"xl":[60,60],"lg":[50,50],"md":[50,50],"sm":[40,40]},
     set4:{"xl2":[24,24],"xl":[24,24],"lg":[20,20],"md":[20,20],"sm":[24,24]},
-    set5:{"xl2":[48,48],"xl":[42,42],"lg":[38,38],"md":[34,34],"sm":[28,28]}
-
+    set5:{"xl2":[48,48],"xl":[42,42],"lg":[38,38],"md":[34,34],"sm":[28,28]},
+    set6:{"xl2":[34,34],"xl":[31,31],"lg":[28,28],"md":[26,26],"sm":[24,24]}
 }
 
 export const responsiveTextSet :responsiveType_1<string>={
