@@ -1,21 +1,15 @@
-import { useContext }       from 'react';
-import styled               from "styled-components";
-import { Link }             from 'react-router-dom';
-import { ExploreAction }    from '../../../store/Context';
-import TEXT                 from "./TEXT"
+import { useContext }       from 'react'
+import styled               from "styled-components"
+import { Link }             from 'react-router-dom'
+import { ExploreAction }    from '../../../store/Context'
+import {TEXT,IMAGE}         from "./"
+import {BUTTON_TYPE}        from '../../../utility/types/typeApp'
 
 const LinkElement = styled(Link)`${({theme}) => ``}`;
 
-interface BUTTON_PROPS_TYPE {
-    text:string;
-    textClass?:string;
-    type?:string;
-    url?:string;
-    className?:string;
-    localAction?:(e: React.MouseEvent,parameter: string) => void;
-}
 
-const Button:React.FC<BUTTON_PROPS_TYPE>= (props) => {
+
+const Button:React.FC<BUTTON_TYPE>= (props) => {
     const buttonAction= useContext(ExploreAction)
 
     const {text,type,url,className,localAction,textClass}={
@@ -29,6 +23,12 @@ const Button:React.FC<BUTTON_PROPS_TYPE>= (props) => {
         return (
             <button className={className} onClick={(e)=>localAction!==undefined && localAction(e,"param")}>
                 <TEXT text={text} responsive='button_set' fontWeight={500} className={textClass} />
+            </button>
+        )
+    }else if(type==="imgButton"){
+        return (
+            <button className={className} onClick={(e)=>localAction!==undefined && localAction(e,"param")}>
+				<IMAGE responsive={textClass} path={text} activeBorder={false} />
             </button>
         )
     }else{

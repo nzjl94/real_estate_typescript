@@ -224,3 +224,12 @@ export interface PaginationType {
     paginFront:()=>boolean|void;
     paginBack:() =>boolean|void;
 }
+
+export interface BUTTON_TYPE {
+    text:string;
+    textClass?:string;
+    type?:string;
+    url?:string;
+    className?:string;
+    localAction?:(e: React.MouseEvent,parameter: string) => void;
+}
