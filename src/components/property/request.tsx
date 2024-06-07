@@ -19,7 +19,6 @@ const Request = () => {
 
 	const { loading, error, response, postData } = usePostAPI();
 	const {key,title,content} = useSelector((state: RootState) => getSingleTitle(state, "property_request"));
-    
 
 	const { data:{bath_number,bed_number,budget,location,type:property_type},success}: FetchData<PROPERTY_FORM_TYPE> = useFetch <PROPERTY_FORM_TYPE>('property/form/detail',{});
 

@@ -21,12 +21,10 @@ const Client = () => {
     }
     const {key,title,content} = useSelector((state: RootState) => getSingleTitle(state, "home_client"));
 
-
     const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardClientType>("home/client")
     const Container = styled.div`${({theme}) => ``}`;
 
     const HEADER_WITH_STAR = STAR(CARD6);
-
     
     return <Container className='flex flex-col gap-y-[40px] md:gap-y-[60px] lg:gap-y-[80px] py-[75px]'>
         <ExploreAction.Provider value={propertyAction()}>

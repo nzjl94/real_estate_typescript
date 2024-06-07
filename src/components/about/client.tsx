@@ -54,7 +54,7 @@ const Client=() => {
 							className='mt-[20px] md:mt-0 md:row-span-2 md:place-self-center bg-gray-1 border-[1px] border-gray-1 rounded-[10px] px-[24px] py-[18px]'
 						/>
 					</div>      
-					<div className="flex justify-between gap-x-[16px] md:gap-x-[20px] lg:gap-x-[25px] xl:gap-x-[30px]">
+					<div className="flex justify-around gap-x-[16px] md:gap-x-[20px] lg:gap-x-[25px] xl:gap-x-[30px]">
 						{Copmonent_1("Icon_1.svg","Domain",section2.title1)}
 						<div className="h-full w-[1px]" style={{background:theme.colors.gray2}}>
 						</div>

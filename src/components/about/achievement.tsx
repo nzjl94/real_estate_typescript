@@ -17,7 +17,6 @@ const Achievement=() => {
 
   const {screenSize,screenLen:_} = useScreenSize();
 
-
   const theme = useTheme();
   const { data,success}: FetchData<API_DATA_6> = useFetch <API_DATA_6>('about/achievement',[]);
   const {key,title,content} = useSelector((state: RootState) => getSingleTitle(state, "about_achievement"));

@@ -21,5 +21,6 @@ export const responsiveTextSet :responsiveType_1<string>={
     set10:{"xl2":"26px","xl":"24px","lg":"22px","md":"20px","sm":"18px"},
     set11:{"xl2":"30px","xl":"28px","lg":"26px","md":"24px","sm":"28px"},
     set12:{"xl2":"18px","xl":"16px","lg":"14px","md":"14px","sm":"12px"},
+    set13:{"xl2":"16px","xl":"14px","lg":"14px","md":"14px","sm":"12px"},
     button_set:{"xl2":"18px","xl":"18px","lg":"14px","md":"14px","sm":"14px"},
 }

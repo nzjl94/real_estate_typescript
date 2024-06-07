@@ -9,14 +9,14 @@ import Request 	from "./request"
 const Home = () =>{
 	const Content=styled.div``;
 
-	return (<>
+	return <>
 		<Content className="grid pb-[96px] ">
 			<Search />
 			<Property />
 			<Request />
 		</Content>
 		<Start show={true} />
-	</>)
+	</>
 }
 
 

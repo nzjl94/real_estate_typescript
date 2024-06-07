@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { RootState } 		from '../../store/Reducer';
 import {getSingleTitle} 	from '../../store/slice/title';
 import { useSelector }      from 'react-redux';

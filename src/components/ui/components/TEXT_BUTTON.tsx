@@ -38,7 +38,7 @@ const visitWebsiteButton:visitWebsiteType  = (parameter) => (e) => {
 const TEXT_BUTTON:React.FC<{id?:string,show?:boolean}>=({id=undefined,show=false}) => {
 
   const { data,success}: FetchData<API_DATA_4> = useFetch <API_DATA_4>('about/start',{title:"",content:"",url:""});
-  return <Container id={id!==undefined?id:""}>
+  return <Container id={id!==undefined?id:""} className="">
     <div className="background-1 z-1"></div>
     <div className="relative z-10">
       <ExploreAction.Provider value={visitWebsiteButton(data.url)}>

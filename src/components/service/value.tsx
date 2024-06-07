@@ -6,10 +6,11 @@ import HEADER               from "../ui/components/HEADER"
 import {CARD1,CARD3}        from "../ui/cards"
 import {SERVICE_TYPE}       from "../../utility/types/typeApp"
 
+const learnButton = (event:MouseEvent<HTMLButtonElement>)=>{
+    console.log("Hello You")
+}
 const Value = ({data}:SERVICE_TYPE) => {
-    const learnButton = (event:MouseEvent<HTMLButtonElement>)=>{
-        console.log("Hello You")
-    }
+    
     const {title,content} = useSelector((state: RootState) => getSingleTitle(state, "service_value"));
     return <div className='px-[162px] pt-[120px]' id="service_value">
         <HEADER title={title} content={content} />
