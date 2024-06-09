@@ -29,7 +29,7 @@ const Question = () => {
         </ExploreAction.Provider>
         <div className="grid grid-flow-row gap-y-[50px]">
             <div className={`grid grid-flow-col grid-cols-${cardsPerPage} gap-x-[30px]`}>{
-                cards.map((card, index) => <CARD4 {...card}  />)
+                cards.map((card, index) => <CARD4 {...card}  key={index} />)
             }</div>
             <PAGINATION pagText={pagText} sliceState={sliceState} paginBack={paginBack} paginFront={paginFront} />
         </div>

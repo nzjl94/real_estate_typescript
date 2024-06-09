@@ -53,7 +53,6 @@ const dataSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchData.fulfilled, (state, action) => {
-        console.log(action.payload)
         state.loading = 'fulfilled';
         state.data = action.payload;
       })

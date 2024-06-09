@@ -9,7 +9,7 @@ const Social = () => {
             <TEXT {...TEXT_PARAM} responsive="set2" text={`@${new Date().getFullYear()} Estatein. All Rights Reserved.`}  />
             <TEXT {...TEXT_PARAM} responsive="set2" text={`Terms & Conditions`} />
             <div className='-order-1 md:order-last md:ml-auto grid grid-flow-col gap-x-[10px] py-[10px]'>
-                {["facebook.svg","linkedin.svg","x.svg","youtube.svg"].map(icon=><button className="bg-gray-2 p-[20px] md:p-[10px] lg:p-[14px] rounded-[58px]" >
+                {["facebook.svg","linkedin.svg","x.svg","youtube.svg"].map((icon,index)=><button key={index} className="bg-gray-2 p-[20px] md:p-[10px] lg:p-[14px] rounded-[58px]" >
                     <IMAGE responsive="set4" path={`/image/general/social/${icon}`} activeBorder={false} />
                 </button>)}
             </div>

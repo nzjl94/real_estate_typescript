@@ -73,9 +73,9 @@ const Detail = () => {
             </div>
           </div>
           <div className='grid grid-flow-col justify-between col-span-2'>{
-            Object.keys(pageLinks).map((key)=>(<div className="grid grid-flow-row gap-y-[20px] content-start"> 
+            Object.keys(pageLinks).map((key,index)=>(<div key={index} className="grid grid-flow-row gap-y-[20px] content-start"> 
               {<TEXT {...TEXT_PARAM(theme.colors.gray1,"20px","pb-[10px]")} text={key}/>}
-              {pageLinks[key].map(({text,plink},index)=><Link to={plink} >{<TEXT {...TEXT_PARAM()} text={text}/>}</Link>)}
+              {pageLinks[key].map(({text,plink},index)=><Link key={index} to={plink} >{<TEXT {...TEXT_PARAM()} text={text}/>}</Link>)}
             </div>)) 
           }</div>
       </Container>
@@ -106,9 +106,9 @@ const Detail = () => {
             </div>
           </div>
           <div className='grid grid-flow-row grid-cols-2 justify-between col-span-2 gap-y-[20px] gap-x-[20px]'>{
-            Object.keys(pageLinks).map((key,index)=>(<div className={`${["Properties","Contact Us"].includes(key)?"row-span-1":"row-span-2"} col-span-1 grid grid-flow-row pb-[20px] gap-y-[8px] border-b border-gray-1 content-start`}> 
+            Object.keys(pageLinks).map((key,index)=>(<div key={index} className={`${["Properties","Contact Us"].includes(key)?"row-span-1":"row-span-2"} col-span-1 grid grid-flow-row pb-[20px] gap-y-[8px] border-b border-gray-1 content-start`}> 
               {<TEXT {...TEXT_PARAM(theme.colors.gray1,"16px","pb-[16px]")} text={key}/>}
-              {pageLinks[key].map(({text,plink},index)=><Link to={plink} >{<TEXT {...TEXT_PARAM(theme.colors.white,"14px")} text={text}/>}</Link>)}
+              {pageLinks[key].map(({text,plink},index)=><Link key={index} to={plink} >{<TEXT {...TEXT_PARAM(theme.colors.white,"14px")} text={text}/>}</Link>)}
             </div>)) 
           }</div>
       </Container>

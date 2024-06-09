@@ -6,6 +6,41 @@ import {
 
 const Container = styled.div`${({theme}) => ``}`;
 
+type CardDataType= {
+  [key:string]:{
+    sec:number;
+    title:string;
+    price:number|string;
+    note?:string;
+  }[]
+}
+const CardData:CardDataType ={
+  "card1":[
+    {sec:1,title:"Property Transfer Tax", price:25000,    note:"Based on the sale price and local regulations"},
+    {sec:1,title:"Legal Fees",            price:3000 ,    note:"Approximate cost for legal services, including title transfer"},
+    {sec:2,title:"Home Inspection",       price:500,      note:"Recommended for due diligence"},
+    {sec:2,title:"Property Insurance",    price:1200,     note:"Annual cost for comprehensive property insurance"},
+    {sec:3,title:"Mortgage Fees",         price:"Varies", note:"If applicable, consult with your lender for specific details"}
+  ],
+  "card2":[
+    {sec:1,title:"Property Taxes",              price:1250,   note:"Approximate monthly property tax based on the sale price and local rates"},
+    {sec:2,title:"Homeowners' Association Fee", price:300,    note:"Monthly fee for common area maintenance and security"},
+  ],
+  "card3":[
+    {sec:1,title:"Listing Price",   price:1250000   },
+    {sec:1,title:"Additional Fees", price:29700,    note:"Property transfer tax, legal fees, inspection, insurance"},
+    {sec:2,title:"Down Payment",    price:250000,   note:"20%"},
+    {sec:2,title:"Mortgage Amount", price:1000000,  note:"If applicable"},
+  ],
+  "card4":[
+    {sec:1,title:"Property Taxes",              price:1250   },
+    {sec:1,title:"Homeowners' Association Fee", price:300},
+    {sec:2,title:"Mortgage Payment",            price:"Varies based on terms and interest rate",   note:"If applicable"},
+    {sec:2,title:"Property Insurance",          price:100,  note:"Approximate monthly cost"},
+  ]
+
+}
+
 const Price = () => {
 
   const theme = useTheme();
@@ -26,10 +61,10 @@ const Price = () => {
           <TEXT responsive="set6" text="$1,250,000" />
         </div>
         <div className="flex-1 flex flex-col gap-y-[40px]">
-          <CARD7 title={"Additional Fees"} />
-          <CARD7 title={"Monthly Costs"} />
-          <CARD7 title={"Total Initial Costs"} />
-          <CARD7 title={"Monthly Expenses"} />
+          <CARD7 title={"Additional Fees"}      cardData={CardData.card1} />
+          <CARD7 title={"Monthly Costs"}        cardData={CardData.card2} />
+          <CARD7 title={"Total Initial Costs"}  cardData={CardData.card3} />
+          <CARD7 title={"Monthly Expenses"}     cardData={CardData.card4} />
         </div>
       </div>
       
