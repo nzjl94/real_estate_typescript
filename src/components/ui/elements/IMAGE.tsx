@@ -19,7 +19,6 @@ const MainWrapper=styled(MainWrapperBase)<IMAGE_TYPE>`
     ${({ activeBorder }) => activeBorder ? `
         border-radius: 50%;
         border: 1px solid var(--Purple-60, #703BF7);
-        padding: 14px;
     `:``
     }
 `;
@@ -38,11 +37,8 @@ const IMAGE:React.FC<IMAGE_TYPE_2>= ({width,height,path,activeBorder=true,respon
         imgHeight = responsiveImageSet[responsive][screenSize][1]
     }
     return (<>
-        <MainWrapper className={parentClass} activeBorder={activeBorder}>
-            <Image 
-                src={path} alt="Vercel Logo" className={`image ${eleClass}`} 
-                width={imgWidth}  height={imgHeight} 
-            />
+        <MainWrapper className={`p-[8px] md:p-[10px] lg:p-[12px] xl:p-[14px] ${parentClass}`} activeBorder={activeBorder}>
+            <Image src={path} alt="Vercel Logo" className={`${eleClass}`} width={imgWidth}  height={imgHeight} />
         </MainWrapper>
     </>);
 };

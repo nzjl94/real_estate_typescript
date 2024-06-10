@@ -9,6 +9,7 @@ interface COMPONET_TYPE extends API_DATA_5{
 }
 const Item = styled(CardStyle1)<TEXT_STYLE_3>`${({theme,background}) => `
     background: ${background!==undefined?background:theme.colors.gray5};
+    align-items: start;
 `}`;
 
 const CARD1 = ({index,icon,title,text,background}:COMPONET_TYPE) => {
@@ -18,10 +19,10 @@ const CARD1 = ({index,icon,title,text,background}:COMPONET_TYPE) => {
         fontWeight:theme.fontWeight.m,
         color:theme.colors.gray1
     }
-    return <Item key={index} className='flex flex-col justify-start items-start gap-y-[16px] lg:gap-y-[24px] xl:gap-y-[30px] p-[24px] md:p-[30px] lg:p-[40px] xl:p-[50px]' background={background} >
-        <div className="flex gap-x-[12px] self-start items-center md:gap-x-[14px] lg:gap-x-[16px] xl:gap-x-[20px]">
+    return <Item key={index} className='flex flex-col gap-y-[16px] lg:gap-y-[24px] xl:gap-y-[30px] p-[24px] lg:p-[30px] xl:p-[50px]' background={background} >
+        <div className="flex self-start items-center gap-x-[12px] lg:gap-x-[16px] xl:gap-x-[20px]">
             <IMAGE responsive='set1' path={icon} activeBorder={true} />
-            <TEXT className='text-left' text={title} responsive='set7' />
+            <TEXT className='text-left' text={title} responsive='set8' />
         </div>
         <TEXT className='text-left' text={text} responsive='set12' {...TEXT_STYLE} />
     </Item>
