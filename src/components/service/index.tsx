@@ -27,9 +27,11 @@ const Service: React.FC = () => {
 	// 
 	return (success ? <>
 		<Experience data={icon_cards} />
-		<Value 		data={s_value} />
-		<Management data={management} />
-		<Investment data={investment} />
+		<div className="grid gap-y-[80px] md:gap-y-[100px] lg:gap-y-[120px] xl:gap-y-[150px] px-[16px] lg:px-[80px] xl:px-[160px] py-[80px] md:py-[100px] lg:py-[120px] xl:py-[150px]" >
+			<Value 		data={s_value} />
+			<Management data={management} />
+			<Investment data={investment} />
+		</div>
 		<Start id="service_start" />
         <HashLink />
 

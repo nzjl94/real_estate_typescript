@@ -29,26 +29,24 @@ const Investment = ({data}:SERVICE_TYPE) => {
         fontSize:"14px",
         fontWeight:theme.fontWeight.m
     }
-    return <div className='px-[162px]' id="service_investment">
-        <Container className="my-[120px] grid grid-flow-row grid-cols-3 gap-x-[50px]">
-            <div className='grid grid-flow-row grid-cols-1 gap-y-[10px]'>
-                <div className='grid grid-flow-row grid-cols-1'>
-                    <TEXT className='text-left' text={title}   fontSize={"38px"} />
-                    <TEXT className='text-left' text={content} fontSize={"16px"} fontWeight={theme.fontWeight.m} color={theme.colors.gray1}/>
-                </div>
-                <ImageContainer className='grid grid-flow-row grid-cols-1 p-[40px]'>
-                    <TEXT className='text-left' text={subtitle}   fontSize={"22px"} />
-                    <TEXT className='text-left' text={subcontent} fontSize={"16px"} fontWeight={theme.fontWeight.m} color={theme.colors.gray1}/>
-                    <Button onClick={(e)=>alert(111)}>
-                        <TEXT text="Learn More" {...TEXT_STYLE} />
-                    </Button>
-                </ImageContainer>
+    return <Container className="flex flex-col md:flex-row gap-y-[40px] md:gap-x-[40px] lg:gap-x-[50px] xl:gap-x-[60px]" id="service_investment">
+        <div className='flex flex-col justify-between gap-y-[30px] lg:gap-y-[40px] xl:gap-y-[50px]'>
+            <div className='flex flex-col gap-x-[8px] lg:gap-x-[10px] xl:gap-x-[14px]'>
+                <TEXT text={title}   responsive="set6" />
+                <TEXT text={content} fontSize={"16px"} fontWeight={theme.fontWeight.m} color={theme.colors.gray1}/>
             </div>
-            <div className='p-[10px] rounded-[12px] card-container-1 col-start-2 col-span-2 grid grid-flow-row grid-cols-2  gap-[10px] items-stretch'>{
-                data.map((row,index) => <CARD1 index={index} {...row} background={theme.colors.gray4} />
-            )}</div>
-        </Container>
-    </div>
+            <ImageContainer className='flex flex-col gap-y-[20px] lg:gap-y-[30px] p-[24px] md:p-[30px] lg:p-[40px] xl:p-[50px]'>
+                <TEXT text={subtitle}   responsive='set10' />
+                <TEXT text={subcontent} responsive='set2' fontWeight={theme.fontWeight.m} color={theme.colors.gray1}/>
+                <Button onClick={(e)=>alert(111)}>
+                    <TEXT text="Learn More" {...TEXT_STYLE} />
+                </Button>
+            </ImageContainer>
+        </div>
+        <div className='p-[10px] rounded-[12px] card-container-1 md:col-start-2 md:col-span-2 grid grid-cols-1 md:grid-cols-2  gap-[10px] md:items-stretch'>{
+            data.map((row,index) => <CARD1 index={index} {...row} background={theme.colors.gray4} />
+        )}</div>
+    </Container>
     
 }
 export default Investment

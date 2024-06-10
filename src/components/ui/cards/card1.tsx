@@ -15,16 +15,15 @@ const CARD1 = ({index,icon,title,text,background}:COMPONET_TYPE) => {
     const theme = useTheme();
     
     const TEXT_STYLE={
-        fontSize:theme.fontSizes.header.xs,
         fontWeight:theme.fontWeight.m,
         color:theme.colors.gray1
     }
-    return <Item key={index} className='grid grid-cols-4 gap-x-2 gap-y-[15px] p-[30px]' background={background} >
-        <div className="col-start-1 col-span-1 m-2">
-            <IMAGE width={34} height={34} path={icon} activeBorder={true} />
+    return <Item key={index} className='flex flex-col justify-start items-start gap-y-[16px] lg:gap-y-[24px] xl:gap-y-[30px] p-[24px] md:p-[30px] lg:p-[40px] xl:p-[50px]' background={background} >
+        <div className="flex gap-x-[12px] self-start items-center md:gap-x-[14px] lg:gap-x-[16px] xl:gap-x-[20px]">
+            <IMAGE responsive='set1' path={icon} activeBorder={true} />
+            <TEXT className='text-left' text={title} responsive='set7' />
         </div>
-        <TEXT className='col-start-2 col-span-3 text-left' text={title} fontSize={theme.fontSizes.header.s} />
-        <TEXT className='col-start-1 col-end-5 text-left'  text={text}  {...TEXT_STYLE} />
+        <TEXT className='text-left' text={text} responsive='set12' {...TEXT_STYLE} />
     </Item>
 }
 

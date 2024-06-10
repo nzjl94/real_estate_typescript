@@ -15,7 +15,7 @@ const Management = ({data}:SERVICE_TYPE) => {
     const {title,content} = useSelector((state: RootState) => getSingleTitle(state, "service_management"));
 
 
-    return <div className='pt-[120px] px-[162px]' id="service_management">
+    return <div className='' id="service_management">
         <HEADER title={title} content={content} parentClass='mb-[60px]'/>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] items-stretch">{
             data.map((row,index) => data.length-1!==index? 
