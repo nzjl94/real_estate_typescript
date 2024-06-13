@@ -61,9 +61,9 @@ const View = () => {
           {propertyDetail("area",`Area`,'2,500 Square Feet')}
         </div>
       </div>
-      <div className="p-[20px] md:p-[30px] lg:p-[40px] xl:p-[50px] grid gap-y-[20px] md:gap-y-[30px] lg:gap-y-[40px] xl:gap-y-[50px]">
+      <div className="p-[20px] md:p-[30px] lg:p-[40px] xl:p-[50px] grid cp-gap-y-5">
         <TEXT text="Key Features and Amenities" responsive="set7" />
-        <div className="grid gap-y-[18px] md:gap-y-[20px] lg:gap-y-[25px] xl:gap-y-[30px]">{
+        <div className="grid cp-gap-y-6">{
           data.map((val,index)=>(<FeatureElement key={index} className="flex items-center border-l border-purple-1 space-x-[10px] py-[10px] px-[12px] lg:py-[14px] lg:px-[16px] xl:py-[18px] xl:px-[24px]">
             <IMAGE width={24} height={24} path="/image/property_detail/key_feature_icon.svg" activeBorder={false} />
             <TEXT text={val} responsive="set2" fontWeight={500} color={theme.colors.gray1} />

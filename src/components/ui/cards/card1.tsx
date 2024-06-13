@@ -19,7 +19,7 @@ const CARD1 = ({index,icon,title,text,background}:COMPONET_TYPE) => {
         fontWeight:theme.fontWeight.m,
         color:theme.colors.gray1
     }
-    return <Item key={index} className='flex flex-col gap-y-[16px] lg:gap-y-[24px] xl:gap-y-[30px] p-[24px] lg:p-[30px] xl:p-[50px]' background={background} >
+    return <Item key={index} className='flex flex-col cp-gap-y-6 p-[24px] lg:p-[30px] xl:p-[50px]' background={background} >
         <div className="flex self-start items-center gap-x-[12px] lg:gap-x-[16px] xl:gap-x-[20px]">
             <IMAGE responsive='set1' path={icon} activeBorder={true} />
             <TEXT className='text-left' text={title} responsive='set8' />

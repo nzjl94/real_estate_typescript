@@ -26,7 +26,7 @@ const Inquiry = () => {
 		<form className="md:col-span-3" onSubmit={
 			handleSubmit((data)=>onSubmit("property_detail/form/inquire",data,postData),(error)=>onErrorAction(error,"request"))
 		}>
-			<div className="p-[20px] md:p-[30px] lg:p-[40px] xl:p-[50px] grid gap-y-[20px] md:gap-y-[30px] lg:gap-y-[40px] xl:gap-y-[50px]">
+			<div className="p-[20px] md:p-[30px] lg:p-[40px] xl:p-[50px] grid cp-gap-y-5">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-x-[30px] gap-y-[20px] md:gap-y-[30px]">
 					<INPUT {...generate_element.INPUT("text","","textFiled","firstName","First Name","Enter First Name")}/>
 					<INPUT {...generate_element.INPUT("text","","textFiled","lastName","Last Name","Enter Last Name")}/>

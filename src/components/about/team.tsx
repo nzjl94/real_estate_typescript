@@ -19,7 +19,7 @@ const Team= () => {
 	const HEADER_WITH_STAR = STAR(HEADER);
 
 	return (
-		<div className="flex flex-col gap-y-[40px] md:gap-y-[50px] lg:gap-y-[60px] xl:gap-y-[80px]">
+		<div className="flex flex-col cp-gap-y-2">
 			<HEADER_WITH_STAR title={title} content={content} />
 
 			<div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[20px]" >

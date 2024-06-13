@@ -25,13 +25,13 @@ const Achievement=() => {
 
 
   return (
-    <div className="flex flex-col gap-y-[40px] md:gap-y-[50px] lg:gap-y-[60px] xl:gap-y-[80px]">
+    <div className="flex flex-col cp-gap-y-2">
       <HEADER_WITH_STAR title={title} content={content} />
 
       <div className="flex flex-col md:flex-row gap-y-[20px] md:gap-x-[30px] xl:gap-x-[40px]">
           {data.map(({title,content},index) => {
             return (
-              <TextContainer key={index} className="flex flex-col gap-y-[16px] lg:gap-y-[24px] xl:gap-y-[30px] p-[30px] lg:p-[40px] xl:p-[50px] rounded-[12px] border-[1px] border-gray-1 bg-gray-2" screenSize={screenSize}>
+              <TextContainer key={index} className="flex flex-col cp-gap-y-6 p-[30px] lg:p-[40px] xl:p-[50px] rounded-[12px] border-[1px] border-gray-1 bg-gray-2" screenSize={screenSize}>
                   <TEXT text={title}   responsive="set9" />
                   <TEXT text={content} responsive="set2" color={theme.colors.gray1} fontWeight={500} />
               </TextContainer>

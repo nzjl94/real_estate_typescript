@@ -25,7 +25,7 @@ const Property = () => {
 
     const HEADER_WITH_STAR = STAR(CARD6);
 
-    return <Container className='flex flex-col gap-y-[40px] md:gap-y-[60px] lg:gap-y-[80px] py-[75px]'>
+    return <Container className='flex flex-col cp-gap-y-2 py-[75px]'>
 
         <ExploreAction.Provider value={propertyAction()}>
             <HEADER_WITH_STAR {...data} title={title} content={content} starClass={"-top-[45px] -left-[30px]"}/>

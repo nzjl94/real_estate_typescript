@@ -14,7 +14,7 @@ const Value = ({data}:SERVICE_TYPE) => {
     
     const {title,content} = useSelector((state: RootState) => getSingleTitle(state, "service_value"));
 
-    return <div className='flex flex-col gap-y-[40px] md:gap-y-[50px] lg:gap-y-[60px] xl:gap-y-[80px]' id="service_value">
+    return <div className='flex flex-col cp-gap-y-2' id="service_value">
         <HEADER title={title} content={content} parentClass='grid-cols-4 md:grid-cols-5' />
         <div className="flex flex-col md:grid md:grid-cols-3 md:items-stretch gap-[20px] lg:gap-[30px]">{
             data.map((row,index) => data.length-1!==index? 

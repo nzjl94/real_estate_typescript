@@ -28,7 +28,7 @@ const Request = () => {
 	const generate_element=new GENERATE_ELEMENT(control,errors,register,true)
     const HEADER_WITH_STAR = STAR(HEADER);
     
-    return <Container className='flex flex-col gap-y-[40px] md:gap-y-[60px] lg:gap-y-[80px] px-[16px] lg:px-[80px] xl:px-[160px] py-[75px] relative'>
+    return <Container className='flex flex-col cp-gap-y-2 px-[16px] lg:px-[80px] xl:px-[160px] py-[75px] relative'>
 
         <HEADER_WITH_STAR title={title} content={content} starClass={"-top-[45px] -left-[30px]"} />
         <form className="w-full" onSubmit={

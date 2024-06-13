@@ -14,3 +14,59 @@
     background: #262626;
     border-radius: 10px;
 }
+
+@layer components {
+
+    .cp-gap-y-1 {
+        @apply gap-y-[80px] md:gap-y-[100px] lg:gap-y-[120px] xl:gap-y-[150px];
+    }
+    .cp-gap-y-2 {
+        @apply gap-y-[40px] md:gap-y-[50px] lg:gap-y-[60px] xl:gap-y-[80px]
+    }
+    .cp-gap-y-3 {
+        @apply gap-y-[14px] md:gap-y-[16px] lg:gap-y-[18px] xl:gap-y-[20px];
+    }
+    .cp-gap-y-4 {
+
+        
+    }
+    .cp-gap-y-5 {
+        @apply gap-y-[20px] md:gap-y-[30px] lg:gap-y-[40px] xl:gap-y-[50px];
+    }
+    .cp-gap-y-6 {
+        @apply gap-y-[18px] md:gap-y-[20px] lg:gap-y-[24px] xl:gap-y-[30px];
+    }
+
+
+    .cp-pd-1 {
+        @apply p-[24px] md:p-[30px] xl:p-[40px] xl:p-[50px]
+    }
+
+    .cp-pd-x-1 {
+        @apply px-[16px] lg:px-[80px] xl:px-[160px];
+    }
+
+    .cp-pd-y-1 {
+        @apply py-[80px] md:py-[100px] lg:py-[120px] xl:py-[150px];
+    }
+
+    .cp-pd-b-1 {
+        @apply pb-[80px] md:pb-[100px] lg:pb-[120px] xl:pb-[150px];
+    }
+
+    .cp-gap-x-1 {
+        @apply gap-x-[16px] md:gap-x-[20px] lg:gap-x-[25px] xl:gap-x-[30px];
+    }
+
+
+    .com-grid-0 {
+        @apply grid cp-gap-y-1 cp-pd-x-1;
+    }
+    .com-grid-1 {
+        @apply com-grid-0 cp-pd-b-1;
+    }
+    .com-grid-2 {
+        @apply com-grid-0 cp-pd-y-1;
+    }
+
+}

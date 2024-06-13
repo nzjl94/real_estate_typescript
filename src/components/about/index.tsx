@@ -8,7 +8,7 @@ import Start 		from "../ui/components/TEXT_BUTTON";
 
 export default () => {
 	return <>
-		<div className="grid gap-y-[80px] md:gap-y-[100px] lg:gap-y-[120px] xl:gap-y-[150px] px-[16px] lg:px-[80px] xl:px-[160px] pb-[80px] md:pb-[100px] lg:pb-[120px] xl:pb-[150px] ">
+		<div className="com-grid-1">
 			<Journey />
 			<Value />
 			<Achievement />

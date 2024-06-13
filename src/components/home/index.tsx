@@ -11,7 +11,7 @@ const Home = () =>{
 	const Content=styled.div``;
 	return <>
 		<Journey />
-		<Content className="grid pb-[96px] px-[16px] lg:px-[80px] xl:px-[160px] py-[75px]">
+		<Content className="grid pb-[96px] cp-pd-x-1 py-[75px]">
 			<Property />
 			<Client />
 			<Question />

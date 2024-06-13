@@ -12,7 +12,7 @@ const Property = () => {
     const HEADER_WITH_STAR = STAR(HEADER);
     const {cards,pagText,sliceState,cardsPerPage,paginBack,paginFront}=usePagination<cardPropertyType>("home/property")
     
-    return <div className='flex flex-col gap-y-[40px] md:gap-y-[60px] lg:gap-y-[80px] px-[16px] lg:px-[80px] xl:px-[160px] py-[75px] relative'>
+    return <div className='flex flex-col cp-gap-y-2 px-[16px] lg:px-[80px] xl:px-[160px] py-[75px] relative'>
         <HEADER_WITH_STAR title={title} content={content} starClass={"-top-[45px] -left-[30px]"} />
         <div className="grid grid-flow-row gap-y-[50px]">
             <div className={`grid grid-flow-row grid-cols-${cardsPerPage} gap-x-[30px]`}>{

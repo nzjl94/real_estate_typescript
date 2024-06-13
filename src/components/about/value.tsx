@@ -25,9 +25,9 @@ export default () => {
   
     <HEADER_WITH_STAR title={title} content={content} parentClass="md:col-span-1" />
 
-    <Content className="md:col-span-2 grid w-fit gap-y-[20px] md:gap-[24px] lg:gap-[30px] md:grid-cols-[45%_1px_auto] p-[24px] md:p-[40px] lg:p-[50px] xl:p-[60px] border-[1px] rounded-[12px] border-gray-1 bg-gray-2">
+    <Content className="md:col-span-2 grid w-fit gap-y-[20px] md:gap-[24px] lg:gap-[30px] md:grid-cols-[45%_1px_auto] cp-pd-1 border-[1px] rounded-[12px] border-gray-1 bg-gray-2">
       {data.map(({title,content,icon},index) => <>
-        <div key={index} className="flex flex-col flex-wrap gap-y-[14px] md:gap-y-[16px] lg:gap-y-[18px] xl:gap-y-[20px]" >
+        <div key={index} className="flex flex-col flex-wrap cp-gap-y-3" >
             <div className="flex gap-x-[8px] lg:gap-x-[14px] xl:gap-x-[18px]  items-center">
               <IMAGE responsive="set6" path={icon}/>
               <TEXT text={title} fontSize={"24px"}/>

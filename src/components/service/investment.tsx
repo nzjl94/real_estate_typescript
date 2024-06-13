@@ -27,7 +27,7 @@ const Investment = ({data}:SERVICE_TYPE) => {
     
   
     return <div className="flex flex-col md:flex-row gap-y-[40px] md:gap-x-[30px] lg:gap-x-[50px] xl:gap-x-[60px]" id="service_investment">
-        <div className='flex flex-col justify-between gap-y-[30px] lg:gap-y-[40px] xl:gap-y-[50px]'>
+        <div className='flex flex-col justify-between cp-gap-y-5'>
             <HEADER title={title} content={content} parentClass='grid-cols-4' />
 
             <ImageContainer className='flex flex-col gap-y-[20px] lg:gap-y-[30px] p-[24px] md:p-[30px] lg:p-[40px] xl:p-[50px]'>
