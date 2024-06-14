@@ -95,8 +95,7 @@ const Detail = () => {
               </div>
               <input 
                 type="email" name="email" id="email"  placeholder="Enter Your Email" 
-                className="            
-                  bg-black text-gray-700 pr-[24px] py-[18px] pl-[58px] text-[18px] border border-gray-1 rounded-[12px] w-full
+                className="bg-black text-gray-700 pr-[24px] py-[18px] pl-[58px] text-[18px] border border-gray-1 rounded-[12px] w-full
                   focus:border-gray-1 outline-none
                 " 
               />

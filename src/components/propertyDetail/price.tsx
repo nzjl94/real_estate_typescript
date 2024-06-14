@@ -50,7 +50,7 @@ const Price = () => {
   return  <Container className="flex flex-col cp-gap-y-2">
     <HEADER title={title} content={content} parentClass="md:col-span-2 grid-cols-4 gap-y-[14px]"  />
     <div className="flex flex-col gap-y-[40px] lg:gap-y-[50px]">
-      <div className="flex flex-col md:flex-row items-left md:items-center bg-gray-1 p-[24px] lg:px-[50px] lg:py-[30px] xl:px-[50px] xl:py-[30px] gap-y-[10px] gap-x-[16px] lg:gap-x-[20px] border border-gray-1 rounded-[8px] lg:rounded-[12px]">
+      <div className="flex flex-col md:flex-row items-left md:items-center p-[24px] lg:px-[50px] lg:py-[30px] xl:px-[50px] xl:py-[30px] gap-y-[10px] gap-x-[16px] lg:gap-x-[20px] cp-color-2 rounded-[8px] lg:rounded-[12px]">
         <TEXT responsive="set7"  text="Note" className="text-left" />
         <div className="h-[1px] w-full md:h-full md:w-[1px] bg-gray-5"></div>
         <TEXT responsive="set2"  color={theme.colors.gray1} fontWeight={500} text="The figures provided above are estimates and may vary depending on the property, location, and individual circumstances." />

@@ -30,7 +30,7 @@ const CHECKBOX= (props:CHECKBOX_TYPE) => {
 				<input 
 					id={inputName} 
                     type="checkbox"                       
-                    className={`w-[24px] h-[24px]  border-1  border-gray-1 text-purple-1 rounded-[4px] bg-gray-1  focus:ring-0 focus:ring-offset-0`}
+                    className={`w-[24px] h-[24px] cp-color-2 text-purple-1 rounded-[4px] focus:ring-0 focus:ring-offset-0`}
                     {...register(inputName,{ 
                         ...validation,
 						onChange: (e:MouseEvent<HTMLInputElement>) => {onChangeAction(e,"checkbox")}

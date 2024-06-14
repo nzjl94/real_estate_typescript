@@ -21,7 +21,7 @@ const generateRow = (theme:DefaultTheme,data:CART7_ROW_TYPE[])=>{
             <TEXT text={title} color={theme.colors.gray1} responsive="set12" fontWeight={500} />
             <div className="flex items-center gap-x-[12px] lg:gap-x-[16px]">
                 <TEXT text={priceType?price.toString():"$"+price.toString()} fontWeight={priceType?400:600} responsive={priceType?"set13":"set7"} />
-                {note!==undefined && <div className="bg-gray-1 border border-gray-1 rounded-[28px] py-[6px] px-[12px] lg:py-[8px] lg:px-[14px]">
+                {note!==undefined && <div className="cp-color-2 rounded-[28px] py-[6px] px-[12px] lg:py-[8px] lg:px-[14px]">
                     <TEXT text={note} color={theme.colors.gray1} responsive="set13" fontWeight={500} />
                 </div>}
             </div>
@@ -41,7 +41,7 @@ const CARD7:React.FC<CART7_TYPE>=({title,cardData}) => {
     let sec2_Data=cardData.filter(({sec})=>sec===2);
     let sec3_Data=cardData.filter(({sec})=>sec===3);
     
-    return <Container className={`flex flex-col gap-y-[20px] md:gap-y-[30px] lg:gap-y-[40px] p-[20px] md:p-[30px] lg:p-[40px] xl:p-[50px] border border-gray-1 rounded-[12px]`}>
+    return <Container className={`flex flex-col gap-y-[20px] md:gap-y-[30px] lg:gap-y-[40px] cp-pd-1 border border-gray-1 rounded-[12px]`}>
             <div className="flex justify-between items-center">
                 <TEXT text={title} className="align-middle" responsive="set7" />
                 <BUTTON 

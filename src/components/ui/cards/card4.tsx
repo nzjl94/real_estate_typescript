@@ -15,12 +15,12 @@ const CARD4:FC<CARD4_TYPE>= ({id,title,content}) => {
         fontWeight:theme.fontWeight.m,
         color:theme.colors.gray1
     }
-    return <div key={id} className='flex flex-col items-start gap-y-[30px] p-[50px] rounded-[12px] bg-gray-2 border border-gray-1' >
+    return <div key={id} className='flex flex-col items-start gap-y-[30px] p-[50px] rounded-[12px] cp-color-1' >
         <TEXT className='text-left' text={title} fontSize={theme.fontSizes.header.s} />
         <TEXT className='text-left' text={content}  {...TEXT_STYLE} />
         <BUTTON 
             text="Read More" localAction={cardAction(id)} type="directButton" textClass="text-center" 
-            className='px-[24px] py-[18px] rounded-[10px] border-[1px] border-gray-1 bg-gray-2'
+            className='px-[24px] py-[18px] rounded-[10px] cp-color-1'
         />  
     </div>
 }

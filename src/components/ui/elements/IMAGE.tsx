@@ -25,7 +25,7 @@ const MainWrapper=styled(MainWrapperBase)<IMAGE_TYPE>`
 
 const Image=styled.img``
 
-const IMAGE:React.FC<IMAGE_TYPE_2>= ({width,height,path,activeBorder=true,responsive,parentClass="w-fit",eleClass=""}) => {
+const IMAGE:React.FC<IMAGE_TYPE_2>= ({width,height,path,activeBorder=true,responsive,parentClass="w-fit p-[8px] md:p-[10px] lg:p-[12px] xl:p-[14px]",eleClass=""}) => {
     const {screenSize,screenLen:_} = useScreenSize();
 
     let imgWidth,imgHeight
@@ -37,7 +37,7 @@ const IMAGE:React.FC<IMAGE_TYPE_2>= ({width,height,path,activeBorder=true,respon
         imgHeight = responsiveImageSet[responsive][screenSize][1]
     }
     return (<>
-        <MainWrapper className={`p-[8px] md:p-[10px] lg:p-[12px] xl:p-[14px] ${parentClass}`} activeBorder={activeBorder}>
+        <MainWrapper className={` ${parentClass}`} activeBorder={activeBorder}>
             <Image src={path} alt="Vercel Logo" className={`${eleClass}`} width={imgWidth}  height={imgHeight} />
         </MainWrapper>
     </>);

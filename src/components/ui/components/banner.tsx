@@ -14,7 +14,7 @@ const Banner = () => {
         <TEXT className='' responsive="set2" text={"✨Discover Your Dream Property with Estatein"} />  
         <TEXT className='' responsive="set2" text={"Learn More"} />  
         <button className="ml-auto bg-gray-3 p-[10px] rounded-[50%] bg-opacity-50" >
-            <IMAGE  responsive="set2" activeBorder={false} path="/image/general/close.svg"/>
+            <IMAGE  responsive="set2" activeBorder={false} parentClass="w-fit" path="/image/general/close.svg" />
         </button>
       
     </Container>

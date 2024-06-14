@@ -9,14 +9,11 @@ import Inquiry 	from "./inquiry"
 
 const Content=styled.div``;
 const Home = () =>{
-	return (<>
-		<Content className="grid gap-y-[80px] md:gap-y-[100px] lg:gap-y-[120px] xl:gap-y-[150px] px-[16px] lg:px-[80px] xl:px-[160px] pb-[80px] md:pb-[100px] lg:pb-[120px] xl:pb-[150px] pt-[60px] md:pt-[80px] lg:pt-[100px] xl:pt-[120px]">
-			<View />
-			<Inquiry />
-			<Price />
-			<Question />
-		</Content>
-		<Start show={true} />
-	</>)
+	return <Content className="com-grid-1">
+		<View />
+		<Inquiry />
+		<Price />
+		<Question />
+	</Content>
 }
 export default Home;

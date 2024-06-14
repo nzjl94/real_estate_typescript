@@ -22,10 +22,8 @@ export default () => {
   const {key,title,content} = useSelector((state: RootState) => getSingleTitle(state, "about_value"));
 
   return <Container className="grid grid-flow-rows place-items-center	md:grid-cols-3 gap-y-[40px] md:gap-x-[40px] lg:gap-x-[60px] xl:gap-x-[80px]" screenSize={screenSize}>
-  
     <HEADER_WITH_STAR title={title} content={content} parentClass="md:col-span-1" />
-
-    <Content className="md:col-span-2 grid w-fit gap-y-[20px] md:gap-[24px] lg:gap-[30px] md:grid-cols-[45%_1px_auto] cp-pd-1 border-[1px] rounded-[12px] border-gray-1 bg-gray-2">
+    <Content className="md:col-span-2 grid w-fit gap-y-[20px] md:gap-[24px] lg:gap-[30px] md:grid-cols-[45%_1px_auto] cp-pd-1 cp-color-1 rounded-[12px]">
       {data.map(({title,content,icon},index) => <>
         <div key={index} className="flex flex-col flex-wrap cp-gap-y-3" >
             <div className="flex gap-x-[8px] lg:gap-x-[14px] xl:gap-x-[18px]  items-center">

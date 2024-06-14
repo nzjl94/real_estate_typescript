@@ -15,7 +15,7 @@ const Journey = () => {
     const { data:sections,success}: FetchData<TEXT_PARAGRAPH[]> = useFetch <TEXT_PARAGRAPH[]>('about/journey',[]);
     const { data:icon_cards,success:_}: FetchData<TEXT_ICON_TYPE[]> = useFetch <TEXT_ICON_TYPE[]>('page/icon-card',[]);
     
-    return <Container className='p-[0px] pb-[75px] grid grid-flow-row gap-y-[10px] '>
+    return <Container className='grid grid-flow-row gap-y-[10px] '>
         <TEXT_IMAGE title={title} sections={sections} img="/image/home/home_background.png" firstChildClass="md:pl-[80px] lg:pl-[162px]" showSection={true}/>
         <CARD_LIST data={icon_cards} />
     </Container>   

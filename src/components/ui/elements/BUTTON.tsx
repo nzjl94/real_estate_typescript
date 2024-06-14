@@ -14,7 +14,7 @@ const Button:React.FC<BUTTON_TYPE>= (props) => {
 
     const {text,type,url,className,localAction,textClass}={
         type:"link",url:"",textClass:"",
-        className:"py-[14px] px-[20px] lg:py-[16px] lg:px-[24px] rounded-[10px] border-[1px] border-gray-1 bg-gray-2",
+        className:"py-[14px] px-[20px] lg:py-[16px] lg:px-[24px] rounded-[10px] cp-color-1",
         ...props
     }
     if (type==="link"){
@@ -28,7 +28,7 @@ const Button:React.FC<BUTTON_TYPE>= (props) => {
     }else if(type==="imgButton"){
         return (
             <button className={className} onClick={(e)=>localAction!==undefined && localAction(e,"param")}>
-				<IMAGE responsive={textClass} path={text} activeBorder={false} />
+				<IMAGE responsive={textClass} path={text} activeBorder={false} parentClass="w-fit" />
             </button>
         )
     }else{

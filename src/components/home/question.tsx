@@ -18,12 +18,12 @@ const Question = () => {
     const data ={
         buttonText:"View All FAQ’s",
         parentClass:"mb-[80px]",
-        buttonClass:"bg-gray-1 border-gray-1"
+        buttonClass:"cp-color-2"
     }
     const {key,title,content} = useSelector((state: RootState) => getSingleTitle(state, "home_question"));
     const HEADER_WITH_STAR = STAR(CARD6);
 
-    return <Container className='flex flex-col cp-gap-y-2 py-[75px]'>
+    return <Container className='flex flex-col cp-gap-y-2'>
         <ExploreAction.Provider value={propertyAction()}>
             <HEADER_WITH_STAR {...data} title={title} content={content} starClass={"-top-[45px] -left-[30px]"}/>
         </ExploreAction.Provider>
