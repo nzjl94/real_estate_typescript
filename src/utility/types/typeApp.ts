@@ -49,6 +49,7 @@ export interface SELECT_TYPE extends INPUT_FIELD_1{
     options:string[] | OBJECT_1;
 }
 export interface REACT_SELECT_TYPE extends INPUT_FIELD_1, Pick<INPUT_FIELD_2,"required" | "control">{
+    showLabel?:boolean;
     validation?:any;
     options:{
         [key:string]:string|number

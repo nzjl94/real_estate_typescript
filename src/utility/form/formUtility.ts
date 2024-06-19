@@ -84,7 +84,7 @@ export class GENERATE_ELEMENT {
       this.register = register;
       this.required = required;
   }
-  SELECT (inputName:string,inputLabel:string,pClass:string,placeholder:string,options:{[key:string]:string|number}){
+  SELECT (inputName:string,inputLabel:string,pClass:string,placeholder:string,options:{[key:string]:string|number},showLabel?:boolean){
     return {
       inputName,
       inputLabel ,
@@ -94,7 +94,9 @@ export class GENERATE_ELEMENT {
       control:this.control ,
       errors:this.errors ,
       required:this.required,
-      parentClassName:pClass
+      parentClassName:pClass,
+      ...(showLabel!==undefined && {showLabel})
+
     }
   }
   INPUT (inputType:string,pClass:string,valText:string|undefined,inputName:string,inputLabel:string,placeholder:string){

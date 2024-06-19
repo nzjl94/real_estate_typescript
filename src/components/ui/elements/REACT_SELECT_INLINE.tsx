@@ -1,23 +1,33 @@
 import Select                       from "react-select"
 import {Controller }                from 'react-hook-form';
 import styled,{ useTheme }	        from "styled-components";
+import {FieldErrors,UseFormRegister,FieldValues}    from 'react-hook-form';
 
-import {TEXT}			            from "./"
-import {REACT_SELECT_TYPE}          from "../../../utility/types/typeApp"
+
+import {TEXT}			            from "."
+
 import {customReactSelectStyles}    from "../../../utility/form/formUtility"
 
+interface REACT_SELECT_TYPE {
+    register:UseFormRegister<FieldValues>;
+    errors:FieldErrors;
+    required:boolean;
+    control:any;
+    inputName:string;
+    placeholder:string;
+    parentClassName:string;
+    options:{
+        [key:string]:string|number
+    };
+}
 
-const SELECT=({ inputName, inputLabel, control,options={}, placeholder="",parentClassName="",register,errors, required,showLabel=true}:REACT_SELECT_TYPE) => {
+const SELECT=({ inputName, control,options={}, placeholder="",parentClassName="",register,errors, required}:REACT_SELECT_TYPE) => {
 
   const theme = useTheme();
 
   return (
     <div className={`${parentClassName}`}>
-        {showLabel==true && <label className="block text-left pb-[16px]" htmlFor={inputName}>
-			<TEXT text={inputLabel} responsive="set8" />
-        </label>}
         <Controller name={inputName} control={control}
-            //defaultValue={options.filter(c => c.value=="vanilla")}
             render={({ field,formState,fieldState }) => {
                 return (
                     <Select 
@@ -28,10 +38,6 @@ const SELECT=({ inputName, inputLabel, control,options={}, placeholder="",parent
                             Object.keys(options).map(key=>({value:key,label:options[key]}))
                             :options.map(value=>({value,label:value}))
                         } 
-
-                        
-                        
-                        //defaultValue={options[2]} 
                         placeholder={placeholder} //If default value selected then it does not appear
                     />
                 )
